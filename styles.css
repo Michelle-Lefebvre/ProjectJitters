@@ -1,0 +1,52 @@
+body {
+    background-color: papayawhip;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    padding-bottom: 58px;
+}
+
+#centeredContent {
+    background-color: white;
+    margin: 0 auto;
+    padding: 20px;
+    width: 500px;
+}
+
+.errorMessage {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
+form {
+    margin: 20px auto;
+    max-width: 460px;
+    padding: 20px;
+}
+
+input {
+    margin: 10px 0;
+}
+
+.articleBox .articlePreviewBox {
+    border: 1px solid black;
+}
+
+.center{
+    text-align: center;
+    margin: auto;
+
+}
+
+i {
+    color: gray;
+}
+#footer {
+    bottom: 0;
+    font-size: small;
+    padding: 20px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+}
