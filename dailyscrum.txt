@@ -1,0 +1,23 @@
+2020/07/16 Michelle
+1. To do until next Scrum:
+- create ms team for sharing screens for meetings
+- add all user stories in trello
+- add menu items to database item table
+2. Need assistance / figure things out
+- in ms team find out how to share screen for vs code
+
+
+
+2020/07/16 Mark
+1. Done since last scrum:
+2. To do until next Scrum:
+- update trello admin stories
+- test git hub 
+
+
+3. Need assistance / figure things out
+- git hub desktop, resloving conflicts
+
+
+
+
