@@ -1,5 +1,7 @@
 <?php
 require_once '_setup.php';
+
+// STATE 1: first display
 $app->get('/register', function ($request, $response, $args) {
     return $this->view->render($response, 'register.html.twig');
 });
@@ -60,14 +62,13 @@ $app->get('/isemailtaken/[{email}]', function ($request, $response, $args) {
     }
 });
 
-/** ****************************** LOGIN **************************************** */
 // STATE 1: first display
 $app->get('/login', function ($request, $response, $args) {
     return $this->view->render($response, 'login.html.twig');
 });
 
 // STATE 2&3: receiving submission
-$app->post('/login', function ($request, $response, $args) use($log) { // log for mono
+$app->post('/login', function ($request, $response, $args) use ($log) {
     $email = $request->getParam('email');
     $password = $request->getParam('password');
     //
@@ -85,24 +86,15 @@ $app->post('/login', function ($request, $response, $args) use($log) { // log fo
     } else {
         unset($record['password']); // for security reasons remove password from session
         $_SESSION['user'] = $record; // remember user logged in
-        $log->debug(sprintf("Login successful for email %s, uid-%id, from %s", $email, $record['id'], $_SERVER['REMOTE_ADDR']));
-
-        return $this->view->render($response, 'login_success.html.twig', ['userSession' => $_SESSION['user']]);
+        $log->debug(sprintf("Login successful for email %s, uid=%d, from %s", $email, $record['id'], $_SERVER['REMOTE_ADDR']));
+        return $this->view->render($response, 'login_success.html.twig', ['userSession' => $_SESSION['user'] ] );
     }
 });
 
-/** ****************************** LOGOUT **************************************** */
+
 // STATE 1: first display
 $app->get('/logout', function ($request, $response, $args) use ($log) {
     $log->debug(sprintf("Logout successful for uid=%d, from %s", @$_SESSION['user']['id'], $_SERVER['REMOTE_ADDR']));
     unset($_SESSION['user']);
     return $this->view->render($response, 'logout.html.twig', ['userSession' => null ]);
 });
-
-$app->get('/session', function ($request, $response, $args) {
-    echo "<pre>\n";
-    print_r($_SESSION);
-    return $response->write("");
-});
-
-?>

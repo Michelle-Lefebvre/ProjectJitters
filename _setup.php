@@ -14,9 +14,9 @@ if (strpos($_SERVER['HTTP_HOST'], "ipd21.com") !== false) {
     DB::$dbName = 'cp4976_jitters'; 
     DB::$user = 'cp4976_jitters';   
     DB::$password = 'TUwSaMWzXbLY'; 
-} else {
-    DB::$dbName = 'day06slimblog'; 
-    DB::$user = 'day06slimblog';   
+} else {    // local computer
+    DB::$dbName = 'jittersDb'; 
+    DB::$user = 'jittersDb';   
     DB::$password = 'SGcGJ1jLzmN0LSaP'; 
     DB::$port = 3333;
 }
@@ -26,7 +26,6 @@ DB::$error_handler = 'db_error_handler'; // runs on mysql query errors
 DB::$nonsql_error_handler = 'db_error_handler'; // runs on library errors (bad syntax, etc)
 
 function db_error_handler($params) {
-    echo "Database error";
     global $log;
     //log first
     $log->error("Database error: " . $params['error']);

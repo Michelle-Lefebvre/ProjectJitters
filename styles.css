@@ -1,10 +1,20 @@
 body {
-    background-color: papayawhip;
+    background: url(/images/homePgYellowBg.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    min-height: 100%;
     padding-bottom: 58px;
 }
+
+.container > nav {
+    padding: 10px;
+    text-align: center;
+    font-size: 2em;
+    color: #ffeead;
+  }
 
 #centeredContent {
     background-color: white;
@@ -42,6 +52,7 @@ input {
 i {
     color: gray;
 }
+
 #footer {
     bottom: 0;
     font-size: small;

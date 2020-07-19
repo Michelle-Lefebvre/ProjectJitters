@@ -1,6 +1,7 @@
 <?php
 
 require_once '_setup.php';
+
 // renders template
 $app->get('/internalerror', function ($request, $response, $args) {
     return $this->view->render($response, 'error_internal.html.twig');
@@ -8,7 +9,12 @@ $app->get('/internalerror', function ($request, $response, $args) {
 
 // TODO: Define app routes
 // Define app routes
-
 $app->get('/', function ($request, $response, $args) {
     return $response->write("this is index");
+});
+
+$app->get('/session', function ($request, $response, $args) {
+    echo "<pre>\n";
+    print_r($_SESSION);
+    return $response->write("");
 });
