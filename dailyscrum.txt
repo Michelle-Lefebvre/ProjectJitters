@@ -3,10 +3,10 @@ ___________________________________________________________________
 1. What I have done / not done since last Scrum?
 done - create ms team for sharing screens for meetings
 done - add all user stories in trello
-not done - add menu items to database item table
+wainting - add menu items to database item table
 
 2. What I plan to do from this scrum to next? (2pm)
-  - User can see home page
+- User can see home page
 - add menu items to database item table
 
 3. Where do I need assistance?
@@ -19,7 +19,7 @@ ______________________
  in progress - test github done but not working
  not done -database updates renamed
 
-2. What I plan to do from this scrum to next? (2pm)
+2. What I plan to do from this scrum to next? (Monday at 12pm)
 -database updates renamed
  -prepare for User to view menu items
 -git hub desktop, resolving conflicts
@@ -33,7 +33,7 @@ ___________________________________________________________________
 1. What I have done / not done since last Scrum?
 Not applicable
 
-2. What I plan to do from this scrum to next? (12pm)
+2. What I plan to do from this scrum to next? (Monday at 12pm)
 - create ms team for sharing screens for meetings
 - add all user stories in trello
 - add menu items to database item table

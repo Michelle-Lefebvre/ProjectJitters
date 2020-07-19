@@ -15,12 +15,11 @@ if (strpos($_SERVER['HTTP_HOST'], "ipd21.com") !== false) {
     DB::$user = 'cp4976_jitters';   
     DB::$password = 'TUwSaMWzXbLY'; 
 } else {    // local computer
-    DB::$dbName = 'jittersDb'; 
-    DB::$user = 'jittersDb';   
+    DB::$dbName = 'jitters'; 
+    DB::$user = 'jitters';   
     DB::$password = 'SGcGJ1jLzmN0LSaP'; 
     DB::$port = 3333;
 }
-
 
 DB::$error_handler = 'db_error_handler'; // runs on mysql query errors
 DB::$nonsql_error_handler = 'db_error_handler'; // runs on library errors (bad syntax, etc)
