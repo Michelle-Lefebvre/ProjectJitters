@@ -1,39 +1,56 @@
-2020/07/16 Michelle
-1. To do until next Scrum:
-- create ms team for sharing screens for meetings
-- add all user stories in trello
-- add menu items to database item table
-2. Need assistance / figure things out
-- in ms team find out how to share screen for vs code
-
-
-
-2020/07/16 Mark
-1. Done since last scrum:
-2. To do until next Scrum:
-- update trello admin stories
-- test github 
-
-
-3. Need assistance / figure things out
-- git hub desktop, resloving conflicts
-
-2020/07/17 Mark
-1. 
-done - update trello admin stories done
-in progress - test github done but not working
-2. To do until next Scrum:
--not done -database updates renamed
--Prepare for User to view menu items
-3. Where do I need assistance?
-inprogress - git hub desktop, resloving conflicts
-
+___________________________________________________________________
 2020/07/17 Michelle
-1.   What I have done / not done since last Scrum
+1. What I have done / not done since last Scrum?
 done - create ms team for sharing screens for meetings
 done - add all user stories in trello
 not done - add menu items to database item table
-2. What I plan to do from this scrum to next? (Monday 4pm)
--User can see home page
+
+2. What I plan to do from this scrum to next? (2pm)
+  - User can see home page
+- add menu items to database item table
+
 3. Where do I need assistance?
-inprogress- in ms team find out how to share screen for vs code, check mac secruity  
+in ms team find out how to share screen for vs code, check mac secruity  
+
+______________________
+2020/07/17 Mark
+1. What I have done / not done since last Scrum?
+ done - update trello admin stories
+ in progress - test github done but not working
+ not done -database updates renamed
+
+2. What I plan to do from this scrum to next? (2pm)
+-database updates renamed
+ -prepare for User to view menu items
+-git hub desktop, resolving conflicts
+
+3. Where do I need assistance?
+in progress - git hub desktop, resolving conflicts
+
+
+___________________________________________________________________
+2020/07/16 Michelle
+1. What I have done / not done since last Scrum?
+Not applicable
+
+2. What I plan to do from this scrum to next? (12pm)
+- create ms team for sharing screens for meetings
+- add all user stories in trello
+- add menu items to database item table
+
+3. Where do I need assistance?
+- in ms team find out how to share screen for vs code
+
+______________________
+2020/07/16 Mark
+1. What I have done / not done since last Scrum?
+Not applicable
+
+2. What I plan to do from this scrum to next? (12pm)
+- update trello admin stories
+- test github
+
+3. Where do I need assistance?
+- git hub desktop, resloving conflicts
+
+
