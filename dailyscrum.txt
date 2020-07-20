@@ -1,4 +1,34 @@
 ___________________________________________________________________
+2020/07/20 Michelle
+1. What I have done / not done since last Scrum?
+  done - share screen for scrum meetings now using zoom
+  done -organized daily scrum file for readability 
+  done -insert menu items into table item 
+  done -insert category codes into table categoryCode
+  not done -User can register
+  not done -User can see home page
+
+2. What I plan to do from this scrum to next? (Wed 12pm)
+- User can see home page
+- User can register
+
+3. Where do I need assistance?
+no
+______________________
+2020/07/20 Mark
+1. What I have done / not done since last Scrum?
+ done -database updates renamed
+ done -prepare for User to view menu items
+ done -git hub desktop, resolving conflicts
+
+2. What I plan to do from this scrum to next? (Wed 12pm)
+- Admin user can add items
+- database update for admin users
+- design wireframe for admin users
+
+3. Where do I need assistance?
+
+___________________________________________________________________
 2020/07/17 Michelle
 1. What I have done / not done since last Scrum?
 done - create ms team for sharing screens for meetings

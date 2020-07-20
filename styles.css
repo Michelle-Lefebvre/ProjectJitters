@@ -3,7 +3,7 @@ body {
     background: url(/images/Jitters-Icon.png.jpg);
     background-repeat: no-repeat;
     background-size: auto;
-
+    background-color: rgb(243,197,49);
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -20,7 +20,7 @@ body {
   }
 
 #centeredContent {
-    background-color: white;
+    background-color: rgb(243,197,49);
     margin: 0 auto;
     padding: 20px;
     width: 500px;
