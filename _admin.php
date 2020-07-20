@@ -21,7 +21,7 @@ $app->post('/additem', function ($request, $response, $args) {
     
     //
     // FIXME: sanitize body - 1) only allow certain HTML tags, 2) make sure it is valid html
-                // WARNING: If you forget to sanitize the body bad things may happen such as JavaScript injection
+    // WARNING: If you forget to sanitize the body bad things may happen such as JavaScript injection
     $description = strip_tags($description, "<p><ul><li><em><strong><i><b><ol><h3><h4><h5><span>");
                
     $errorList = array();
@@ -33,6 +33,8 @@ $app->post('/additem', function ($request, $response, $args) {
         $errorList[] = "Description must be between 10 and 250 characters long";
     }
 
+
+    
     if ($errorList) {
         return $this->view->render($response, '/admin/additem.html.twig',
                 ['errorList' => $errorList ]);
