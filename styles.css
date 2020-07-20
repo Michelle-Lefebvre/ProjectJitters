@@ -1,7 +1,5 @@
+/* background yellow: rgb(243,197,49) */
 body {
-    background: url(/images/homePgYellowBg.jpg);
-    background-repeat: no-repeat;
-    background-size: auto;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
