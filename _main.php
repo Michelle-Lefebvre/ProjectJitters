@@ -10,11 +10,12 @@ $app->get('/internalerror', function ($request, $response, $args) {
 // TODO: Define app routes
 // Define app routes
 $app->get('/', function ($request, $response, $args) {
-    return $response->write("this is index");
+    // return $response->write('this is main');
+    return $this->view->render($response, 'index.html.twig');
 });
 
 $app->get('/session', function ($request, $response, $args) {
-    echo "<pre>\n";
+    echo '<pre>\n';
     print_r($_SESSION);
-    return $response->write("");
+    return $response->write('');
 });

@@ -6,7 +6,7 @@ $app->get('/register', function ($request, $response, $args) {
     return $this->view->render($response, 'register.html.twig');
 });
 
-// STATE 2&3: receiving submission
+// STATE 2&3: receiving submission  
 $app->post('/register', function ($request, $response, $args) {
     $name = $request->getParam('name');
     $email = $request->getParam('email');
