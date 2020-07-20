@@ -19,6 +19,9 @@ $app->get('/', function ($request, $response, $args) {
     $loader = new FilesystemLoader(__DIR__ . '/templates');
     $twig = new Environment($loader);
     return $twig->render('index.html.twig');
+    // return $twig->render('register.html.twig');
+    // return $twig->render('/admin/additem.html.twig');
+    // return $twig->render('/admin/additem_success.html.twig');
 });
 
 $app->get('/session', function ($request, $response, $args) {
