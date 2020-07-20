@@ -3,6 +3,7 @@
 {% block title %}Admin Add Item{% endblock %}
 
 {% block content %}
+    <h1>Admin Add Item</h1>
     {% if errorList %}
         <ul class="errorMessage">
         {% for error in errorList %}
@@ -10,13 +11,14 @@
         {% endfor %}
         </ul>
     {% endif %}
-    <form method="get">
+    <form method="post">
+        
         Name: <input type="text" name="name" value=""><br>
         Description: <input type="textblock" name="description" value=""><br>
         Category Code: <input type="text" name="categoryCode" value=""><br>
         Inventory Flag: <input type="checkbox" name="inventoryFlag" value=""><br>
         Quantity On Hand: <input type="number" name="quantityOnHand" value=""><br>
-        Price: <input type="number" name="price" value=""><br>
+        Price: <input type="number" name="price" step="any" value=""><br>
         <input type="submit" value="Admin Add Item">
     </form>
 {% endblock %}

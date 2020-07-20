@@ -5,7 +5,7 @@ require_once '_setup.php';
 //following is using addarticletest while following video about addperson and tristate form
 // STATE 1: first display  -- this is a get  -- just need to render the template
 $app->get('/additem', function ($request, $response, $args) {
-    return $this->view->render($response, 'additem.html.twig');
+    return $this->view->render($response, '/admin/additem.html.twig');
 });
 
 //STATE 2&3 receiving submission
