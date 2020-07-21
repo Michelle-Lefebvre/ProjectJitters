@@ -86,15 +86,17 @@ $app->post('/login', function ($request, $response, $args) use ($log) {
     } else {
         unset($record['password']); // for security reasons remove password from session
         $_SESSION['user'] = $record; // remember user logged in
-        $log->debug(sprintf("Login successful for email %s, uid=%d, from %s", $email, $record['id'], $_SERVER['REMOTE_ADDR']));
+        //print_r($_SESSION['user']);
+        $log->debug(sprintf("Login successful for email %s, uid=%d, from %s", $email, $record['userId'], $_SERVER['REMOTE_ADDR']));
         return $this->view->render($response, 'login_success.html.twig', ['userSession' => $_SESSION['user'] ] );
+        
     }
 });
 
 
 // STATE 1: first display
 $app->get('/logout', function ($request, $response, $args) use ($log) {
-    $log->debug(sprintf("Logout successful for uid=%d, from %s", @$_SESSION['user']['id'], $_SERVER['REMOTE_ADDR']));
+    $log->debug(sprintf("Logout successful for uid=%d, from %s", @$_SESSION['user']['userId'], $_SERVER['REMOTE_ADDR']));
     unset($_SESSION['user']);
     return $this->view->render($response, 'logout.html.twig', ['userSession' => null ]);
 });

@@ -4,12 +4,45 @@ require_once '_setup.php';
 
 // menu for administration functions
 $app->get('/adminmenu', function ($request, $response, $args) {
-    return $this->view->render($response, '/admin/adminmenu.html.twig');
+    // admin user must be both logged in and have adminuser set to yes
+
+    //print_r($_SESSION['user']);
+
+/*
+if (!$_SESSION['user'])  {
+    $errorList[] = "You must login to be authorized for this menu";
+} */
+$errorList = array();
+if (isset($_SESSION['user']))  {
+    $adminuser = $_SESSION['user'] ['adminuser'];
+    IF ($adminuser == false) {
+        $errorList[] = "Only Admin users are authorized for this menu";
+    }
+
+} else {
+    $errorList[] = "Only Logged in users are authorized for this menu";
+}
+    
+    // validate admin user
+    //print_r($_SESSION['user']);
+
+    
+
+    
+    
+    
+
+    if ($errorList) {
+        return $this->view->render($response, '/admin/adminmenu_notallowed.html.twig',
+                ['errorList' => $errorList ]);
+    } else {
+        return $this->view->render($response, '/admin/adminmenu.html.twig');
+    }
+
+
+
+
 });
-
-
-
-
 
 //following is using addarticletest while following video about addperson and tristate form
 // STATE 1: first display  -- this is a get  -- just need to render the template
@@ -45,10 +78,10 @@ $app->post('/additem', function ($request, $response, $args) {
 
     //print_r($categoryCode);
     
-
+        
         // validate category code
         $categoryList = DB::queryFirstRow("SELECT categoryCode FROM categorycodes
-         WHERE categoryCode = '$categoryCode'");  
+         WHERE categoryCode = %s", $categoryCode);  
 
     if (!$categoryList) { 
         $errorList[] = "Category Code does not exist";
@@ -62,21 +95,17 @@ $app->post('/additem', function ($request, $response, $args) {
         // response write is only allowed to be used with ajax
         //return $response->write("<p>Success</p>");
 
-        // insert not working foreign key author id not found
+       
        DB::insert( 'items', ['itemid' => NULL, 'itemName' => $itemName,  'description' => $description,
                    'categoryCode' => $categoryCode, 'inventoryFlag' => $inventoryFlag, 
                    'quantityOnHand' => $quantityOnHand, 'price' => $price, 'photofilepath' => $photofilepath
        
        ]);
        // render the success template
-       // no params to pass, but there could be... like an id or something that was
-       // created
+       // no params to pass, but there could be... like an id or something that was created
+       
         return $this->view->render($response, '/admin/additem_success.html.twig');
     }
 });
-
-
-
-
 
 ?>
