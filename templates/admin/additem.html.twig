@@ -11,14 +11,20 @@
         {% endfor %}
         </ul>
     {% endif %}
+    <div class="styleform">
     <form method="post">
-        
-        Name: <input type="text" name="name" value=""><br>
-        Description: <input type="textblock" name="description" value=""><br>
-        Category Code: <input type="text" name="categoryCode" value=""><br>
-        Inventory Flag: <input type="checkbox" name="inventoryFlag" value=""><br>
+
+        <label>Name: </label><input type="text" name="itemName" value=""><br>
+
+        <label>Description: </label><input type="textblock" name="description" value=""><br>
+
+
+        Category Code:    <input type="text" name="categoryCode" value=""><br>
+        Inventory Flag:   <input type="checkbox" name="inventoryFlag" value=""><br>
         Quantity On Hand: <input type="number" name="quantityOnHand" value=""><br>
-        Price: <input type="number" name="price" step="any" value=""><br>
+        Price:            <input type="number" name="price" step="any" value=""><br>
+        Photo File Path:  <input type="text" name="photofilepath" value=""><br>
         <input type="submit" value="Admin Add Item">
     </form>
+    </div>
 {% endblock %}

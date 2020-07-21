@@ -39,7 +39,8 @@ form {
 }
 
 input {
-    margin: 10px 0;
+    margin: 10px 0;  
+    
 }
 
 .articleBox .articlePreviewBox {
@@ -64,3 +65,13 @@ i {
     text-align: center;
     width: 100%;
 }
+.styleform label{
+    text-align:left;}
+
+    .styleform input{
+        text-align:right;
+        /*float:right;*/}
+/*
+.styleform label{float:left;}
+.styleform input{float:right;}  this gives space for the label on the left 
+.styleform .clear{clear:both;}  prevent elements from stacking weirdly */
