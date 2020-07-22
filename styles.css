@@ -1,9 +1,6 @@
 /* background yellow: rgb(243,197,49) */
 body {
-    background: url(/images/Jitters-Icon.png.jpg);
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-color: rgb(243,197,49);
+    background-color: rgb(243,197,49) !important;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -12,18 +9,46 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
+.center{
+    text-align: center;
+    margin: auto;
+    align-content: center;
+    min-height: 100%;
+    padding: 20px;
+}
+
+i {
+    color: gray;
+}
+
+/* Styles for header start */
 .container > nav {
     padding: 10px;
     text-align: center;
     font-size: 2em;
-    color: #ffeead;
   }
 
+  nav > ul {
+      align-content: center;
+  }
+
+  nav > ul > .justify-content-end {
+    justify-content: end;
+  }
+/* Styles for header end */
+
 #centeredContent {
-    background-color: rgb(243,197,49);
+    background-color: white;
     margin: 0 auto;
     padding: 20px;
     width: 500px;
+    border-radius: 4%;
+}
+/* Styles for forms start */
+form {
+    margin: 20px auto;
+    max-width: 460px;
+    padding: 20px;
 }
 
 .errorMessage {
@@ -32,31 +57,56 @@ body {
     font-weight: bold;
 }
 
-form {
-    margin: 20px auto;
-    max-width: 460px;
-    padding: 20px;
-}
-
 input {
-    margin: 10px 0;  
+    margin: 10px 0;
+    border-bottom: 1px solid black; 
     
+}
+input::textbox .form-control {
+    border-bottom: 1px solid black; 
 }
 
 .articleBox .articlePreviewBox {
     border: 1px solid black;
 }
+/* Styles for forms end */
 
-.center{
-    text-align: center;
+/* Styles for index page start */
+.homeBg {
+    background: url("/images/coffeebeans-cover.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    width: 100vw;
+    height: 80vh;
+}
+
+main img {
+    width: 50%;
     margin: auto;
-
+    align-content: center;
+    left: -25%;
+    /* height: 80vh;  */
 }
 
-i {
-    color: gray;
+main > .row {
+    align-content: center;
+    margin: ;
+}
+main .row1 .row3 {
+    height: 15vh;
+    
 }
 
+main .row2 {
+    height: 50vh;
+    align-content: center;
+}
+
+.companyName {
+    font-size: 5rem;
+}
+/* Styles for index page end */
 #footer {
     bottom: 0;
     font-size: small;
@@ -66,14 +116,13 @@ i {
     width: 100%;
 }
 
-/*
 .styleform label{
     text-align:left;}
 
     .styleform input{
         text-align:right;
-        /*float:right;}
-
+        /*float:right;*/}
+/*
 .styleform label{float:left;}
 .styleform input{float:right;}  this gives space for the label on the left 
 .styleform .clear{clear:both;}  prevent elements from stacking weirdly */
