@@ -46,6 +46,8 @@ i {
 }
 /* Styles for forms start */
 form {
+    background-color: white;
+    border-radius: 4%;
     margin: 20px auto;
     max-width: 460px;
     padding: 20px;
@@ -115,7 +117,6 @@ main .row2 {
     text-align: center;
     width: 100%;
 }
-
 .styleform label{
     text-align:left;}
 
