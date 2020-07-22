@@ -1,41 +1,77 @@
 {% extends "master.html.twig" %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Register
+{% endblock %}
 
 {% block head %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // alert("jQuery works");
-            $('input[name=email]').on('paste blur change input', function() {
-                var email = $('input[name=email]').val();
-                $("#emailTaken").load("/isemailtaken/" + email);
-            });
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () { // alert("jQuery works");
+$('input[name=email]').on('paste blur change input', function () {
+var email = $('input[name=email]').val();
+$("#emailTaken").load("/isemailtaken/" + email);
+});
 
-            $(document).ajaxError(function(event, jqxhr, settings, thrownError) {
-                console.log("Ajax error occured on " + settings.url);
-                alert("Ajax error occured");
-            });
+$(document).ajaxError(function (event, jqxhr, settings, thrownError) {
+console.log("Ajax error occured on " + settings.url);
+alert("Ajax error occured");
+});
 
-        });
-    </script>
+});
+	</script>
 {% endblock %}
 
 {% block content %}
-    {% if errorList %}
-        <ul class="errorMessage">
-        {% for error in errorList %}
-            <li>{{error}}</li>
-        {% endfor %}
-        </ul>
-    {% endif %}
+	{% if errorList %}
+		<ul class="errorMessage">
+			{% for error in errorList %}
+				<li>{{error}}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	{# 
+		<form method="post">
+			User name:
+			<input type="text" name="name" value="{{ v.name }}"><br>
+			Email:
+			<input type="text" name="email" value="{{ v.email }}">
+			<span class="errorMessage" id="emailTaken"></span><br>
+			Password
+			<input type="password" name="pass1"><br>
+			Password (repeated)
+			<input type="password" name="pass2"><br>
+			<input type="submit" value="Register">
+		</form> #}
 
-        <form method="post">
-            User name: <input type="text" name="name" value="{{ v.name }}"><br>
-            Email: <input type="text" name="email" value="{{ v.email }}">
-            <span class="errorMessage" id="emailTaken"></span><br>
-            Password <input type="password" name="pass1"><br>
-            Password (repeated) <input type="password" name="pass2"><br>
-            <input type="submit" value="Register">
-        </form>
+
+	<form class="form-signin center" method="post">
+		<h1 class="h3 mb-3 font-weight-normal">Jitters Registration Form</h1><br/>
+		<img class="mb-4" src="/images/icons8-cup-50.png" alt="" width="52" height="52">
+		<span <h4 class="h4 mb-3 font-weight-normal">Already a member?
+			<span class="h5 mb-3 font-weight-normal"><a href="/login">Log In</a></span></span>
+		</h4><br/>
+		{# <label for="inputEmail" class="sr-only">Email address</label> #}
+
+		<input type="text" name="firstName" value="{{ v.firstName }}" id="inputFirstname" class="form-control" placeholder="First name" required=" " autofocus=""><br/>
+		<input type="text" name="lastName" value="{{ v.lastName }}" id="inputLastname" class="form-control" placeholder="Last name" required=" " autofocus=""><br/>
+
+        <input type="text" name="nickname" value="{{ v.nickname }}" id="inputNickname" class="form-control" placeholder="Nickname (appears on orders)" autofocus=""><br/>
+
+		<input type="email" name="email" value="{{ v.email }}" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""><br/>
+		<span class="errorMessage" id="emailTaken"></span>
+
+		{# <label for="inputPassword" class="sr-only">Password</label> #}
+		<input type="password" name="pass1" id="inputPassword" class="form-control" placeholder="Password" required=""><br/>
+		<input type="password" name="pass2" id="inputPassword2" class="form-control" placeholder="Repeat Password" required=""><br/>
+
+		<div class="checkbox mb-3">
+			<label>
+				<input type="checkbox" value="remember-me">
+				Remember me
+			</label>
+		</div>
+
+		<button class="btn btn-lg btn-primary btn-block" type="submit" value="Register">Register</button>
+
+	</form>
 {% endblock %}

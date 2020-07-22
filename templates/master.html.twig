@@ -3,8 +3,9 @@
 	<head>
 		<link rel="stylesheet" href="/styles.css"/>
 		<title>
-			{% block title %}{% endblock %}
-			- My Webpage</title>
+			{% block title %}Jitters
+			{% endblock %}
+		</title>
 		{# bootstrap #}
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,38 +17,66 @@
 	<body>
 		<header>
 			{% block header %}
-				<nav class="nav container">
-					<a href="/index" class="nav-item nav-link active">Jitters</a>
-					<a href="#" class="nav-item nav-link">Rewards</a>
-					<a href="#" class="nav-item nav-link">Cards</a>
-					
-
-
+				<nav class="nav">
+					<ul class="nav">
+						<li class="nav-item">
+							<a href="/index" class="nav-item nav-link active">
+								<img class="mb-4" src="/images/icons8-cup-50.png" alt="" width="52" height="52">Jitters</a>
+						</li>
+					</ul>
 					{% if userSession %}
 						<span>Welcome
 							<b>{{ userSession.name }}</b>
-							You can
-							<a href="#" class="nav-item nav-link disabled" tabindex="-1">Profile</a>
-							<a href="/logout" class="nav justify-content-end">Logout</a>.</span>
-					{% else %}
-                            <a href="/login" class="nav-item nav-link justify-content-end">Log In </a>
-						<a href="/register" class="nav-item nav-link"> Register</a>
-					{% endif %}
+							<ul class="nav justify-content-end">
+								<li class="nav-item">
+									<a class="nav-link active" href="/admin/adminmenu">Admin</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="/profile">Profile</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="/logout">Logout</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="/cart">Cart</a>
+								</li>
+							</ul>
+						{% else %}
+							<ul class="nav">
+								<li class="nav-item">
+									<a href="/rewards" class="nav-item nav-link">Rewards</a>
+								</li>
+								<li class="nav-item">
+									<a href="/cards" class="nav-item nav-link">Cards</a>
+								</li>
+							</ul>
+							<ul class="nav justify-content-end">
+								<li class="nav-item">
+									<a href="/login" class="nav-item nav-link justify-content-end">Log In</a>
+								</li>
+								<li class="nav-item">
+									<a href="/register" class="nav-item nav-link">Register</a>
+								</li>
+							</ul>
+						{% endif %}
+
+					</nav>
 				{% endblock header %}
-			</nav>
-		</div>
+			</header>
 
-		<div id="centeredContent"> {% block content %}{% endblock %}
-			</div>
+			{% block content %}{% endblock %}
+				</div>
 
-			<div id="footer">
-				{% block footer %}
-					&copy; Copyright 2020 by
-					<a href="https://www.linkedin.com/in/mark-b-5533287/">Mark Boswick</a>
-					and
-					<a href="https://www.linkedin.com/in/michellelefebvre1/">Michelle Lefebvre</a>
-				{% endblock footer %}
-			</div>
+				<footer id="footer">
+					{% block footer %}
+						<a href="https://icons8.com/"><img src="/images/icons8-cup-50.png" alt="" width="22" height="22"></a>
+						&nbsp;&nbsp;&nbsp; &copy; Copyright 2020 by
+						<a href="https://www.linkedin.com/in/mark-b-5533287/">Mark Boswick</a>
+						and
+						<a href="https://www.linkedin.com/in/michellelefebvre1/">Michelle Lefebvre</a>
+					{% endblock footer %}
+				</footer>
+			
 		</body>
 	</html>
-</div></body></html>
+
