@@ -5,13 +5,8 @@ require_once '_setup.php';
 // menu for administration functions
 $app->get('/adminmenu', function ($request, $response, $args) {
     // admin user must be both logged in and have adminuser set to yes
-
     //print_r($_SESSION['user']);
 
-/*
-if (!$_SESSION['user'])  {
-    $errorList[] = "You must login to be authorized for this menu";
-} */
 $errorList = array();
 if (isset($_SESSION['user']))  {
     $adminuser = $_SESSION['user'] ['adminuser'];
@@ -22,16 +17,6 @@ if (isset($_SESSION['user']))  {
 } else {
     $errorList[] = "Only Logged in users are authorized for this menu";
 }
-    
-    // validate admin user
-    //print_r($_SESSION['user']);
-
-    
-
-    
-    
-    
-
     if ($errorList) {
         return $this->view->render($response, '/admin/adminmenu_notallowed.html.twig',
                 ['errorList' => $errorList ]);
@@ -39,12 +24,8 @@ if (isset($_SESSION['user']))  {
         return $this->view->render($response, '/admin/adminmenu.html.twig');
     }
 
-
-
-
 });
 
-//following is using addarticletest while following video about addperson and tristate form
 // STATE 1: first display  -- this is a get  -- just need to render the template
 $app->get('/additem', function ($request, $response, $args) {
     return $this->view->render($response, '/admin/additem.html.twig');
@@ -62,9 +43,8 @@ $app->post('/additem', function ($request, $response, $args) {
     $price = $request->getParam('price');
     $photofilepath = $request->getParam('photofilepath');
     
-    //
-    // FIXME: sanitize body - 1) only allow certain HTML tags, 2) make sure it is valid html
-    // WARNING: If you forget to sanitize the body bad things may happen such as JavaScript injection
+    
+    // sanitize description
     $description = strip_tags($description, "<p><ul><li><em><strong><i><b><ol><h3><h4><h5><span>");
                
     $errorList = array();
@@ -75,12 +55,9 @@ $app->post('/additem', function ($request, $response, $args) {
     if (strlen($description) < 10  || strlen($description) > 250) {
         $errorList[] = "Description must be between 10 and 250 characters long";
     }
-
-    //print_r($categoryCode);
-    
         
-        // validate category code
-        $categoryList = DB::queryFirstRow("SELECT categoryCode FROM categorycodes
+    // validate category code
+    $categoryList = DB::queryFirstRow("SELECT categoryCode FROM categorycodes
          WHERE categoryCode = %s", $categoryCode);  
 
     if (!$categoryList) { 
@@ -92,18 +69,11 @@ $app->post('/additem', function ($request, $response, $args) {
                 ['errorList' => $errorList ]);
 
     } else {
-        // response write is only allowed to be used with ajax
-        //return $response->write("<p>Success</p>");
-
-       
        DB::insert( 'items', ['itemid' => NULL, 'itemName' => $itemName,  'description' => $description,
                    'categoryCode' => $categoryCode, 'inventoryFlag' => $inventoryFlag, 
                    'quantityOnHand' => $quantityOnHand, 'price' => $price, 'photofilepath' => $photofilepath
        
        ]);
-       // render the success template
-       // no params to pass, but there could be... like an id or something that was created
-       
         return $this->view->render($response, '/admin/additem_success.html.twig');
     }
 });
