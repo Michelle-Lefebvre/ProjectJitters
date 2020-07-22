@@ -1,13 +1,21 @@
 {% extends "master.html.twig" %}
 
-{% block title %}Internal error{% endblock %}
+{% block title %}Internal error
+{% endblock %}
 
 {% block content %}
-
-<p>Internal error occured. Our team of Coding Ninjas has been notified.</p>
-
-<p><a href="/index.html.twig">Click here</a> to continue.</p>
-
-<img src="/images/ninja.png" width="200">
-
+	<div class="errors">
+		<div class="row">
+			<div class="col col-xs-6">
+				<img class="errors" src="/images/errorQuestionMark.png" width="100%">
+			</div>
+			<div class="col col-xs-6">
+				<h1 class="textHuge errors">Error 500</h1>
+				<h3>Ooops...Something went wrong</h3>
+				<p>Sorry for the inconvenience, we're working on it.<br/>
+					<a href="/index">Click here</a>
+					to continue.</p>
+			</div>
+		</div>
+	</div>
 {% endblock %}
