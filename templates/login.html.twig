@@ -4,13 +4,20 @@
 
 {% block content %}
    {% if error %}
-      <p>Email or password invalid. Try again or <a href="/register">register</a></p>
+   <img class="mb-4" src="/images/icons8-cup-50.png" alt="" width="52" height="52">
+      <span>Email or password invalid. Try again or <a href="/register">register</a></span>
    {% endif %}
 
-    <form method="post">
-        Email: <input type="text" name="email"><br>
-        Password <input type="password" name="password"><br>
-        <input type="submit" value="Login">
+    <form class="form-login center" method="post">
+		<h1 class="h3 mb-3 font-weight-normal">Jitters Login Form</h1><br/>
+		
+        <input type="email" name="email"  id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""><br/>
+		<span class="errorMessage" id="emailTaken"></span>
+
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required=""><br/>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" value="Login">Login</button>
+
     </form>
     
 {% endblock %}
