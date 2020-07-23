@@ -3,7 +3,12 @@
 {% block title %}Admin Add Item{% endblock %}
 
 {% block content %}
-    <h1>Admin Add Item</h1>
+    {# form-group row #}
+
+    
+    <form method="post">
+    
+        <h1>Admin Add Item</h1>
     {% if errorList %}
         <ul class="errorMessage">
         {% for error in errorList %}
@@ -11,20 +16,45 @@
         {% endfor %}
         </ul>
     {% endif %}
-    <div class="styleform">
-    <form method="post">
-
-        <label>Name: </label><input type="text" name="itemName" value=""><br>
-
-        <label>Description: </label><input type="textblock" name="description" value=""><br>
 
 
-        <label for="categoryCode">Category Code: <input type="text" name="categoryCode" value=""></label><br>
-        <label>Inventory Flag: <input type="checkbox" name="inventoryFlag" value=""></label><br>
-        Quantity On Hand: <input type="number" name="quantityOnHand" value=""><br>
-        Price:            <input type="number" name="price" step="any" value=""><br>
-        Photo File Path:  <input type="text" name="photofilepath" value=""><br>
-        <input type="submit" value="Admin Add Item">
-    </form>
+    <div class="form-group row">
+        <label for="itemname" class="col-sm-4 col-form-label">Name: </label> 
+        <input id="itemname" class="col-sm-8 form-control"  type="text" name="itemName" placeholder="Item Name" value=""></input>
     </div>
+
+    <div class="form-group row">
+        <label for="description" class="col-sm-4 col-form-label">Description: </label> 
+        <input id="description" class="col-sm-8 form-control" rows="5" type="textarea" name="description" placeholder="Item Description" value=""></input>
+    </div>
+
+    <div class="form-group row">
+        <label for="categoryCode" class="col-sm-4 col-form-label">Category Code: </label>
+        <input type="text" name="categoryCode" class="col-sm-8 form-control" placeholder="Category Code" value="">
+    </div>  
+        
+    <div class="form-group row">
+        <label class="col-sm-11 col-form-label">Inventory Flag: </label>
+        <input type="checkbox" name="inventoryFlag" class="col-sm-1 form-control" placeholder="Inventory Flag" value="">
+    </div> 
+
+        <div class="form-group row">
+        <label for="" class="col-sm-6 col-form-label">Quantity On Hand: </label>
+        <input type="number" name="quantityOnHand" class="col-sm-6 form-control" placeholder="Quantity On Hand" value="">
+</div> 
+        <div class="form-group row">
+        <label for="" class="col-sm-6 col-form-label">Price:  </label>
+        <input type="number" name="price" class="col-sm-6 form-control" placeholder="Price with 2 decimal places" step="any" value="">
+</div> 
+        <div class="form-group row">
+        <label for="" class="col-sm-4 col-form-label">Photo File Path: </label>
+         <input type="text" name="photofilepath" class="col-sm-8 form-control" placeholder="Photo File Path" value="">
+</div> 
+        <div class="form-group row">
+        <label for="" class="col-sm-3 col-form-control"> </label>
+        <input type="submit" class="btn btn-primary" value="Admin Add Item">
+    </div> 
+
+    </form>
+    
 {% endblock %}
