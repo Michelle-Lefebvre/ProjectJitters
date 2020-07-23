@@ -1,6 +1,6 @@
 /* background yellow: rgb(243,197,49) */
 body {
-    background-color: rgb(243,197,49) !important;
+    background-color: rgb(243,197,49);
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -27,7 +27,9 @@ i {
     text-align: center;
     font-size: 2em;
   }
-
+header, footer {
+    background-color: rgb(243,197,49);
+}
   nav > ul {
       align-content: center;
   }
@@ -93,7 +95,6 @@ main img {
 
 main > .row {
     align-content: center;
-    margin: ;
 }
 main .row1 .row3 {
     height: 15vh;
@@ -117,6 +118,23 @@ main .row2 {
     text-align: center;
     width: 100%;
 }
+
+/* Styles for errors pages start */
+div > .row > .container > .errors {
+    background-color: white;
+    margin-top: 20px;
+    width: 100vw;
+    align-content: center;
+}
+
+.textHuge {
+    margin-top: 20px;
+    font-size: 4rem;
+}
+/* Styles for errors pages start */
+
+
+
 .styleform label{
     text-align:left;}
 
