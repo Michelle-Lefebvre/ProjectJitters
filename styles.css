@@ -134,14 +134,24 @@ div > .row > .container > .errors {
 /* Styles for errors pages start */
 
 
+<<<<<<< HEAD
 
 /* .styleform label{
+=======
+/*
+.styleform label{
+>>>>>>> 971d5c039bc25ed22b5ae7e5077eb3015266f51c
     text-align:left;}
 
     .styleform input{
         text-align:right;
+<<<<<<< HEAD
         float:right;} */
 /*
+=======
+        float:right;}
+
+>>>>>>> 971d5c039bc25ed22b5ae7e5077eb3015266f51c
 .styleform label{float:left;}
 .styleform input{float:right;}  this gives space for the label on the left 
 .styleform .clear{clear:both;}  prevent elements from stacking weirdly */
