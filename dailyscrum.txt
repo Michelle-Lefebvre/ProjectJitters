@@ -1,4 +1,43 @@
 ___________________________________________________________________
+2020/07/22 Michelle
+1. What I have done / not done since last Scrum?
+  not done -User can register
+  done -User can see home page need photo edit help
+
+2. What I plan to do from this scrum to next? (12pm)
+-User can register
+-User can see internal error
+- testing - /login and /logout completed
+- User can see menu
+-User can see internal error
+
+3. Where do I need assistance?
+  Help with photo editing, don’t have the tool to do it
+______________________
+2020/07/22 Mark
+1. What I have done / not done since last Scrum?
+done - sql to update user table (admin user and set fields to null)
+done - sql to update item table add photourl
+not done - /additem completed except for css and photo
+not done - /adminmenu launch page and admin user validation completed
+done - /login and /logout completed
+done - sql to add two users (one admin one not)
+done - applied bootstrap css formatting to login and logout
+done - discussion with Michelle we will not be using item photo for now
+done - Admin user can add items
+not required - design wireframe for admin users
+
+
+
+2. What I plan to do from this scrum to next? (12pm)
+-photo editing, coffeeDesign.jpg
+- /additem completed except for css and photo
+- /adminmenu launch page and admin user validation completed
+- fix input formatting (use bootstrap?)
+- research cart creation methods
+- determine which are most usefull programs to complete next
+
+3. Where do I need assistance?___________________________________________________________________
 2020/07/20 Michelle
 1. What I have done / not done since last Scrum?
   done - share screen for scrum meetings now using zoom
