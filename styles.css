@@ -1,6 +1,6 @@
 /* background yellow: rgb(243,197,49) */
 body {
-    background-color: rgb(243,197,49);
+    background-color: rgb(243,197,49)!important;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -135,12 +135,12 @@ div > .row > .container > .errors {
 
 
 
-.styleform label{
+/* .styleform label{
     text-align:left;}
 
     .styleform input{
         text-align:right;
-        /*float:right;*/}
+        float:right;} */
 /*
 .styleform label{float:left;}
 .styleform input{float:right;}  this gives space for the label on the left 

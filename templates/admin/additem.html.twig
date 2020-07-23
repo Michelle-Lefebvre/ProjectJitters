@@ -13,8 +13,10 @@
     {% endif %}
     <div class="styleform">
     <form method="post">
+    <label for="inputPassword" class="sr-only">Name:</label>
+    <input type="text" name="itemName" value="{{ v.itemName }}" id="inputItemName" class="form-control" placeholder="item name" required=" " autofocus=""><br/>
 
-        <label>Name: </label><input type="text" name="itemName" value=""><br>
+        <input type="text" name="itemName" value=""><br>
 
         <label>Description: </label><input type="textblock" name="description" value=""><br>
 
