@@ -12,64 +12,68 @@
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 		{# Google Fonts #}
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oxygen:wght@400;700&family=Roboto:wght@500&display=swap" rel="stylesheet">
+		<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oxygen:wght@400;700&family=Roboto:wght@500&display=swap" rel="stylesheet">
 		{# Jitter stylesheets #}
-		<link rel="stylesheet" href="/styles/styles.css"/>
-		{% block head %}{% endblock %}
-	</head>
-	<body>
-		<header>
-			{% block header %}
-				<nav class="nav">
-					<ul class="nav">
-						<li class="nav-item">
-							<a href="/index" class="nav-item nav-link active">
-								<img id="coffeeDesign" class="mb-4" src="/images/icons8-cup-50.png" alt="coffee cup icon" width="52" height="52">Jitters</a>
-						</li>
-					</ul>
-					{% if userSession %}
-						<span>Welcome
-							<b>{{ userSession.firstName }}</b>
-							<ul class="nav justify-content-end">
-								<li class="nav-item">
-									<a class="nav-link active" href="/adminmenu">Admin</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="/profile">Profile</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="/logout">Logout</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="/cart">
-									<i class="fas fa-cart-plus" alt="shopping cart"></i></a>
-								</li>
-							</ul>
-						{% else %}
-							<ul class="nav">
-								<li class="nav-item">
-									<a href="/rewards" class="nav-item nav-link">Rewards</a>
-								</li>
-								<li class="nav-item">
-									<a href="/cards" class="nav-item nav-link">Cards</a>
-								</li>
-							</ul>
-							<ul class="nav justify-content-end">
-								<li class="nav-item">
-									<a href="/login" class="nav-item nav-link justify-content-end">Log In</a>
-								</li>
-								<li class="nav-item">
-									<a href="/register" class="nav-item nav-link">Register</a>
-								</li>
-							</ul>
-						{% endif %}
+		<link rel="stylesheet" href="/styles/styles.css"/> {% block head %}{% endblock %}
+		</head>
+		<body>
+			<header>
+				{% block header %}
+					<nav class="nav">
+						<ul class="nav">
+							<li class="nav-item">
+								<a href="/index" class="nav-item nav-link active">
+									<img id="coffeeDesign" class="mb-4" src="/images/icons8-cup-50.png" alt="coffee cup icon" width="52" height="52">Jitters</a>
+							</li>
+						</ul>
+						{% if userSession %}
+							<span>Welcome
+								<b>{{ userSession.firstName }}</b>
+								<ul class="nav justify-content-end">
+									<li class="nav-item">
+										<a class="nav-link active" href="/adminmenu">Admin</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="/profile">Profile</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="/logout">Logout</a>
+									</li>
+									
+								</ul>
+							{% else %}
+								<ul class="nav">
+									<li class="nav-item">
+										<a href="/rewards" class="nav-item nav-link">Rewards</a>
+									</li>
+									<li class="nav-item">
+										<a href="/cards" class="nav-item nav-link">Cards</a>
+									</li>
+								</ul>
+								<ul class="nav justify-content-end">
+									<li class="nav-item">
+										<a href="/login" class="nav-item nav-link justify-content-end">Log In</a>
+									</li>
+									<li class="nav-item">
+										<a href="/register" class="nav-item nav-link">Register</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="/cart">
+											<svg width="1.5em" height="1.5em" viewbox="0 0 16 16" class="bi bi-cart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+											</svg>
+										</a>
+									</li>
+								</ul>
+							{% endif %}
 
-							</nav>
-				{% endblock header %}
-			</header>
+						</nav>
+					{% endblock header %}
+				</header>
 
-			{% block content %}{% endblock %}
-			
+				{% block content %}{% endblock %}
+
 
 				<footer id="footer">
 					{% block footer %}
@@ -80,6 +84,6 @@
 						<a href="https://www.linkedin.com/in/michellelefebvre1/">Michelle Lefebvre</a>
 					{% endblock footer %}
 				</footer>
-			
+			</body>
 		</body>
 	</html>

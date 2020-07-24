@@ -4,8 +4,8 @@
     background-size: cover;
     background-position: center;
     width: 100vw;
-    height: 80vh;
-    /* center */
+    height: 83vh;
+    /* center vertical & horizontal*/
     position: absolute;
     top: 50%;
     left: 50%;
@@ -13,28 +13,40 @@
     text-align: center;
 }
 
-img>#coffeeDesign {
-    width: 50%;
-}
+/* img>#coffeeDesign {
+    width: 25%;
+} */
 
 main >.row {
-    background: white;
-    align-content: center;
+    color: white;
+    /* align-content: center; */
 }
 
-main .row1 .row3 {
-    height: 15vh;
+main .row1 .row3{
+    height: 25vh;
+  /* center vertical & horizontal*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 
+main .row2 {
+    height: 50vh;
+    align-content: center;
 }
 
 .textWhite {
-    color: black;
+    color: white;
     text-align: center;
     align-content: center;
+    margin-top: 1rem;
+    font-size: 3rem;
 }
 
 .goto {
-    color: black;
+    color: white;
     font-weight: 600;
     text-decoration: underline;
     position: absolute;
@@ -42,11 +54,6 @@ main .row1 .row3 {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-}
-
-main .row2 {
-    height: 50vh;
-    align-content: center;
 }
 
 .companyName {
