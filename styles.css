@@ -1,6 +1,6 @@
 /* background yellow: rgb(243,197,49) */
 body {
-    background-color: white;
+    background-color: rgb(243,197,49);
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -90,6 +90,7 @@ main, img {
 }
 
 main > .row {
+    background: white;
     align-content: center;
 }
 main .row1 .row3 {
