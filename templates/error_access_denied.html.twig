@@ -1,9 +1,22 @@
 {% extends "master.html.twig" %}
 
-{% block title %}Access denied{% endblock %}
+{% block title %}Access denied
+{% endblock %}
 
 {% block content %}
-    <p>Access denied</p>
-    <p>Access denied. You must be logged in to access this page.
-        <a href="/index.html.twig">Click to continue</a>.</p>
+    <div class="errors">
+		<div class="row">
+			<div class="col col-xs-6 errors">
+				<img class="errors" src="/images/errorPadlock.png" width="100%">
+			</div>
+			<div class="col col-xs-6">
+				<h1 class="textHuge errors">Error 403</h1>
+				<h3>Access is denied</h3>
+				<p>You don't have permission.<br/>
+					<a href="/index">Click here</a>
+					to continue.</p>
+			</div>
+		</div>
+	</div>
+
 {% endblock %}

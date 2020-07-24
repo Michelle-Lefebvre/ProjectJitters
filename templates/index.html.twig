@@ -7,30 +7,27 @@
 {% block content %}
 <main class="homeBg">
 		<div class="row row1">
-			<div class="col"></div>
 			<div class="col">
 				<h2 class="center">Welcome to</h2>
 			</div>
-			<div class="col"></div>
 		</div>
 
 		<div class="row row2">
 			<div class="col">
-				<h2 class="center">View Menu</h2>
+				<a href="/menu"><h2 class="center goto">View Menu</h2></a>
 			</div>
 			<div class="col">
-				<img src="/images/coffeeDesign.jpg"/>
+				<img src="/images/coffeeDesign.png" style="margin-left:25%;"/>
 			</div>
 			<div class="col">
-				<h2 class="center">Place Order</h2>
+			<a href="/order"><h2 class="center goto">Place Order</h2></a>
 			</div>
 		</div>
+		
 		<div class="row row3">
-			<div class="col"></div>
 			<div class="col">
 				<h1 class="center companyName">Jitters</h1>
 			</div>
-			<div class="col"></div>
 		</div>
 	</main>
 {% endblock %}
