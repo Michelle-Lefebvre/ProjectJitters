@@ -5,11 +5,11 @@ ___________________________________________________________________
   done -User can see home page need photo edit help
 
 2. What I plan to do from this scrum to next? (12pm)
--User can register
--User can see internal error
+- User can register
+- User can see internal error
 - testing - /login and /logout completed
 - User can see menu
--User can see internal error
+- User can see internal error
 
 3. Where do I need assistance?
   Help with photo editing, don’t have the tool to do it
@@ -27,17 +27,17 @@ done - discussion with Michelle we will not be using item photo for now
 done - Admin user can add items
 not required - design wireframe for admin users
 
-
-
 2. What I plan to do from this scrum to next? (12pm)
 -photo editing, coffeeDesign.jpg
 - /additem completed except for css and photo
 - /adminmenu launch page and admin user validation completed
 - fix input formatting (use bootstrap?)
 - research cart creation methods
-- determine which are most usefull programs to complete next
+- determine which are most usefull user stories to complete next
 
-3. Where do I need assistance?___________________________________________________________________
+3. Where do I need assistance?
+- formatting input on form
+___________________________________________________________________
 2020/07/20 Michelle
 1. What I have done / not done since last Scrum?
   done - share screen for scrum meetings now using zoom
