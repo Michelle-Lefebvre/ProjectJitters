@@ -15,7 +15,6 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oxygen:wght@400;700&family=Roboto:wght@500&display=swap" rel="stylesheet">
 		{# Jitter stylesheets #}
 		<link rel="stylesheet" href="/styles.css"/>
-		<link rel="stylesheet" href="/stylesErrors.css"/>
 		{% block head %}{% endblock %}
 	</head>
 	<body>
@@ -25,7 +24,7 @@
 					<ul class="nav">
 						<li class="nav-item">
 							<a href="/index" class="nav-item nav-link active">
-								<img class="mb-4" src="/images/icons8-cup-50.png" alt="coffee cup icon" width="52" height="52">Jitters</a>
+								<img id="coffeeDesign" class="mb-4" src="/images/icons8-cup-50.png" alt="coffee cup icon" width="52" height="52">Jitters</a>
 						</li>
 					</ul>
 					{% if userSession %}

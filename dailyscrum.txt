@@ -1,4 +1,39 @@
 ___________________________________________________________________
+2020/07/24 Michelle
+1. What I have done / not done since last Scrum?
+not done -User can register
+done -Add bootstrap & style error pages
+done -User can see internal error
+done -User can see external error
+done - testing *unable to modify host.ds file can’t change permissions
+not done- User can see menu
+
+
+2. What I plan to do from this scrum to next? (Monday at noon)
+-bootstrap added to error pages has effected home page must fix
+- User can see menu
+- reorganize & separate css style sheets
+
+3. Where do I need assistance? 
+-unable to modify host.ds file can’t change permissions so can’t click on links
+Note when testing I can't verify submit button
+
+______________________
+2020/07/24 Mark
+1. What I have done / not done since last Scrum?
+not done - /additem completed except for css and photo
+done - /adminmenu launch page and admin user validation  (will continue to add links for new admin forms)
+done - /login and /logout
+done - determine which are most usefull programs to complete next
+
+2. What I plan to do from this scrum to next? (Monday at noon)
+- /additem description needs to be a textarea formatted with bootstrap
+- card would be the next area to develop
+
+3. Where do I need assistance?
+- ok for now
+
+___________________________________________________________________
 2020/07/22 Michelle
 1. What I have done / not done since last Scrum?
   not done -User can register

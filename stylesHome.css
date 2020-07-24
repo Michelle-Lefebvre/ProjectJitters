@@ -1,0 +1,54 @@
+/* Styles for index page start */
+#homeBg {
+    background: url("/images/coffeebeans-cover.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 80vh;
+    /* center */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+img>#coffeeDesign {
+    width: 50%;
+}
+
+main >.row {
+    background: white;
+    align-content: center;
+}
+
+main .row1 .row3 {
+    height: 15vh;
+
+}
+
+.textWhite {
+    color: black;
+    text-align: center;
+    align-content: center;
+}
+
+.goto {
+    color: black;
+    font-weight: 600;
+    text-decoration: underline;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+main .row2 {
+    height: 50vh;
+    align-content: center;
+}
+
+.companyName {
+    font-size: 5rem;
+}

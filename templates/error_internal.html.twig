@@ -1,8 +1,9 @@
 {% extends "master.html.twig" %}
 
-{% block title %}Internal error
-{% endblock %}
-
+{% block head %}
+{% block title %}Internal error{% endblock title %}
+<link rel="stylesheet" href="/stylesErrors.css"/>
+{% endblock head %}
 {% block content %}
 	<div class="errors">
 		<div class="row">

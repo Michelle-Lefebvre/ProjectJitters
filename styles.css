@@ -74,43 +74,6 @@ input::textbox .form-control {
 }
 /* Styles for forms end */
 
-/* Styles for index page start */
-.homeBg {
-    background: url("/images/coffeebeans-cover.jpg");
-    background-size: cover;
-    background-position: center;
-    color: white;
-    width: 100vw;
-    /* height: 80vh; */
-    display: flex;
-}
-
-main, img {
-    width: 50%;
-}
-
-main > .row {
-    background: white;
-    align-content: center;
-}
-main .row1 .row3 {
-    height: 15vh;
-    
-}
-
-.goto {
-    color: white;
-    font-weight: 600;
-    text-decoration: underline;
-}
-main .row2 {
-    height: 50vh;
-    align-content: center;
-}
-
-.companyName {
-    font-size: 5rem;
-}
 /* Styles for index page end */
 #footer {
     bottom: 0;
@@ -120,28 +83,3 @@ main .row2 {
     text-align: center;
     width: 100%;
 }
-
-/* Styles for errors pages start */
-.errors {
-    background-color: white;
-    margin-top: 200px;
-    width: 100vw;
-    align-self: center;
-}
-
-.textHuge {
-    margin-top: 30px;
-    font-size: 4rem;
-}
-/* Styles for errors pages start */
-
-/* .styleform label{
-    text-align:left;}
-
-    .styleform input{
-        text-align:right;
-        float:right;} */
-/*
-.styleform label{float:left;}
-.styleform input{float:right;}  this gives space for the label on the left 
-.styleform .clear{clear:both;}  prevent elements from stacking weirdly */
