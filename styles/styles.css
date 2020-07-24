@@ -6,13 +6,13 @@ body {
     padding: 0;
     height: 100vh;
     padding-bottom: 58px;
+    padding-top: 58px;
 }
 
 .center{
     text-align: center;
     margin: auto;
     align-content: center;
-    min-height: 100%;
     padding: 20px;
 }
 
@@ -24,15 +24,20 @@ i {
 .container > nav {
     padding: 10px;
     text-align: center;
-    font-size: 2em;
+    
   }
 header, footer {
     background-color: rgb(243,197,49);
+    font-size: 2rem;
 }
   nav > ul {
       align-content: center;
+      font-size: 1.5rem;
+  
   }
-
+svg {
+    padding-bottom: 0.5rem;
+}
   nav > ul > .justify-content-end {
     justify-content: end;
   }
@@ -50,8 +55,15 @@ form {
     background-color: white;
     border-radius: 4%;
     margin: 20px auto;
-    max-width: 460px;
+    width: 50vw;
     padding: 20px;
+     /* center vertical & horizontal*/
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     text-align: center;
+   
 }
 
 .errorMessage {
@@ -65,21 +77,23 @@ input {
     border-bottom: 1px solid black; 
     
 }
-input::textbox .form-control {
+input::text .form-control {
     border-bottom: 1px solid black; 
-}
-
-.articleBox .articlePreviewBox {
-    border: 1px solid black;
 }
 /* Styles for forms end */
 
 /* Styles for index page end */
+footer {
+     position: fixed;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     text-align: center;
+}
 #footer {
     bottom: 0;
     font-size: small;
-    padding: 20px;
+    padding: 20px 0 0;
     position: fixed;
     text-align: center;
-    width: 100%;
+    margin: auto;
 }
