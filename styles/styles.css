@@ -1,6 +1,6 @@
 /* background yellow: rgb(243,197,49) */
 body {
-    background-color: rgb(243,197,49);
+    background-color: rgb(243, 197, 49);
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -9,38 +9,63 @@ body {
     padding-top: 58px;
 }
 
-.center{
+.center {
     text-align: center;
     margin: auto;
     align-content: center;
     padding: 20px;
 }
 
-i {
-    color: gray;
-}
+a:link {
+    color: whitesmoke;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: cyan;
+    background-color: rgb(243,197,49);
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color:  cyan;
+    background-color: transparent;
+    text-decoration: underline;
+  }
 
 /* Styles for header start */
-.container > nav {
-    padding: 10px;
+.container>nav {
+    padding: 0px;
     text-align: center;
-    
-  }
-header, footer {
-    background-color: rgb(243,197,49);
+
+}
+
+header,
+footer {
+    background-color: rgb(243, 197, 49);
     font-size: 2rem;
 }
-  nav > ul {
-      align-content: center;
-      font-size: 1.5rem;
-  
-  }
+
+nav>ul {
+    align-content: center;
+    font-size: 1.5rem;
+}
+
 svg {
     padding-bottom: 0.5rem;
 }
-  nav > ul > .justify-content-end {
+
+nav>ul>.justify-content-end {
     justify-content: end;
-  }
+}
+
 /* Styles for header end */
 
 #centeredContent {
@@ -50,6 +75,7 @@ svg {
     width: 500px;
     border-radius: 4%;
 }
+
 /* Styles for forms start */
 form {
     background-color: white;
@@ -57,13 +83,13 @@ form {
     margin: 20px auto;
     width: 50vw;
     padding: 20px;
-     /* center vertical & horizontal*/
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     text-align: center;
-   
+    /* center vertical & horizontal*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
 }
 
 .errorMessage {
@@ -74,21 +100,24 @@ form {
 
 input {
     margin: 10px 0;
-    border-bottom: 1px solid black; 
-    
+    border-bottom: 1px solid black;
+
 }
+
 input::text .form-control {
-    border-bottom: 1px solid black; 
+    border-bottom: 1px solid black;
 }
+
 /* Styles for forms end */
 
 /* Styles for index page end */
 footer {
-     position: fixed;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     text-align: center;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
+
 #footer {
     bottom: 0;
     font-size: small;
