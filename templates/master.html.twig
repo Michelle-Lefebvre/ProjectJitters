@@ -21,12 +21,10 @@
 			<header>
 				{% block header %}
 					<nav class="nav fixed-top">
-						<ul class="nav">
-							<li class="nav-item">
 								<a href="/index" class="nav-item nav-link active">
 								  J<sub> i</sub> <sup>t</sup> t<sub> e</sub><sup>r</sup> s</a>
-							</li>
-						</ul>
+						
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"><span class="navbar-toggler-icon"></span></button>
 						{% if userSession %}
 							<span>Welcome
 								<b>{{ userSession.firstName }}</b>

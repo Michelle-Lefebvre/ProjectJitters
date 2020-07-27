@@ -3,10 +3,13 @@
     background: white;
     align-content: center;
     height: 80vh;
+    margin: auto;
+    width: 100vw;
 }
 .errors {
     margin-top: 20px;
     align-self: center;
+    display: flex;
 }
 
 h3 {
