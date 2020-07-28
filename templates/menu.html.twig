@@ -1,128 +1,133 @@
 {% extends "master.html.twig" %}
-{% block title %}Menu{% endblock %}
+{% block title %}Menu
+{% endblock %}
 {% block head %}
-    {{ parent() }}
-    <style type="text/css">
-        .important { color: #336699; }
-    </style>
+	{{ parent() }}
+	<style type="text/css">
+		.important {
+			color: #336699;
+		}
+	</style>
 {% endblock %}
 
 {% block content %}
-	<div class="container-fluid menu">
+	<div
+		class="container-fluid menu">
 		<div class="row">
-			<div class="col col-sm-2">
-			<img class="errors" src="/images/menuCoffees.jpg" width="100%">
-			</div>
-
-			<div class="col-sm-12 col-md-4">
-                <table class="table">
-                    <caption>Coffee menu</caption>
-                    <thead>
-                      <tr>
-                        <th scope="col"></th>
-                        <th scope="col">small</th>
-                        <th scope="col">medium</th>
-                        <th scope="col">large</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">{{items.itemName}}</th>
-                        <td>$1.25</td>
-                        <td>$1.55</td>
-                        <td>$1.90</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">americano</th>
-                        <td>$1.25</td>
-                        <td>$1.55</td>
-                        <td>$1.90</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">americano</th>
-                        <td>$1.25</td>
-                        <td>$1.55</td>
-                        <td>$1.90</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">americano</th>
-                        <td>$1.25</td>
-                        <td>$1.55</td>
-                        <td>$1.90</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">americano</th>
-                        <td>$1.25</td>
-                        <td>$1.55</td>
-                        <td>$1.90</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">americano</th>
-                        <td>$1.25</td>
-                        <td>$1.55</td>
-                        <td>$1.90</td>
-                      </tr>
-					  <tr>
-                        <th scope="row">americano</th>
-                        <td>$1.25</td>
-                        <td>$1.55</td>
-                        <td>$1.90</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">americano</th>
-                        <td>$1.25</td>
-                        <td>$1.55</td>
-                        <td>$1.90</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">americano</th>
-                        <td>$1.25</td>
-                        <td>$1.55</td>
-                        <td>$1.90</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">americano</th>
-                        <td>$1.25</td>
-                        <td>$1.55</td>
-                        <td>$1.90</td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-			<div class="col col-sm-2">
-			<img class="errors" src="/images/menuTeas.jpg" width="100%">
-			</div>
-			<div class="col col-sm-2">
-				<div class="row">
-					<div class="col-sm-9">Teas</div>
-					<div class="col-sm-1">sm</div>
-					<div class="col-sm-1">med</div>
-					<div class="col-sm-1">lrg</div>
-				</div>
-			</div>
+					<div class="col-sm-12 col-md-6">
+					<img class="errors" src="/images/menuCoffees.jpg" width="100%">
+					</div>
+    <div class="col-sm-12 col-md-6">
+		<div class="col-sm-12 col-md-4">
+			<table class="table">
+				<caption>Coffee menu</caption>
+				<thead>
+					<tr>
+						<th scope="col"></th>
+						<th scope="col">small</th>
+						<th scope="col">medium</th>
+						<th scope="col">large</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						{# {% <?php categoryCode = cafe; ?> %} #}
+						<th scope="row">{{items.itemName}}</th>
+						<td>${{items.price}}</td>
+						<td>${{items.priceMed}}</td>
+						<td>${{items.priceLrg}}</td>
+					</tr>
+					<tr>
+						<th scope="row">americano</th>
+						<td>$1.25</td>
+						<td>$1.55</td>
+						<td>$1.90</td>
+					</tr>
+					<tr>
+						<th scope="row">americano</th>
+						<td>$1.25</td>
+						<td>$1.55</td>
+						<td>$1.90</td>
+					</tr>
+					<tr>
+						<th scope="row">americano</th>
+						<td>$1.25</td>
+						<td>$1.55</td>
+						<td>$1.90</td>
+					</tr>
+					<tr>
+						<th scope="row">americano</th>
+						<td>$1.25</td>
+						<td>$1.55</td>
+						<td>$1.90</td>
+					</tr>
+					<tr>
+						<th scope="row">americano</th>
+						<td>$1.25</td>
+						<td>$1.55</td>
+						<td>$1.90</td>
+					</tr>
+					<tr>
+						<th scope="row">americano</th>
+						<td>$1.25</td>
+						<td>$1.55</td>
+						<td>$1.90</td>
+					</tr>
+					<tr>
+						<th scope="row">americano</th>
+						<td>$1.25</td>
+						<td>$1.55</td>
+						<td>$1.90</td>
+					</tr>
+					<tr>
+						<th scope="row">americano</th>
+						<td>$1.25</td>
+						<td>$1.55</td>
+						<td>$1.90</td>
+					</tr>
+					<tr>
+						<th scope="row">americano</th>
+						<td>$1.25</td>
+						<td>$1.55</td>
+						<td>$1.90</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
+    </div>
+		{# <div class="col col-sm-2">
+					<img class="errors" src="/images/menuTeas.jpg" width="100%">
+					</div>
+					<div class="col col-sm-2">
+						<div class="row">
+							<div class="col-sm-9">Teas</div>
+							<div class="col-sm-1">sm</div>
+							<div class="col-sm-1">med</div>
+							<div class="col-sm-1">lrg</div>
+						</div>
+					</div>
+				</div> #}
 
-        {# row 2 #}
-		<div class="row">
-			
-			<div class="col col-sm-2">
-				<div class="row">
-					<div class="col-sm-10">Pastries + Sandwiches</div>
-					<div class="col-sm-2">Price</div>
-				</div>
-			</div>
-			<div class="col col-sm-2"><img class="errors" src="/images/menuPastries.jpg" width="100%"></div>
-			<div class="col col-sm-2">
-				<div class="row">
-					<div class="col-sm-10">Beans</div> 
-					<div class="col-sm-2">Price</div>
-				</div>
-			</div>
-			<div class="col col-sm-2"><img class="errors" src="/images/menuCoffeeBean.jpg" width="100%"></div>
-	
+	{# row 2 #}
+		{# <div class="row">
+					
+					<div class="col col-sm-2">
+						<div class="row">
+							<div class="col-sm-10">Pastries + Sandwiches</div>
+							<div class="col-sm-2">Price</div>
+						</div>
+					</div>
+					<div class="col col-sm-2"><img class="errors" src="/images/menuPastries.jpg" width="100%"></div>
+					<div class="col col-sm-2">
+						<div class="row">
+							<div class="col-sm-10">Beans</div> 
+							<div class="col-sm-2">Price</div>
+						</div>
+					</div>
+					<div class="col col-sm-2"><img class="errors" src="/images/menuCoffeeBean.jpg" width="100%"></div> #}
+
 	</div>
-    
-
+	<br><br><br><br>
 
 
 {% endblock %}

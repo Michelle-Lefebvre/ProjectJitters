@@ -29,13 +29,15 @@ a:link {
   }
   
   a:hover {
-    color: cyan;
+    color: darkturquoise;
+    font-weight: 600;
     background-color: rgb(243,197,49);
     text-decoration: underline;
   }
   
   a:active {
-    color:  cyan;
+    color:  darkslategray;
+    font-weight: 800;
     background-color: transparent;
     text-decoration: underline;
   }
@@ -79,4 +81,8 @@ input {
 
 input::text .form-control {
     border-bottom: 1px solid black;
+}
+
+span.underline {
+  text-decoration: underline;
 }
