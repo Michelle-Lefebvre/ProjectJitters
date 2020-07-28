@@ -1,12 +1,12 @@
 /* background yellow: rgb(243,197,49) */
 body {
-    background-color: rgb(243, 197, 49);
+    background-color: rgb(243,197,49);
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     height: 100vh;
     padding-bottom: 58px;
-    padding-top: 58px;
+    padding-top: 70px;
 }
 
 .center {
@@ -17,7 +17,7 @@ body {
 }
 
 a:link {
-    color: whitesmoke;
+    color: white;
     background-color: transparent;
     text-decoration: none;
   }
@@ -40,34 +40,6 @@ a:link {
     text-decoration: underline;
   }
 
-/* Styles for header start */
-.container>nav {
-    padding: 0px;
-    text-align: center;
-
-}
-
-header,
-footer {
-    background-color: rgb(243, 197, 49);
-    font-size: 2rem;
-}
-
-nav>ul {
-    align-content: center;
-    font-size: 1.5rem;
-}
-
-svg {
-    padding-bottom: 0.5rem;
-}
-
-nav>ul>.justify-content-end {
-    justify-content: end;
-}
-
-/* Styles for header end */
-
 #centeredContent {
     background-color: white;
     margin: 0 auto;
@@ -80,7 +52,7 @@ nav>ul>.justify-content-end {
 form {
     background-color: white;
     border-radius: 4%;
-    margin: 20px auto;
+    /* margin: 20px auto; */
     width: 50vw;
     padding: 20px;
     /* center vertical & horizontal*/
@@ -89,7 +61,8 @@ form {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-
+    border: double medium darkgoldenrod;
+    box-shadow: 10px 10px 5px 0px darkgoldenrod;
 }
 
 .errorMessage {
@@ -106,23 +79,4 @@ input {
 
 input::text .form-control {
     border-bottom: 1px solid black;
-}
-
-/* Styles for forms end */
-
-/* Styles for index page end */
-footer {
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-#footer {
-    bottom: 0;
-    font-size: small;
-    padding: 20px 0 0;
-    position: fixed;
-    text-align: center;
-    margin: auto;
 }
