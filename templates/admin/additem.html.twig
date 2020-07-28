@@ -6,19 +6,8 @@
     {# form-group row #}
 
   <div class="container">
-
-      
-
-
-    <form method="post">
-    <p>This part is to space the form below the master twig header.</p>
-        <p> it is scrolling under the header and footer</p>
-        <p> 0.</p>
-        <p>1.</p>
-        <p>2.</p>
-        <p>3.</p>
-
-
+    <form method="post" class="pt-2">
+   
         <h1>Admin Add Item</h1>
     {% if errorList %}
         <ul class="errorMessage">
@@ -28,21 +17,18 @@
         </ul>
     {% endif %}
 
-  
-        
-
-    <div class="form-group row">
+    <div class="form-group row pr-2">
         <label for="itemname" class="col-sm-4 col-form-label">Name: </label> 
         <input id="itemname" class="col-sm-8 form-control"  type="text" name="itemName" placeholder="Item Name" value=""></input>
     </div>
 
-    <div class="form-group row">
+    <div class="form-group row pr-2">
         <label for="description" class="col-sm-4 col-form-label">Description: </label> 
         {#<input id="description" class="col-sm-8 form-control" rows="5" type="textarea" name="description" placeholder="Item Description" value=""></input>
         #}
         <textarea id="description" class="col-sm-8 form-control" rows="5" type="textarea" name="description" placeholder="Item Description" value=""></textarea>
     </div>
-    <div class="form-group row">
+    <div class="form-group row pr-2">
         <label for="categoryCode" class="col-sm-4 col-form-label">Category Code: </label>
         <input type="text" name="categoryCode" class="col-sm-8 form-control" placeholder="Category Code" value="">
     </div>  
@@ -58,7 +44,7 @@
         <label for="" class="col-sm-4 col-form-label">Price:  </label>
         <input type="number" name="price" class="col-sm-4 form-control" placeholder="Price with 2 decimal places" step="any" value="">
     </div> 
-    <div class="form-group row">
+    <div class="form-group row pr-2">
         <label for="" class="col-sm-4 col-form-label">Photo File Path: </label>
          <input type="text" name="photofilepath" class="col-sm-8 form-control" placeholder="Photo File Path" value="">
     </div> 
