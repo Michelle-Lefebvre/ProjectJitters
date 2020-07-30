@@ -21,7 +21,11 @@ $app->get('/', function ($request, $response, $args) {
     // return $twig->render('index.html.twig');
 
     // return $twig->render('register.html.twig');
+<<<<<<< HEAD
     // return $twig->render('login.html.twig');
+=======
+     return $twig->render('login.html.twig');
+>>>>>>> 6e113cab294109aa8571068b8eea4f2c87ca2c50
     // return $twig->render('login_success.html.twig');
 
     return $twig->render('menu.html.twig');
