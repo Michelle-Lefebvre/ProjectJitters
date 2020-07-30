@@ -11,13 +11,50 @@
 {% endblock %}
 
 {% block content %}
+
+
+    <table border="0" width="40%">
+        <tr>
+            <?php
+            $count = 0;
+            $query = $itemList;
+            foreach ($query as $row) {
+                $count++;
+            ?>  <tr>
+                <td width="3%">
+                    <input type="text" name="items[]" value="<?php echo $row["itemName"]; ?>">
+                </td>
+                <td width="3%">
+                    <?php echo $row["price"]; ?>
+                </td>
+                <td width="3%">
+                    <?php echo $row["priceMed"]; ?>
+                </td>
+                <td width="3%">
+                    <?php echo $row["priceLrg"]; ?>
+                </td>
+                </tr>
+            <?php
+                if ($count == 3) { // three items in a row
+                    echo '</tr><tr>';
+                    $count = 0;
+                }
+            } ?>
+        </tr>
+    </table>
+
+
+    
 	<div
 		class="container-fluid menu">
+    
 		<div class="row">
 					<div class="col-sm-12 col-md-6">
-					<img class="errors" src="/images/menuCoffees.jpg" width="100%">
+					{# <img class="errors" src="/images/menuCoffees.jpg" width="100%"> #}
 					</div>
     <div class="col-sm-12 col-md-6">
+
+
 		<div class="col-sm-12 col-md-4">
 			<table class="table">
 				<caption>Coffee menu</caption>
@@ -38,10 +75,10 @@
 						<td>${{items.priceLrg}}</td>
 					</tr>
 					<tr>
-						<th scope="row">americano</th>
-						<td>$1.25</td>
-						<td>$1.55</td>
-						<td>$1.90</td>
+						<th scope="row">{{ itemName }}</th>
+						<td>${{items.price}}</td>
+						<td>${{items.priceMed}}</td>
+						<td>${{items.priceLrg}}</td>
 					</tr>
 					<tr>
 						<th scope="row">americano</th>

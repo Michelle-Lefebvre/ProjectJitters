@@ -45,21 +45,21 @@
 
 								{% if userSession %}
 									<li class="nav-item">
-										<a class="nav-link" href="#">Rewards</a>
+										<a class="nav-link" href="/rewards">Rewards</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="#">Cards</a>
+										<a class="nav-link" href="/cards">Cards</a>
 									</li>
 									<span>Welcome
 										<b>{{ userSession.firstName }}</b>
 
 										<li class="nav-item dropdown">
-											<a class="nav-link dropdown-toggle" href="#" id="navebarDropdown" data-toggle="dropdown">Admin</a>
+											<a class="nav-link dropdown-toggle" href="/adminmenu" id="navebarDropdown" data-toggle="dropdown">Admin</a>
 											<div class="dropdown-menu">
-												<a class="dropdown-item">Items</a>
-												<a class="dropdown-item">Orders</a>
-												<a class="dropdown-item">Cards</a>
-												<a class="dropdown-item">Users</a>
+												<a class="dropdown-item" href="/additem">Items</a>
+												<a class="dropdown-item" href="/orders">Orders</a>
+												<a class="dropdown-item" href="/cards">Cards</a>
+												<a class="dropdown-item" href="/users">Users</a>
 											</div>
 										</li>
 										<li class="nav-item">
@@ -79,16 +79,16 @@
 
 									{% else %}
 										<li class="nav-item">
-											<a class="nav-link" href="#">Rewards</a>
+											<a class="nav-link" href="/rewards">Rewards</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" href="#">Cards</a>
+											<a class="nav-link" href="/cards">Cards</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" href="#">Log in</a>
+											<a class="nav-link" href="/login">Log in</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" href="#">Register</a>
+											<a class="nav-link" href="/register">Register</a>
 										</li>
 										<li class="nav-item">
 											<a class="nav-link" href="/cart">

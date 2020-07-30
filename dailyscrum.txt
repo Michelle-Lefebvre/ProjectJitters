@@ -1,4 +1,32 @@
 ___________________________________________________________________
+2020/07/29 Michelle
+1. What I have done / not done since last Scrum?
+not done- User can see menu working on making page and menu responsive
+not done- User can register
+done-resolved bootstrap issues for header & footer nav
+done-db changes: added columns in items table (priceMed & priceLrg) and updated 30 rows
+
+2. What I plan to do from this scrum to next? (Monday at 8:30am)
+- User can see menu working on making page and menu responsive
+- User can register
+- add path to links in nav
+
+3. Where do I need assistance?
+- ok for now
+______________________
+2020/07/29 Mark
+1. What I have done / not done since last Scrum?
+- card would be the next area to develop
+done - sql from michelle to update items table
+done - /additem description needs to be a textarea formatted with bootstrap
+
+2. What I plan to do from this scrum to next? (Monday at 8:30am)
+- fix additem form to scroll within master.html.twig 
+- fix login error Method not allowed
+
+Where do I need assistance?
+- ok for now
+___________________________________________________________________
 2020/07/27 Michelle
 1. What I have done / not done since last Scrum?
 done-bootstrap added to error pages has effected home page must fix

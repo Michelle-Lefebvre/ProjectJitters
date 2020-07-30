@@ -1,44 +1,44 @@
 <?php
 require_once '_setup.php';
 
-$itemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items");  
+$itemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = 'CAFE';");
+
 if ($itemList) {
-    // echo "connected to db";
+    // echo "connected to db"."<br>";
     // print_r($itemList);
     // print_r("<br><br><br><br>");
 }
 
-$app->get('/menu', function ($request, $response, $args) {
-$categoryList = DB::query("SELECT categoryCode itemName, price, priceMed, priceLrg FROM items;");
-    if (!$categoryList) { 
-        $errorList[] = "Category Code does not exist";
-    } 
-    
-    if ($errorList) {
-        return $this->view->render($response, 'error_internal.html.twig',
-                ['errorList' => $errorList ]);
 
-    } else {
-
-    foreach ($categoryList as &$category) {
-        $itemName = $category['itemName'];
-        $price = $category['price'];
-        $priceMed = $category['priceMed'];
-        $priceLrg = $category['priceLrg'];
-        $categoryCode = $category['CAFE'];    
-    }
-   
-    return $this->view->render($response, 'menu.html.twig');
-    // return $this->view->render($response, 'menu.html.twig', ['CAFE' => $categoryCode, 'categoryList' => $categoryList]);
-    
-    while ($row = mysqli_fetch_assoc($categoryCode)) {
-        echo '<tr>';
-        echo '<td>'. $row['itemName'] .'</td>';
-        echo '<td>'. $row['price'] .'</td>';
-        echo '<td>'. $row['priceMed'] .'</td>';
-        echo '</tr>';
-    }
-
-    
-}
-});
+   /* <table border="0" width="40%">
+        <tr>
+            <?php
+            $count = 0;
+            $query = $itemList;
+            foreach ($query as $row) {
+                $count++;
+            ?>  
+            <tr>
+                <td width="3%">
+                    <input type="text" name="items[]" value="<?php echo $row["itemName"]; ?>">
+                </td>
+                <td width="3%">
+                    <?php echo $row["price"]; ?>
+                </td>
+                <td width="3%">
+                    <?php echo $row["priceMed"]; ?>
+                </td>
+                <td width="3%">
+                    <?php echo $row["priceLrg"]; ?>
+                </td>
+                </tr>
+            <?php
+                if ($count == 3) { // three items in a row
+                    echo '</tr><tr>';
+                    $count = 0;
+                }
+            } ?>
+        </tr>
+    </table>
+    */
+    ?>
