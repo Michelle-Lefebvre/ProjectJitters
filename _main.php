@@ -27,11 +27,13 @@ $app->get('/', function ($request, $response, $args) {
     // return $twig->render('menu.html.twig');
 
     // return $twig->render('/admin/adminmenu.html.twig');
-    // return $twig->render('/admin/additem.html.twig');
+    return $twig->render('/admin/additem.html.twig');
     // return $twig->render('/admin/additem_success.html.twig');
 
     // return $twig->render('error_internal.html.twig');
     // return $twig->render('error_access_denied.html.twig');
+    return $twig->render('error_not_found.html.twig');
+    
 });
 
 $app->get('/session', function ($request, $response, $args) {

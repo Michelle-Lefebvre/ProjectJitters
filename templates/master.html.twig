@@ -25,104 +25,124 @@
 			<div class="container">
 
 				{% block header %}
-					<nav class="navbar navbar-expand-md bg-warning fixed-top pl-3 pr-3 pt-2 text-white">
-						<a class="navbar-brand nav-item nav-link active" href="/index">
-							J<sub>
-								i</sub>
-							<sup>t</sup>
-							t<sub>
-								e</sub>
-							<sup>r</sup>
-							s
-						</a>
 
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-							<span class="navbar-toggler-icon"></span>
-						</button>
+					{% if userSession %}
 
-						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<ul class="navbar-nav ml-auto text-white">
+						<nav class="navbar navbar-light navbar-expand-md bg-warning fixed-top pl-3 pr-3 pt-2 text-white">
+							<a class="navbar-brand nav-item nav-link active" href="/index">
+								J<sub>
+									i</sub>
+								<sup>t</sup>
+								t<sub>
+									e</sub>
+								<sup>r</sup>
+								s
+							</a>
 
-								{% if userSession %}
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+
+							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+								<ul class="navbar-nav ml-auto text-white">
 									<li class="nav-item">
 										<a class="nav-link" href="/rewards">Rewards</a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link" href="/cards">Cards</a>
 									</li>
-									<span>Welcome
-										<b>{{ userSession.firstName }}</b>
+									<span>Welcome<b>{{ userSession.firstName }}</b>
+									</span>
 
-										<li class="nav-item dropdown">
-											<a class="nav-link dropdown-toggle" href="/adminmenu" id="navebarDropdown" data-toggle="dropdown">Admin</a>
-											<div class="dropdown-menu">
-												<a class="dropdown-item" href="/additem">Items</a>
-												<a class="dropdown-item" href="/orders">Orders</a>
-												<a class="dropdown-item" href="/cards">Cards</a>
-												<a class="dropdown-item" href="/users">Users</a>
-											</div>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="/profile">Profile</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="/logout">Logout</a>
-										</li>
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="/adminmenu" id="navebarDropdown" data-toggle="dropdown">Admin</a>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="/additem">Items</a>
+											<a class="dropdown-item" href="/orders">Orders</a>
+											<a class="dropdown-item" href="/cards">Cards</a>
+											<a class="dropdown-item" href="/users">Users</a>
+										</div>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="/profile">Profile</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="/logout">Logout</a>
+									</li>
 
-										<li class="nav-item">
-											<a class="nav-link" href="/cart">
-												<svg width="1.5em" height="1.5em" viewbox="0 0 16 16" class="bi bi-cart justify-content-end" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-													<path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-												</svg>
-											</a>
-										</li>
-
-									{% else %}
-										<li class="nav-item">
-											<a class="nav-link" href="/rewards">Rewards</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="/cards">Cards</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="/login">Log in</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="/register">Register</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="/cart">
-												<svg width="1.5em" height="1.5em" viewbox="0 0 16 16" class="bi bi-cart justify-content-end" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-													<path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-												</svg>
-											</a>
-										</li>
-									{% endif %}
+									<li class="nav-item">
+										<a class="nav-link" href="/cart">
+											<svg width="1.5em" height="1.5em" viewbox="0 0 16 16" class="bi bi-cart justify-content-end" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+											</svg>
+										</a>
+									</li>
 								</ul>
 							</div>
 						</nav>
-					{% endblock header %}
 
+					{% else %}
 
-					{% block content %}{% endblock %}
+						<nav class="navbar navbar-light navbar-expand-md bg-warning fixed-top pl-3 pr-3 pt-2 text-white">
+							<a class="navbar-brand nav-item nav-link active" href="/index">
+								J<sub>
+									i</sub>
+								<sup>t</sup>
+								t<sub>
+									e</sub>
+								<sup>r</sup>
+								s
+							</a>
 
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+								<span class="navbar-toggler-icon"></span>
+							</button>
 
-					{% block footer %}
-						<nav class="navbar navbar-expand-md navbar-dark bg-warning fixed-bottom p-2 ">
-							<span class="text-white mx-auto">
-								&nbsp;&nbsp;&nbsp; &copy; Copyright 2020 by
-								<a href="https://www.linkedin.com/in/mark-b-5533287/">
-									<span class="underline">Mark Boswick</span>
-								</a>
-								and
-								<a href="https://www.linkedin.com/in/michellelefebvre1/">
-									<span class="underline">Michelle Lefebvre</span>
-								</a>
-							</span>
-
+							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+								<ul class="navbar-nav ml-auto text-white">
+									<li class="nav-item">
+										<a class="nav-link" href="/rewards">Rewards</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="/cards">Cards</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="/login">Log in</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="/register">Register</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="/cart">
+											<svg width="1.5em" height="1.5em" viewbox="0 0 16 16" class="bi bi-cart justify-content-end" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+											</svg>
+										</a>
+									</li>
+								</ul>
+							</div>
 						</nav>
-					{% endblock footer %}
-				</div>
-			</body>
+					{% endif %}
+				{% endblock header %}
+
+
+				{% block content %}{% endblock %}
+
+
+				{% block footer %}
+					<nav class="navbar navbar-expand-md navbar-light bg-warning fixed-bottom p-2 ">
+						<span class=" mx-auto">
+							&nbsp;&nbsp;&nbsp; &copy; Copyright 2020 by
+							<a href="https://www.linkedin.com/in/mark-b-5533287/">
+								<span class="underline">Mark Boswick</span>
+							</a>
+							and
+							<a href="https://www.linkedin.com/in/michellelefebvre1/">
+								<span class="underline">Michelle Lefebvre</span>
+							</a>
+						</span>
+					</nav>
+				{% endblock footer %}
+			</div>
 		</body>
 	</html>
