@@ -45,6 +45,7 @@ $sandItemList = DB::query("SELECT categoryCode, itemName, price, priceMed, price
 // });
 
 # menu display
+/*
 function showCoffees()
 {
 ?>
@@ -84,5 +85,5 @@ function showCoffees()
 <?php
 
 }
-showCoffees();
+*/
 ?>
