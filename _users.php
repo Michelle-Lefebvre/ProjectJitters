@@ -8,7 +8,7 @@ $app->get('/register', function ($request, $response, $args) {
 
 // STATE 2&3: receiving submission  
 $app->post('/register', function ($request, $response, $args) {
-    $name = $request->getParam('name');
+    $name = $request->getParam('firstName'.'lastName');
     $nickname = $request->getParam('nickname');
   
     $email = $request->getParam('email');
@@ -16,10 +16,11 @@ $app->post('/register', function ($request, $response, $args) {
     $pass2 = $request->getParam('pass2');
     //
     $errorList = array();
-    if (preg_match('/^[a-zA-Z0-9\ \\._\'"-]{4,50}$/', $name) != 1) { // no match
-        array_push($errorList, "Name must be 4-50 characters long and consist of letters, digits, "
+    if (preg_match('/^[a-zA-Z0-9\ \\._\'"-]{4,50}$/', $name, $nickname) != 1) { // no match
+        array_push($errorList, "Name and nickname must be 4-50 characters long and consist of letters, digits, "
             . "spaces, dots, underscores, apostrophies, or minus sign.");
         $name = "";
+        $nickname = "";
     }
     if (filter_var($email, FILTER_VALIDATE_EMAIL) == FALSE) {
         array_push($errorList, "Email does not look valid");
@@ -46,9 +47,9 @@ $app->post('/register', function ($request, $response, $args) {
     //
     if ($errorList) {
         return $this->view->render($response, 'register.html.twig',
-                [ 'errorList' => $errorList, 'v' => ['name' => $name, 'email' => $email ]  ]);
+                [ 'errorList' => $errorList, 'v' => ['name' => $name, 'nickname' => $nickname, 'email' => $email ]  ]);
     } else {
-        DB::insert('users', ['name' => $name, 'email' => $email, 'password' => $pass1]);
+        DB::insert('users', ['name' => $name, 'nickname' => $nickname, 'email' => $email, 'password' => $pass1]);
         return $this->view->render($response, 'register_success.html.twig');
     }
 });

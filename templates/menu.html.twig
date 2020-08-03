@@ -35,16 +35,16 @@
 							{% for item in menu %}
 
 								<td>
-									<a href="/_menu/{{ items.itemName }}">{{ items.itemName }}</a>
+									<a href="/menu/{{ item.categoryCode }}">{{ item.itemName }}</a>
 								</td>
 								<td>
-									<a href="/_menu/{{ item.price }}">{{ item.price }}</a>
+									<a href="/menu/{{ item.categoryCode }}">{{ item.price }}</a>
 								</td>
 								<td>
-									<a href="/_menu/{{ item.priceMed }}">{{ item.priceMed }}</a>
+									<a href="/menu/{{ item.categoryCode }}">{{ item.priceMed }}</a>
 								</td>
 								<td>
-									<a href="/_menu/{{ item.priceLrg }}">{{ item.priceLrg }}</a>
+									<a href="/menu/{{ item.categoryCode }}">{{ item.priceLrg }}</a>
 								</td>
 							</tr>
 						{% endfor %}
