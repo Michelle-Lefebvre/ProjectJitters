@@ -1,39 +1,23 @@
 <?php
 require_once '_setup.php';
 
-// $app->get('/menu[/{catCode}]', function($catCode) {
-//     $catCode = 'CAFE';
-//     $itemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = %s", $catCode);
-    
-// $menu = [
-//     $itemName = 'itemName',
-//     $price = 'price',
-//     $priceMed = 'priceMed',
-//     $priceLrg = 'priceLrg'
-// ];
-// return $this->view->render($response, 'menu.html.twig', $menu);
-
-// });
-// $catCode = 'CAFE';
-// $itemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = %s", $catCode);
-//test if db table was reached
-// if ($itemList) {
-//     echo "connected to db" . "<br>";
-//     print_r($itemList);
-    // print_r("<br><br><br><br>");
-// } 
-
 $app->get('/menu', function ($request, $response, $args) {
-    $catCode = 'categoryCode';
-    $itemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = %s", $catCode);
-    $catCode = 'CAFE';
-$menu = [
-    $itemName = 'itemName',
-    $price = 'price',
-    $priceMed = 'priceMed',
-    $priceLrg = 'priceLrg'
-];
-return $this->view->render($response, 'menu.html.twig', $menu);
+    //$article = DB::queryFirstRow("SELECT a.id, a.authorId, a.creationTS, a.title, a.body, u.name "
+    //. "FROM articles as a, users as u WHERE a.authorId = u.id AND a.id = %d", $args['id']);
+    
+    $itemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = 'CAFE';");
+  
+    foreach ($itemList as &$item) {
+        //formatting for each field done here
+        // no formatting yet.....
 
-})
+    }
+
+    return $this->view->render($response, 'menu_mb.html.twig', ['list' => $itemList]);
+
+    });
+
+    
+
 ?>
+
