@@ -18,17 +18,13 @@ $app->get('/', function ($request, $response, $args) {
     // return $response->write('this is main'); //for testing
     $loader = new FilesystemLoader(__DIR__ . '/templates');
     $twig = new Environment($loader);
-   // return $twig->render('index.html.twig');
+   return $twig->render('index.html.twig');
 
     // return $twig->render('register.html.twig');
     // return $twig->render('login.html.twig');
     // return $twig->render('login_success.html.twig');
 
-<<<<<<< HEAD
     return $twig->render('menu.html.twig');
-=======
-     return $twig->render('menu.html.twig');
->>>>>>> a664176116940034ce6dd2e8ebeb24fcc679f2f4
 
     // return $twig->render('/admin/adminmenu.html.twig');
     // return $twig->render('/admin/additem.html.twig');
@@ -36,7 +32,7 @@ $app->get('/', function ($request, $response, $args) {
 
     // return $twig->render('error_internal.html.twig');
     // return $twig->render('error_access_denied.html.twig');
-    return $twig->render('error_not_found.html.twig');
+    // return $twig->render('error_not_found.html.twig');
     
 });
 

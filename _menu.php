@@ -1,22 +1,29 @@
 <?php
 require_once '_setup.php';
 
-$cafeItemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = 'CAFE';");
 
-$teaItemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = 'TEAS';");
+$app->get('/menu(/{catCode})', function() {
+    $catCode = 'CAFE';
+    $itemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = %s", $catCode);
+    
+$menu = [
+    $itemName = 'itemName',
+    $price = 'price',
+    $priceMed = 'priceMed',
+    $priceLrg = 'priceLrg'
+];
+return $this->view->render($itemList, 'menu.html.twig', $menu);
 
-$bakeItemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = 'BAKE';");
-
-$sandItemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = 'SAND';");
+});
 
 //test if db table was reached
-if ($cafeItemList) {
+if ($itemList) {
     echo "connected to db" . "<br>";
     // print_r($cafeItemList);
     // print_r("<br><br><br><br>");
-}
+} 
 
-$app->post('/menu', function ($request, $response, $args) {
+$app->get('/menu', function ($request, $response, $args) {
     $cafeItemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = 'CAFE';");
     $query = $cafeItemList;
 $menu = [
