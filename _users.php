@@ -8,7 +8,7 @@ $app->get('/register', function ($request, $response, $args) {
 
 // STATE 2&3: receiving submission  
 $app->post('/register', function ($request, $response, $args) {
-    $name = $request->getParam('firstName'.'lastName');
+    $name = $request->getParam('name');
     $nickname = $request->getParam('nickname');
   
     $email = $request->getParam('email');

@@ -31,11 +31,17 @@ alert("Ajax error occured");
 		</ul>
 	{% endif %}
 	<div class="container-fluid">
-		<form class="form-signin center mb-5" method="post">
-			<h1 class="h3 mb-3 font-weight-normal">Jitters Registration Form</h1>
-			{# <img class="mb-4" src="/images/icons8-cup-50.png" alt="" width="52" height="52"> #}
-			<span class="h5 mb-3 font-weight-normal">
-				<h4 class="h4 mb-3 font-weight-normal">
+		<form class="form center mb-5" method="post">
+			<h1 class="h3 mb-3 font-weight-bold">J<sub>
+									i</sub>
+								<sup>t</sup>
+								t<sub>
+									e</sub>
+								<sup>r</sup>
+								s </h1>
+								<h2>Registration Form</h2>
+			<span class="h5 font-weight-normal">
+				<h4 class="h4 mt-3 mb-3 font-weight-normal">
 					Already a member?
 					<a href="/login">
 						Log In</a>
@@ -43,21 +49,18 @@ alert("Ajax error occured");
 			</span>
 
 
-			<input type="text" name="firstName" value="{{ v.firstName }}" id="inputFirstname" class="form-control" placeholder="First name" required=" " autofocus="">
-
-			<input type="text" name="lastName" value="{{ v.lastName }}" id="inputLastname" class="form-control" placeholder="Last name" required=" " autofocus="">
+			<input type="text" name="name" value="{{ v.name }}" id="inputName" class="form-control" placeholder="Name" required=" " autofocus="">
 
 			<input type="text" name="nickname" value="{{ v.nickname }}" id="inputNickname" class="form-control" placeholder="Nickname (appears on orders)" autofocus="">
 
 			<input type="email" name="email" value="{{ v.email }}" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
 			<span class="errorMessage" id="emailTaken"></span>
-			{# <label for="inputPassword" class="sr-only">Password</label> #}
 
 			<input type="password" name="pass1" id="inputPassword" class="form-control" placeholder="Password" required="">
 
-			<inputtype="password" name="pass2" id="inputPassword2" class="form-control" placeholder="Repeat Password" required="">
+			<input type="password" name="pass2" id="inputPassword2" class="form-control" placeholder="Repeat Password" required="">
 
-			<button class="btn btn-lg btn-primary btn-block m-0" type="submit" value="Register">Register</button>
+			<button class="btn btn-lg btn-secondary btn-block m-0" type="submit" value="Register">Register</button>
 
 			
 			</form>

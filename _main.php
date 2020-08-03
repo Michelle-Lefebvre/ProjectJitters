@@ -24,7 +24,7 @@ $app->get('/', function ($request, $response, $args) {
     // return $twig->render('login.html.twig');
     // return $twig->render('login_success.html.twig');
 
-    return $twig->render('menu.html.twig');
+    // return $twig->render('menu.html.twig');
 
     // return $twig->render('/admin/adminmenu.html.twig');
     // return $twig->render('/admin/additem.html.twig');
