@@ -17,142 +17,38 @@
 	<div class="container-fluid menu">
 
 		<div class="row">
-			<div class="col-sm-12 col-md-6">
-				<img class="errors" src="/images/menuCoffees.jpg" width="100%">
+			<div class="col-sm-12 col-md-6"><img src="/images/menuCoffees.jpg" width="100%">
 			</div>
 			<div class="col-sm-12 col-md-6">
-			<table width="50%">
-        <caption>Tea menu</caption>
-        <thead>
-            <tr>
-                <th scope="col"></th>
-                <th scope="col">sm</th>
-                <th scope="col">med</th>
-                <th scope="col">lrg</th>
-            </tr>
-        </thead>
-        <tr>
-			{% if showCoffees %}
-
-				{# <div class="col-sm-12 col-md-4">
-					<table class="table">
+				<form>
+					<table width="45%">
 						<caption>Coffee menu</caption>
 						<thead>
 							<tr>
 								<th scope="col"></th>
-								<th scope="col">small</th>
-								<th scope="col">medium</th>
-								<th scope="col">large</th>
+								<th scope="col">sm</th>
+								<th scope="col">med</th>
+								<th scope="col">lrg</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<th scope="row" name="itemName"></th>
-								<td scope="row" name="price">{{showCoffees.price}}</td>
-								<td scope="row" name="priceMed">{{priceMed}}</td>
-								<td scope="row" sname="priceLrg">{{priceLrg}}</td>
+						<tr>
+							{% for item in menu %}
+
+								<td>
+									<a href="/_menu/{{ items.itemName }}">{{ items.itemName }}</a>
+								</td>
+								<td>
+									<a href="/_menu/{{ item.price }}">{{ item.price }}</a>
+								</td>
+								<td>
+									<a href="/_menu/{{ item.priceMed }}">{{ item.priceMed }}</a>
+								</td>
+								<td>
+									<a href="/_menu/{{ item.priceLrg }}">{{ item.priceLrg }}</a>
+								</td>
 							</tr>
-							<tr>
-								<th scope="row">{{ itemName }}</th>
-								<td>${{items.price}}</td>
-								<td>${{items.priceMed}}</td>
-								<td>${{items.priceLrg}}</td>
-							</tr>
-							<tr>
-								<th scope="row">americano</th>
-								<td>$1.25</td>
-								<td>$1.55</td>
-								<td>$1.90</td>
-							</tr>
-							<tr>
-								<th scope="row">americano</th>
-								<td>$1.25</td>
-								<td>$1.55</td>
-								<td>$1.90</td>
-							</tr>
-							<tr>
-								<th scope="row">americano</th>
-								<td>$1.25</td>
-								<td>$1.55</td>
-								<td>$1.90</td>
-							</tr>
-							<tr>
-								<th scope="row">americano</th>
-								<td>$1.25</td>
-								<td>$1.55</td>
-								<td>$1.90</td>
-							</tr>
-							<tr>
-								<th scope="row">americano</th>
-								<td>$1.25</td>
-								<td>$1.55</td>
-								<td>$1.90</td>
-							</tr>
-							<tr>
-								<th scope="row">americano</th>
-								<td>$1.25</td>
-								<td>$1.55</td>
-								<td>$1.90</td>
-							</tr>
-							<tr>
-								<th scope="row">americano</th>
-								<td>$1.25</td>
-								<td>$1.55</td>
-								<td>$1.90</td>
-							</tr>
-							<tr>
-								<th scope="row">americano</th>
-								<td>$1.25</td>
-								<td>$1.55</td>
-								<td>$1.90</td>
-							</tr>
-						</tbody>
+						{% endfor %}
 					</table>
-				</div> #}
+				</form>
 
-			
-			<th scope="row"> {{ itemName }}</th>
-            <td scope="row"> {{ price }} </td>
-            <td scope="row"> {{ priceMed }} </td>
-			<td scope="row"> {{ priceLrg }} </td>
-			{% endif %}
-        </tr>
-    </tr>
-    </table>
-
-{% macro showCoffees() %}
-       <table width="50%">
-        <caption>Tea menu</caption>
-        <thead>
-            <tr>
-                <th scope="col"></th>
-                <th scope="col">sm</th>
-                <th scope="col">med</th>
-                <th scope="col">lrg</th>
-            </tr>
-        </thead>
-        <tr>
-            <?php
-            $count = 0;
-            $query = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = 'CAFE';");
-            foreach ($query as $row) {
-                $count++;
-
-            ?>
-
-                <th scope="row"> {{ itemName }}</th>
-                <td scope="row"> {{ price }} </td>
-                <td scope="row"> {{ priceMed }} </td>
-                <td scope="row"> {{ priceLrg }} </td>
-        </tr>
-    <?php
-                if ($count == 4) { // three items in a row
-                    echo '</tr><tr>';
-                    $count = 0;
-                }
-            }
-    ?>
-    </tr>
-    </table>
-{% endmacro showCoffees %}
-	{% endblock %}
+			{% endblock %}

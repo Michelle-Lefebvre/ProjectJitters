@@ -1,3 +1,28 @@
+2020/08/03 Michelle
+1. What I have done / not done since last Scrum?
+not done - User can see menu (working on making page and menu responsive)
+not done - User can register
+done - add path to links
+done - nabber changes  & footer changes (lots of revisions) responsive sizes
+done - change itemNames in database to remove drink size in name
+
+2. What I plan to do from this scrum to next? (Tues at 8:30am)
+- User can register
+
+3. Where do I need assistance?
+help with inserting individual data into twig file
+___________________________________________________________________
+2020/08/03  Mark
+1. What I have done / not done since last Scrum?
+done- fix additem form to scroll within master.html.twig 
+not done- fix login error Method not allowed
+
+2. What I plan to do from this scrum to next? (Tues at 8:30am)
+- fix login error Method not allowed
+- help with inserting individual data into twig file table
+
+Where do I need assistance?
+- none
 ___________________________________________________________________
 2020/07/29 Michelle
 1. What I have done / not done since last Scrum?
