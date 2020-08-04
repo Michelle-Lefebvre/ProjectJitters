@@ -1,23 +1,23 @@
 <?php
 require_once '_setup.php';
 
-$app->get('/menu', function ($request, $response, $args) {
-    //$article = DB::queryFirstRow("SELECT a.id, a.authorId, a.creationTS, a.title, a.body, u.name "
-    //. "FROM articles as a, users as u WHERE a.authorId = u.id AND a.id = %d", $args['id']);
+// $app->get('/menu', function ($request, $response, $args) {
+//     $itemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = 'CAFE';");
+
+//     return $this->view->render($response, 'menu.html.twig', ['list' => $itemList]);
+
+//     });
+        $app->get('/menu[/{catCode}]', function($request, $response, $args = '') {
+            $catCode= $args;
+            $itemListCafe = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = %s;", $catCode);
+        
+        $itemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = 's%';",$catCode);
+      
+        
+        return $this->view->render($response, 'menu.html.twig', ['CAFE' =>$catCode, 'list' => $itemListCafe]);
+        return $this->view->render($response, 'menu.html.twig', ['TEAS' =>$catCode, 'teas' => $itemListCafe]);
+        return $this->view->render($response, 'menu.html.twig', ['BAKE' =>$catCode, 'food' => $itemListCafe]);
+        return $this->view->render($response, 'menu.html.twig', ['SAND' =>$catCode, 'sand' => $itemList]);
     
-    $itemList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg FROM items WHERE categoryCode = 'CAFE';");
-  
-    foreach ($itemList as &$item) {
-        //formatting for each field done here
-        // no formatting yet.....
-
-    }
-
-    return $this->view->render($response, 'menu_mb.html.twig', ['list' => $itemList]);
-
-    });
-
-    
-
+        });
 ?>
-

@@ -30,8 +30,8 @@ alert("Ajax error occured");
 			{% endfor %}
 		</ul>
 	{% endif %}
-	<div class="container-fluid">
-		<form class="form center mb-5" method="post">
+	<div class="container-fluid m-0">
+		<form class="form center" method="post">
 			<h1 class="h3 mb-3 font-weight-bold">J<sub>
 									i</sub>
 								<sup>t</sup>
@@ -54,6 +54,8 @@ alert("Ajax error occured");
 			<input type="text" name="lastName" value="{{ v.lastName }}" id="inputLastname" class="form-control" placeholder="Last name" required=" " autofocus="">
 
 			<input type="text" name="nickname" value="{{ v.nickname }}" id="inputNickname" class="form-control" placeholder="Nickname (appears on orders)" autofocus="">
+			
+			<input type="text" name="mobilePhone" value="{{ v.mobilePhone }}" id="inputMobilePhone" class="form-control" placeholder="123-456-7890" autofocus="">
 
 			<input type="email" name="email" value="{{ v.email }}" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
 			<span class="errorMessage" id="emailTaken"></span>
@@ -62,9 +64,8 @@ alert("Ajax error occured");
 
 			<input type="password" name="pass2" id="inputPassword2" class="form-control" placeholder="Repeat Password" required="">
 
-			<button class="btn btn-lg btn-secondary btn-block m-0" type="submit" value="Register">Register</button>
+			<input type="submit" class="btn btn-lg btn-secondary btn-block m-0" value="Register">
 
-			
 			</form>
 		</div>
 	{% endblock %}

@@ -3,52 +3,164 @@
 {% block title %}Menu
 {% endblock %}
 {% block head %}
-	{{ parent() }}
+	{# {{ parent() }}
 	<style type="text/css">
 		.important {
 			color: #336699;
 		}
-	</style>
+	</style> #}
 {% endblock %}
 
 {% block content %}
 
 
-	<div class="container-fluid menu">
+	<div class="container-fluid bg-light pl-3 pr-3">
 
-		<div class="row">
-			<div class="col-sm-12 col-md-6"><img src="/images/menuCoffees.jpg" width="100%">
+		<div class="row h-100">
+			<div class="col-sm-12 col-md-6 p-0 h-100">
+				<img src="/images/menuCoffees.jpg" width="100%" height="400">
 			</div>
-			<div class="col-sm-12 col-md-6">
-				<form>
-					<table width="45%">
-						<caption>Coffee menu</caption>
-						<thead>
-							<tr>
-								<th scope="col"></th>
-								<th scope="col">sm</th>
-								<th scope="col">med</th>
-								<th scope="col">lrg</th>
-							</tr>
-						</thead>
+			<div class="col-sm-12 col-md-6 p-0">
+				<table class=" w-100 h-100">
+					<caption>Coffees menu</caption>
+					<thead>
 						<tr>
-							{% for item in menu %}
+							<th scope="col"></th>
+							<th scope="col">sm</th>
+							<th scope="col">med</th>
+							<th scope="col">lrg</th>
+						</tr>
+					</thead>
+					<tr>
+						{% for a in list %}
+							<td class="text-right pr-4">
+								{{a.itemName}}
+							</td>
+							<td>
+								<a href="#">{{a.price}}</a>
+							</td>
+							<td>
+								<a href="#">{{a.priceMed}}</a>
+							</td>
+							<td class="pr-4">
+								<a href="#">{{a.priceLrg}}</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
 
-								<td>
-									<a href="/menu/{{ item.categoryCode }}">{{ item.itemName }}</a>
-								</td>
-								<td>
-									<a href="/menu/{{ item.categoryCode }}">{{ item.price }}</a>
-								</td>
-								<td>
-									<a href="/menu/{{ item.categoryCode }}">{{ item.priceMed }}</a>
-								</td>
-								<td>
-									<a href="/menu/{{ item.categoryCode }}">{{ item.priceLrg }}</a>
-								</td>
-							</tr>
-						{% endfor %}
-					</table>
-				</form>
 
-			{% endblock %}
+		<div class="row h-100">
+			<div class="col-sm-12 col-md-6 p-0">
+				<table class=" w-100 h-100">
+					<caption>Teas menu</caption>
+					<thead>
+						<tr>
+							<th scope="col"></th>
+							<th scope="col">sm</th>
+							<th scope="col">med</th>
+							<th scope="col">lrg</th>
+						</tr>
+					</thead>
+					<tr>
+						{% for t in teas %}
+							<td class="text-right pr-4">
+								{{t.itemName}}
+							</td>
+							<td>
+								<a href="#">{{t.price}}</a>
+							</td>
+							<td>
+								<a href="#">{{t.priceMed}}</a>
+							</td>
+							<td class="pr-4">
+								<a href="#">{{t.priceLrg}}</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-6 p-0 h-100">
+				<img src="/images/menuTeas.jpg" width="100%" height="400">
+			</div>
+		</div>
+
+
+
+				<div class="row h-100">
+			<div class="col-sm-12 col-md-6 p-0 h-100">
+				<img src="/images/menuPastries.jpg" width="100%" height="400">
+			</div>
+			<div class="col-sm-12 col-md-6 p-0">
+				<table class=" w-100 h-100">
+					<caption>Pastries &amp; Sandwiches</caption>
+					<thead>
+						<tr>
+							<th scope="col"></th>
+							<th scope="col">sm</th>
+							<th scope="col">med</th>
+							<th scope="col">lrg</th>
+						</tr>
+					</thead>
+					<tr>
+						{% for p in bake %}
+							<td class="text-right pr-4">
+								{{p.itemName}}
+							</td>
+							<td>
+								<a href="#"></a>
+							</td>
+							<td>
+								<a href="#"></a>
+							</td>
+							<td class="pr-4">
+								<a href="#">{{p.price}}</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+
+
+		<div class="row h-100">
+			<div class="col-sm-12 col-md-6 p-0">
+				<table class=" w-100 h-100">
+					<caption>Sandwiches</caption>
+					<thead>
+						<tr>
+							<th scope="col"></th>
+							<th scope="col">sm</th>
+							<th scope="col">med</th>
+							<th scope="col">lrg</th>
+						</tr>
+					</thead>
+					<tr>
+						{% for s in sand %}
+							<td class="text-right pr-4">
+								{{s.itemName}}
+							</td>
+							<td>
+								<a href="#"></a>
+							</td>
+							<td>
+								<a href="#"></a>
+							</td>
+							<td class="pr-4">
+								<a href="#">{{s.price}}</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</div>
+			<div class="col-sm-12 col-md-6 p-0 h-100">
+				<img src="/images/menuCoffeeBean.jpg" width="100%" height="400">
+			</div>
+
+		</div>
+
+
+	</div>
+{% endblock %}
