@@ -65,6 +65,12 @@ form {
     box-shadow: 10px 10px 5px 0px darkgoldenrod;
 }
 
+@media (min-width: 576px) { 
+  form {
+    width: 100%;
+  }
+}
+
 .errorMessage {
     background-color: red;
     color: white;

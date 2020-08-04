@@ -14,4 +14,3 @@ $app->get('/menu', function ($request, $response, $args) {
 
     });
 ?>
-
