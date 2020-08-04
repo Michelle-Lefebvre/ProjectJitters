@@ -28,41 +28,4 @@
 
  </div>
 
-{#
-		<div class="row">
-			<div class="col-sm-12 col-md-6"><img src="/images/menuCoffees.jpg" width="100%">
-			</div>
-			<div class="col-sm-12 col-md-6">
-				<form>
-					<table width="45%">
-						<caption>Coffee menu</caption>
-						<thead>
-							<tr>
-								<th scope="col"></th>
-								<th scope="col">sm</th>
-								<th scope="col">med</th>
-								<th scope="col">lrg</th>
-							</tr>
-						</thead>
-						<tr>
-							{% for item in menu %}
-
-								<td>
-									<a href="/_menu/{{ items.itemName }}">{{ items.itemName }}</a>
-								</td>
-								<td>
-									<a href="/_menu/{{ item.price }}">{{ item.price }}</a>
-								</td>
-								<td>
-									<a href="/_menu/{{ item.priceMed }}">{{ item.priceMed }}</a>
-								</td>
-								<td>
-									<a href="/_menu/{{ item.priceLrg }}">{{ item.priceLrg }}</a>
-								</td>
-							</tr>
-						{% endfor %}
-					</table>
-				</form>
-#}
-
 			{% endblock %}

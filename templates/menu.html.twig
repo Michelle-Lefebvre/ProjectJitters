@@ -3,12 +3,12 @@
 {% block title %}Menu
 {% endblock %}
 {% block head %}
-	{{ parent() }}
+	{# {{ parent() }}
 	<style type="text/css">
 		.important {
 			color: #336699;
 		}
-	</style>
+	</style> #}
 {% endblock %}
 
 {% block content %}
@@ -65,7 +65,7 @@
 						</tr>
 					</thead>
 					<tr>
-						{% for t in list %}
+						{% for t in teas %}
 							<td class="text-right pr-4">
 								{{t.itemName}}
 							</td>
@@ -95,7 +95,7 @@
 			</div>
 			<div class="col-sm-12 col-md-6 p-0">
 				<table class=" w-100 h-100">
-					<caption>Coffees menu</caption>
+					<caption>Pastries &amp; Sandwiches</caption>
 					<thead>
 						<tr>
 							<th scope="col"></th>
@@ -105,18 +105,18 @@
 						</tr>
 					</thead>
 					<tr>
-						{% for a in list %}
+						{% for p in bake %}
 							<td class="text-right pr-4">
-								{{a.itemName}}
+								{{p.itemName}}
 							</td>
 							<td>
-								<a href="#">{{a.price}}</a>
+								<a href="#"></a>
 							</td>
 							<td>
-								<a href="#">{{a.priceMed}}</a>
+								<a href="#"></a>
 							</td>
 							<td class="pr-4">
-								<a href="#">{{a.priceLrg}}</a>
+								<a href="#">{{p.price}}</a>
 							</td>
 						</tr>
 					{% endfor %}
@@ -128,7 +128,7 @@
 		<div class="row h-100">
 			<div class="col-sm-12 col-md-6 p-0">
 				<table class=" w-100 h-100">
-					<caption>Teas menu</caption>
+					<caption>Sandwiches</caption>
 					<thead>
 						<tr>
 							<th scope="col"></th>
@@ -138,18 +138,18 @@
 						</tr>
 					</thead>
 					<tr>
-						{% for t in list %}
+						{% for s in sand %}
 							<td class="text-right pr-4">
-								{{t.itemName}}
+								{{s.itemName}}
 							</td>
 							<td>
-								<a href="#">{{t.price}}</a>
+								<a href="#"></a>
 							</td>
 							<td>
-								<a href="#">{{t.priceMed}}</a>
+								<a href="#"></a>
 							</td>
 							<td class="pr-4">
-								<a href="#">{{t.priceLrg}}</a>
+								<a href="#">{{s.price}}</a>
 							</td>
 						</tr>
 					{% endfor %}
