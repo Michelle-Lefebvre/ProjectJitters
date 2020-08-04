@@ -12,7 +12,6 @@ $app->post('/register', function ($request, $response, $args) {
     $firstName = $request->getParam('firstName');
     $lastName = $request->getParam('lastName');
     $nickname = $request->getParam('nickname');
-  
     $email = $request->getParam('email');
     $pass1 = $request->getParam('pass1');
     $pass2 = $request->getParam('pass2');

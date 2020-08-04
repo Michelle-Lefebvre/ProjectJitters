@@ -1,3 +1,32 @@
+___________________________________________________________________
+2020/08/04 Michelle
+1. What I have done / not done since last Scrum?
+- User can see menu (completed css & tables) 
+- User can register
+
+2. What I plan to do from this scrum to next? (Wed at 9am)
+displaying separate data (categaoryCode) per table
+- User can see menu (completed css & tables) 
+- User can register
+
+3. Where do I need assistance?
+no
+______________________
+2020/08/04  Mark
+1. What I have done / not done since last Scrum?
+Done - help Michelle with /menu inserting individual data into menu twig file table
+not done- fix links to index in navbar
+Done- finish design of rewards 
+not done - User can see card -card work out how rewards work(logic)
+not done- fix login error Method not allowed
+
+2. What I plan to do from this scrum to next? (Wed at 9am)
+- fix login error Method not allowed
+- fix links to index in navbar
+
+Where do I need assistance?
+noteam viewer teamte
+___________________________________________________________________
 2020/08/03 Michelle
 1. What I have done / not done since last Scrum?
 not done - User can see menu (working on making page and menu responsive)
@@ -11,7 +40,7 @@ done - change itemNames in database to remove drink size in name
 
 3. Where do I need assistance?
 help with inserting individual data into twig file
-___________________________________________________________________
+______________________
 2020/08/03  Mark
 1. What I have done / not done since last Scrum?
 done- fix additem form to scroll within master.html.twig 
