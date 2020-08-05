@@ -1,4 +1,34 @@
 ___________________________________________________________________
+2020/08/05 Michelle
+1. What I have done / not done since last Scrum?
+not done - User can see menu displaying separate data by (categaoryCode) per table
+Done - User can register, needed to create register_sucess.html.twig
+Done -no team viewer use ms teams 
+Done - fix links to index in navbar
+
+2. What I plan to do from this scrum to next? (Next workday at 9am)
+- User can see menu displaying separate data by (categaoryCode) per table
+- admin users
+-user can login
+-user can register
+
+
+3. Where do I need assistance?
+no
+______________________
+2020/08/05  Mark
+1. What I have done / not done since last Scrum?
+Done- finish design of rewards 
+not done - User can see rewards card 
+not done- fix login error Method not allowed
+
+2. What I plan to do from this scrum to next? (Next workday at 9am)
+-admin add item delete item list items
+-test User can register
+
+Where do I need assistance?
+no
+___________________________________________________________________
 2020/08/04 Michelle
 1. What I have done / not done since last Scrum?
 - User can see menu (completed css & tables) 
@@ -25,7 +55,7 @@ not done- fix login error Method not allowed
 - fix links to index in navbar
 
 Where do I need assistance?
-noteam viewer teamte
+not team viewer teamate can't download
 ___________________________________________________________________
 2020/08/03 Michelle
 1. What I have done / not done since last Scrum?
