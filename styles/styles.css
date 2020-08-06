@@ -65,7 +65,7 @@ form {
     box-shadow: 10px 10px 5px 0px darkgoldenrod;
 }
 
-@media (min-width: 576px) { 
+@media (max-width: 576px) { 
   form {
     width: 100%;
   }

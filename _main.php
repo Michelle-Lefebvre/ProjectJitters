@@ -30,6 +30,9 @@ $app->get('/', function ($request, $response, $args) {
     // return $twig->render('/admin/additem.html.twig');
     // return $twig->render('/admin/additem_success.html.twig');
 
+    // return $twig->render('/admin/adminmenu2.html.twig');
+    // return $twig->render('/admin/users_list.html.twig');
+
     // return $twig->render('error_internal.html.twig');
     // return $twig->render('error_access_denied.html.twig');
     // return $twig->render('error_not_found.html.twig');
