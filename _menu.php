@@ -20,4 +20,18 @@ require_once '_setup.php';
         return $this->view->render($response, 'menu.html.twig', ['SAND' =>$catCode, 'sand' => $itemList]);
     
         });
+
+ $app->get('/menu_mb', function ($request, $response, $args) {
+     // 
+     $cafeList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg 
+                FROM items WHERE categoryCode = 'CAFE';");
+    $bakeList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg 
+                FROM items WHERE categoryCode = 'BAKE';");
+
+    //print_r($cafeList);
+    //print_r($bakeList);
+     return $this->view->render($response, 'menu_mb.html.twig', ['cafeList' => $cafeList,'bakeList' => $bakeList ]);
+
+     });
+
 ?>
