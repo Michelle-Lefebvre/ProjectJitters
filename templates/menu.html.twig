@@ -5,108 +5,85 @@
 {% block head %}
 	{{ parent() }}
 	<style>
+		body {
+			background: white;
+		}
 		.tab {
-			margin-left: 40px;
-			line-height: 16px;
+			margin-left: 30px;
+			line-height: 30px;
+
 		}
 	</style>
 {% endblock %}
 
 {% block content %}
-
-
-	<div class="container-fluid bg-light pl-3 pr-3">
-
+	<div class="container-fluid m-0 p-0">
 		<div class="row h-100">
-			<div class="col-sm-12 col-md-6 p-0 h-100">
+			<div class="col-sm-12 col-md-6 m-0 p-0 h-100">
 				<img src="/images/menuCoffees.jpg" width="100%" height="400">
 			</div>
-			<div class="col-sm-12 col-md-6 p-0 ml-0">
-				<ul class="menuItem">
-					<h3>Coffees
-					</h3>
+			<div class="col-sm-12 col-md-6 m-0 p-0 h-100 d-flex">
+				<ul class="menuItem p-0 tab mt-2 center">
+					<h5>Coffees</h5>
+
 					{% for c in cafeList %}
-						<div class="tab">{{c.itemName}}</div>
-						<div class="tab text-right">
-							<span>{{c.price}}</span>
-							<span class="tab text-right">{{c.priceMed}}</span>
+						<div class="text-right">{{c.itemName}}
+							<span class="tab text-right">{{c.price}}</span>
+							<span class="tab">{{c.priceMed}}</span>
 							<span class="tab text-right">{{c.priceLrg}}</span>
 						</div>
 					{% endfor %}
 				</ul>
 			</div>
 		</div>
+	</div>
 
-
+	<div class="container-fluid m-0 p-0">
 		<div class="row h-100">
-			<div class="col-sm-12 col-md-6 p-0">
-				<ul class="menuItem tab">
-					<h3>Teas
-					</h3>
+			<div class="col-sm-12 col-md-6 m-0 p-0 h-100 d-flex">
+				<ul class="menuItem p-0 tab mt-2 center">
+					<h5>Teas</h5>
 					{% for t in teaList %}
-						<div>{{t.itemName}}
-							{{t.price}}
-							{{t.priceMed}}
-							{{t.priceLrg}}</div>
+						<div class="text-right">{{t.itemName}}
+							<span class="tab text-right">{{t.price}}</span>
+							<span class="tab">{{t.priceMed}}</span>
+							<span class="tab text-right">{{t.priceLrg}}</span>
+						</div>
 					{% endfor %}
 				</ul>
 			</div>
-			<div class="col-sm-12 col-md-6 p-0 h-100">
+			<div class="col-sm-12 col-md-6 p-0 h-100 order-sm-1 order-md-2 ">
 				<img src="/images/menuTeas.jpg" width="100%" height="400">
 			</div>
 		</div>
+	</div>
 
-
+	<div class="container-fluid m-0 p-0">
 		<div class="row h-100">
-			<div class="col-sm-12 col-md-6 p-0 h-100">
+			<div class="col-sm-12 col-md-6 m-0 p-0 h-100">
 				<img src="/images/menuPastries.jpg" width="100%" height="400">
 			</div>
-			<div class="col-sm-12 col-md-6 p-0">
-				<ul class="menuItem">
-					<h3>Bake
-					</h3>
+			<div class="col-sm-12 col-md-6 m-0 p-0 h-100 d-flex">
+				<ul class="menuItem p-0 tab mt-2 center">
+					<h5>Bake
+					</h5>
+					<div class="text-right">{{c.itemName}}
+						<span class="tab text-right">{{c.price}}</span>
+						<span class="tab">{{c.priceMed}}</span>
+						<span class="tab text-right">{{c.priceLrg}}</span>
+					</div>
 					{% for b in bakeList %}
-						<div>{{b.itemName}}
-							{{b.price}}
-							{{b.priceMed}}
-							{{b.priceLrg}}</div>
+						<div class="text-right">{{b.itemName}}
+							<span class="tab text-right">{{b.price}}</span>
+						</div>
 					{% endfor %}
 					{% for s in sandList %}
-						<div>{{s.itemName}}
-							{{s.price}}
-							{{s.priceMed}}
-							{{s.priceLrg}}</div>
+						<div class="text-right">{{s.itemName}}
+							<span class="tab text-right">{{s.price}}</span>
+						</div>
 					{% endfor %}
 				</ul>
 			</div>
 		</div>
-
-
-		<div class="row h-100">
-			<div class="col-sm-12 col-md-6 p-0">
-				<ul class="menuItem">
-					<h3>Bake
-					</h3>
-					{% for b in bakeList %}
-						<div>{{b.itemName}}
-							{{b.price}}
-							{{b.priceMed}}
-							{{b.priceLrg}}</div>
-					{% endfor %}
-					{% for s in sandList %}
-						<div>{{s.itemName}}
-							{{s.price}}
-							{{s.priceMed}}
-							{{s.priceLrg}}</div>
-					{% endfor %}
-				</ul>
-			</div>
-			<div class="col-sm-12 col-md-6 p-0 h-100">
-				<img src="/images/menuCoffeeBean.jpg" width="100%" height="400">
-			</div>
-
-		</div>
-
-
 	</div>
-{% endblock %}
+</div>{% endblock %}
