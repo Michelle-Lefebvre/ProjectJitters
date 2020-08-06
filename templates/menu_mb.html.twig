@@ -20,16 +20,28 @@
 
 
         <ul class="menuItem">
-		<h1>Cafe </h1>
+		<h1>Coffees </h1>
         {% for c in cafeList %}
             <div>{{c.itemName}} {{c.price}} {{c.priceMed}} {{c.priceLrg}}</div>
         {% endfor %}
         </ul>
 		<br>
+		
+		<ul class="menuItem">
+		<h1>Teas </h1>
+        {% for t in teaList %}
+            <div>{{t.itemName}} {{t.price}} {{t.priceMed}} {{t.priceLrg}}</div>
+        {% endfor %}
+        </ul>
+		<br>
+
 		<ul class="menuItem">
 		<h1>Bake </h1>
         {% for b in bakeList %}
             <div>{{b.itemName}} {{b.price}} {{b.priceMed}} {{b.priceLrg}}</div>
+        {% endfor %}
+		{% for s in sandList %}
+            <div>{{s.itemName}} {{s.price}} {{s.priceMed}} {{s.priceLrg}}</div>
         {% endfor %}
         </ul>
   

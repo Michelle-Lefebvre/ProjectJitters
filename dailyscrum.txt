@@ -1,3 +1,36 @@
+2020/08/06 Michelle
+1. What I have done / not done since last Scrum?
+Not done- User can see menu displaying separate data by (categaoryCode) per table
+Not done- admin users
+Done -test user can login
+Done -test user can register
+
+2. What I plan to do from this scrum to next? (Next workday at 9am)
+- remove the dropdown list of admin items master twig
+- User can see menu displaying separate data by (categaoryCode) per table
+- admin users
+- fix see comments for user can register
+- meeting at 7pm tonight for uploading project to jitters.ipd21.com
+
+3. Where do I need assistance?
+no
+______________________
+2020/08/06  Mark
+1. What I have done / not done since last Scrum?
+not done - User can see rewards card 
+done - fix login error Method not allowed
+done - admin add item delete item list items
+done - test User can register
+done - test User can see home page
+
+2. What I plan to do from this scrum to next? (Next workday at 9am)
+- test User can see access denied error
+- test User can see internal error
+- move what we have completed up to website
+- meeting at 7pm tonight for uploading project to jitters.ipd21.com
+
+Where do I need assistance?
+uploading to site
 ___________________________________________________________________
 2020/08/05 Michelle
 1. What I have done / not done since last Scrum?
@@ -10,7 +43,8 @@ Done - fix links to index in navbar
 - User can see menu displaying separate data by (categaoryCode) per table
 - admin users
 -user can login
--user can register
+- user can register
+- move what we have completed up to website
 
 
 3. Where do I need assistance?
@@ -23,8 +57,8 @@ not done - User can see rewards card
 done- fix login error Method not allowed
 
 2. What I plan to do from this scrum to next? (Next workday at 9am)
--admin add item delete item list items
--test User can register
+- admin add item delete item list items
+- test User can register
 - User can see rewards card 
 - fix login error Method not allowed
 
