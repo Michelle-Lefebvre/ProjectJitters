@@ -20,11 +20,13 @@ ______________________
 1. What I have done / not done since last Scrum?
 Done- finish design of rewards 
 not done - User can see rewards card 
-not done- fix login error Method not allowed
+done- fix login error Method not allowed
 
 2. What I plan to do from this scrum to next? (Next workday at 9am)
 -admin add item delete item list items
 -test User can register
+- User can see rewards card 
+- fix login error Method not allowed
 
 Where do I need assistance?
 no
