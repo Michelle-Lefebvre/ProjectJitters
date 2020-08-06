@@ -1,0 +1,31 @@
+{% extends "admin/master.html.twig" %}
+
+{% block title %}Update item information{% endblock %}
+
+{% block content %}
+    <h3>Add or Update item information</h3>
+
+    {% if errorList %}
+        <ul class="errorMessage">
+        {% for error in errorList %}
+            <li>{{error}}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+        <form method="post">
+            
+            Item Id:  {{ v.itemId }}<br>
+            Item Name: <input type="text" name="itemName" value="{{ v.itemName }}"><br>
+            Description: <textarea id="description"  cols="60" rows="10" name="description"  value="">{{ v.description }}</textarea><br>
+            Category Code: <input type="text" name="categoryCode"  value="{{ v.categoryCode }}"><br>
+            Inventory Flag: <input type="checkbox" name="inventoryFlag" placeholder="Inventory Flag" value="{{ v.inventoryFlag }}"><br>
+            Quantity On Hand: <input type="number" name="quantityOnHand" placeholder="Quantity On Hand" value="{{ v.quantityOnHand }}"><br>
+            Price: <input type="number" name="price" placeholder="Price with 2 decimal places" step="any" value="{{ v.price }}"><br>
+            Price Med: <input type="number" name="priceMed" placeholder="Price with 2 decimal places" step="any" value="{{ v.priceMed }}"><br>
+            Price Lrg: <input type="number" name="priceLrg" placeholder="Price with 2 decimal places" step="any" value="{{ v.priceLrg }}"><br>
+            {# Photo Path: <input type="text" name="photofilepath" placeholder="Photo File Path" value=""><br>#}
+            <input type="submit" value="{% if op == 'edit' %}Update item data{% else %}Add item{% endif %}"><br>
+
+        </form>
+{% endblock %}
