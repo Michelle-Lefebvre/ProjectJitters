@@ -26,6 +26,7 @@ done - test User can see home page
 2. What I plan to do from this scrum to next? (Next workday at 9am)
 - test User can see access denied error
 - test User can see internal error
+- start on cart
 - move what we have completed up to website
 - meeting at 7pm tonight for uploading project to jitters.ipd21.com
 
