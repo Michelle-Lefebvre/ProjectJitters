@@ -37,8 +37,14 @@ $app->get('/admin/items/list', function ($request, $response, $args) {
 $app->get('/admin/items/{op:edit|add}[/{itemId:[0-9]+}]', function ($request, $response, $args) {
     // either op is add and id is not given OR op is edit and id must be given
     if ( ($args['op'] == 'add' && !empty($args['itemId'])) || ($args['op'] == 'edit' && empty($args['itemId'])) ) {
+        //$response = $response->withStatus(404);
+        //return $this->view->render($response, 'admin/not_found.html.twig');
+        ///internalerror
+
         $response = $response->withStatus(404);
-        return $this->view->render($response, 'admin/not_found.html.twig');
+        return $this->view->render($response, 'error_access_denied.html.twig');
+
+
     }
     if ($args['op'] == 'edit') {
         $items = DB::queryFirstRow("SELECT * FROM items WHERE itemId=%d", $args['itemId']);
@@ -167,6 +173,5 @@ $app->post('/additem', function ($request, $response, $args) {
         return $this->view->render($response, '/admin/additem_success.html.twig');
     }
 });
-
 
 ?>
