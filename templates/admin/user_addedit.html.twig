@@ -1,0 +1,45 @@
+{% extends "admin/master.html.twig" %}
+
+{% block title %}-User Edit{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+<h1>Update user information</h1>
+	{% if errorList %}
+		<ul class="errorMessage">
+			{% for error in errorList %}
+				<li>{{error}}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	<div class="container-fluid m-0">
+		<form class="form center" method="post">
+
+			First name: <input type="text" name="firstName" value="{{ v.firstName }}" id="inputFirstname" class="form-control" required=" " autofocus="">
+
+			Last name:<input type="text" name="lastName" value="{{ v.lastName }}" id="inputLastname" class="form-control" required=" " autofocus="">
+
+			Nickname:<input type="text" name="nickname" value="{{ v.nickname }}" id="inputNickname" class="form-control" autofocus="">
+
+			Cell Phone: <input type="text" name="mobilePhone" value="{{ v.mobilePhone }}" id="inputMobilePhone" class="form-control" placeholder="123-456-7890" autofocus="">
+
+			Email<input type="email" name="email" value="{{ v.email }}" id="inputEmail" class="form-control" required="" autofocus="">
+			<span class="errorMessage" id="emailTaken"></span>
+
+			{% if op == 'edit' %}
+            <p>(Only provide password if you're changing it for this user)</p>
+			{% endif %}
+
+			Password<input type="password" name="pass1" id="inputPassword" class="form-control" required="">
+
+			Passord (repeated) <input type="password" name="pass2" id="inputPassword2" class="form-control" required="">
+
+			Is admin? <input type="checkbox" name="isAdmin" value="1" {% if v.isAdmin %}checked{% endif %}><br>
+            <input type="submit" class="btn btn-lg btn-secondary btn-block m-0" value="{% if op == 'edit' %}Update user data{% else %}Add user{% endif %}">
+        
+		</form>
+	</div>
+{% endblock %}

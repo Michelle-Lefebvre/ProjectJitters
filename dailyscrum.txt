@@ -1,3 +1,45 @@
+___________________________________________________________________
+2020/08/07 Michelle
+1. What I have done / not done since last Scrum?
+done - User can see menu displaying separate data by (categaoryCode) per table
+done- remove the dropdown list of admin items master twig
+done- fix see comments for user can register
+done - meeting at 7pm tonight for uploading project to jitters.ipd21.com
+Done -Adminuser can display user list
+
+
+2. What I plan to do from this scrum to next? (Monday at 9am)
+-test Adminuser can edit items
+-test Adminuser can list items
+-test Adminuser can add item
+-Adminuser can create user profile
+-Adminuser can add user profile
+-Adminuser can obsolete user
+
+3. Where do I need assistance?
+no
+______________________
+2020/08/07  Mark
+1. What I have done / not done since last Scrum?
+On Hold - User can see rewards card  has been put on hold
+done - test User can see access denied error
+done - test User can see internal error
+done - start on cart
+done - move what we have completed up to website
+done - meeting at 7pm tonight for uploading project to jitters.ipd21.com
+
+
+2. What I plan to do from this scrum to next? (Monday at 9am)
+-test User can see menu page
+-test User can register
+-User can view cart
+-User can remove item in cart
+-User can select menu item to add to cart
+
+
+Where do I need assistance?
+
+___________________________________________________________________
 2020/08/06 Michelle
 1. What I have done / not done since last Scrum?
 Not done- User can see menu displaying separate data by (categaoryCode) per table

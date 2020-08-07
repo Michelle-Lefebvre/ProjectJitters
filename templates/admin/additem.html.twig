@@ -1,14 +1,12 @@
-{% extends "master.html.twig" %}
+{% extends "admin/master.html.twig" %}
 
 {% block title %}Admin Add Item{% endblock %}
 
 {% block content %}
     {# form-group row #}
 
-  <div class="container">
-    <form method="post" class="pt-2">
-   
-        <h1>Admin Add Item</h1>
+	<form class="form-admin center">
+        <h2>Admin Add Item</h2>
     {% if errorList %}
         <ul class="errorMessage">
         {% for error in errorList %}
