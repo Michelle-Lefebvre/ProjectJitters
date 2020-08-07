@@ -38,11 +38,7 @@ done - meeting at 7pm tonight for uploading project to jitters.ipd21.com
 
 
 Where do I need assistance?
-<<<<<<< HEAD
-
-=======
 Gregory-need help with connecting to database on .com site
->>>>>>> 02191ab3c55341b754bb602e527c726140826c5c
 ___________________________________________________________________
 2020/08/06 Michelle
 1. What I have done / not done since last Scrum?
