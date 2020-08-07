@@ -174,4 +174,85 @@ $app->post('/additem', function ($request, $response, $args) {
     }
 });
 
+
+// ADMIN USER CRUD
+// USERS List
+$app->get('/admin/users/list', function ($request, $response, $args) {
+    $usersList = DB::query("SELECT * FROM users");
+    return $this->view->render($response, 'admin/users_list.html.twig', ['usersList' => $usersList]);
+});
+
+// STATE 1: first display
+$app->get('/admin/users{id:[0-9]+}/edit', function ($request, $response, $args) {
+    $user = DB::queryFirstRow("SELECT * FROM users WHERE id=%d", $args['userId']);
+    if(!$user) {
+        $response = $response->withStatus(404);
+        return $this->view->render($response, 'admin/error_not_found.html.twig');
+    }
+    return $this->view->render($response, 'admin/users_edit.html.twig', ['user' => $user]);
+});
+
+// STATE 2&3: receiving submission  
+$app->post('/admin/users{id:[0-9]+}/edit', function ($request, $response, $args) {
+    
+    $firstName = $request->getParam('firstName');
+    $lastName = $request->getParam('lastName');
+    $nickname = $request->getParam('nickname');
+    $email = $request->getParam('email');
+    $pass1 = $request->getParam('pass1');
+    $pass2 = $request->getParam('pass2');
+    //
+    $errorList = array();
+    if (preg_match('/^[a-zA-Z0-9\ \\._\'"-]{4,50}$/', $firstName) != 1) { // no match
+        array_push($errorList, "Names and nickname must be 4-50 characters long and consist of letters, digits, "
+            . "spaces, dots, underscores, apostrophies, or minus sign.");
+        $firstName = "";
+    }
+    if (preg_match('/^[a-zA-Z0-9\ \\._\'"-]{4,50}$/', $lastName) != 1) { // no match
+        array_push($errorList, "Names and nickname must be 4-50 characters long and consist of letters, digits, "
+            . "spaces, dots, underscores, apostrophies, or minus sign.");
+        $lastName = "";
+    }
+    if (preg_match('/^[a-zA-Z0-9\ \\._\'"-]{4,50}$/', $nickname) != 1) { // no match
+        array_push($errorList, "Nickname must be 4-50 characters long and consist of letters, digits, "
+            . "spaces, dots, underscores, apostrophies, or minus sign.");
+      
+        $nickname = "";
+    }
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) == FALSE) {
+        array_push($errorList, "Email does not look valid");
+        $email = "";
+    } else {
+        // is email already in use?
+        $record = DB::queryFirstRow("SELECT * FROM users WHERE email=%s", $email);
+        if ($record) {
+            array_push($errorList, "This email is already registered");
+            $email = "";
+        }
+    }
+    if ($pass1 != $pass2) {
+        array_push($errorList, "Passwords do not match");
+    } else {
+        if ((strlen($pass1) < 6) || (strlen($pass1) > 100)
+                || (preg_match("/[A-Z]/", $pass1) == FALSE )
+                || (preg_match("/[a-z]/", $pass1) == FALSE )
+                || (preg_match("/[0-9]/", $pass1) == FALSE )) {
+            array_push($errorList, "Password must be 6-100 characters long, "
+                . "with at least one uppercase, one lowercase, and one digit in it");
+        }
+    }
+    //
+    if ($errorList) {
+        return $this->view->render($response, 'register.html.twig',
+                [ 'errorList' => $errorList, 'v' => [$firstName, 'lastName' => $lastName,  'nickname' => $nickname, 'email' => $email ]  ]);
+    } else {
+        DB::insert('users', ['firstName' => $firstName, 'lastName' => $lastName, 'nickname' => $nickname, 'email' => $email, 'password' => $pass1]);
+        return $this->view->render($response, 'register_success.html.twig');
+    }
+});
+
+
+
+
+
 ?>
