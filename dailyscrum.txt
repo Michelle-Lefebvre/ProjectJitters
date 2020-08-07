@@ -1,11 +1,15 @@
 ___________________________________________________________________
+2020/08/07 Afternoon Scrum meeting to organize work over the weekend.
+In the morning scrum we had decided on what we would be doing. This afternoon scrum meeeting we
+reviewed changes to .com site styling and admin menu discussion about How the admin would logout or return to the main site. We decided that 2 additional buttons were required for admin log out/admin logout success flash. Mark will add the 2 buttons
+___________________________________________________________________
 2020/08/07 Michelle
 1. What I have done / not done since last Scrum?
 done - User can see menu displaying separate data by (categaoryCode) per table
-done- remove the dropdown list of admin items master twig
-done- fix see comments for user can register
+done - remove the dropdown list of admin items master twig
+done - fix see comments for user can register
 done - meeting at 7pm tonight for uploading project to jitters.ipd21.com
-Done -Adminuser can display user list
+done - Adminuser can display user list
 
 
 2. What I plan to do from this scrum to next? (Monday at 9am)
@@ -15,6 +19,7 @@ Done -Adminuser can display user list
 -Adminuser can create user profile
 -Adminuser can add user profile
 -Adminuser can obsolete user
+-Add flash to register_sucess
 
 3. Where do I need assistance?
 Gregory-need help with connecting to database on .com site
@@ -35,6 +40,7 @@ done - meeting at 7pm tonight for uploading project to jitters.ipd21.com
 -User can view cart
 -User can remove item in cart
 -User can select menu item to add to cart
+-Admin user can log out or return to main site from Adminmenu
 
 
 Where do I need assistance?
