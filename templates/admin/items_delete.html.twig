@@ -1,0 +1,14 @@
+{% extends "admin/master.html.twig" %}
+
+{% block title %}Delete item{% endblock %}
+
+{% block content %}
+    <h3>Delete item</h3>
+        Item id: {{ v.itemId }}<br>
+        Item name: {{ v.itemName }}<br>
+        <form method="POST">
+            <p>Please confirm this action. It is irreversible</p>
+            <input type="submit" value="Yes, delete the item">
+        </form>
+        <a href="/admin/items/list">Cancel - go back to the list</a>
+{% endblock %}

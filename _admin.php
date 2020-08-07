@@ -38,12 +38,12 @@ $app->get('/admin/items/list', function ($request, $response, $args) {
 $app->get('/admin/items/{op:edit|add}[/{itemId:[0-9]+}]', function ($request, $response, $args) {
     // either op is add and id is not given OR op is edit and id must be given
     if ( ($args['op'] == 'add' && !empty($args['itemId'])) || ($args['op'] == 'edit' && empty($args['itemId'])) ) {
-        //$response = $response->withStatus(404);
-        //return $this->view->render($response, 'admin/not_found.html.twig');
+        $response = $response->withStatus(404);
+        return $this->view->render($response, 'admin/not_found.html.twig');
         ///internalerror
 
-        $response = $response->withStatus(404);
-        return $this->view->render($response, 'error_access_denied.html.twig');
+        //$response = $response->withStatus(404);
+        //return $this->view->render($response, 'error_access_denied.html.twig');
 
 
     }
@@ -123,6 +123,28 @@ $app->post('/admin/items/{op:edit|add}[/{itemId:[0-9]+}]', function ($request, $
     } 
 }  ); 
 
+// STATE 1: check if exists and confirm delete
+$app->get('/admin/items/delete/{id:[0-9]+}', function ($request, $response, $args) {
+    $item = DB::queryFirstRow("SELECT * FROM items WHERE itemId=%d", $args['id']);
+    if (!$item) {
+        $response = $response->withStatus(404);
+        return $this->view->render($response, 'admin/not_found.html.twig');
+    } 
+    return $this->view->render($response, 'admin/items_delete.html.twig', ['v' => $item] );
+});
+
+// STATE 2: this does the delete
+$app->post('/admin/items/delete/{id:[0-9]+}', function ($request, $response, $args) {
+    DB::delete('items', "itemId=%d", $args['id']);
+    return $this->view->render($response, 'admin/items_delete_success.html.twig' );
+});
+
+
+
+
+
+
+/*# this was done before the op:add/edit method and should not be needed
 // STATE 1: first display  -- this is a get  -- just need to render the template
 $app->get('/additem', function ($request, $response, $args) {
     return $this->view->render($response, '/admin/additem.html.twig');
@@ -174,7 +196,7 @@ $app->post('/additem', function ($request, $response, $args) {
         return $this->view->render($response, '/admin/additem_success.html.twig');
     }
 });
-
+*/
 
 // ADMIN USER CRUD
 // USERS List

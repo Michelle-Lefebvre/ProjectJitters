@@ -1,62 +1,79 @@
 {% extends "master.html.twig" %}
 
 {% block head %}
-    <script>
-        function increment(ID) {
-            var value = $("input[name=quantity" + ID + "]").val();
-            value++;
-            $("input[name=quantity" + ID + "]").val(value);
-            $("#update" + ID).show();
-        }
-        function decrement(ID) {
-            var value = $("input[name=quantity" + ID + "]").val();
+
+<script>
+  function decrement(cartId) {
+            var value = $("input[name=quantity" + cartId + "]").val();
             if (value > 0) {
                 value--;
             }
-            $("input[name=quantity" + ID + "]").val(value);
-            $("#update" + ID).show();
+            $("input[name=quantity" + cartId + "]").val(value);
+            $("#update" + cartId).show();
         }
-        function update(e,ID) {
+
+        function increment(cartId) {
+            var value = $("input[name=quantity" + cartId + "]").val();
+            value++;
+            $("input[name=quantity" + cartId + "]").val(value);
+            $("#update" + cartId).show();
+        }
+      
+        {#}
+        function update(e,cartId) {
             e.preventDefault();
-            var quantity = $("input[name=quantity" + ID + "]").val();
-            $.get("/cart/update/" + ID + "/" + quantity, function() {
+            var quantity = $("input[name=quantity" + cartId + "]").val();
+            $.get("/cart/update/" + cartId + "/" + quantity, function() {
                 console.log("quantity updated");
-                $("#update" + ID).hide();
+                $("#update" + cartId).hide();
             });
             if (quantity == 0) {
-                $("#itemrow" + ID).hide();
+                $("#itemrow" + cartId).hide();
             }
         }
+        #}
         $(document).ready(function () {
             $(".updateLink").hide();
             $('.cartQuantity').bind('propertychange change input paste', function () {
-                var ID = $(this).attr('cartID');
-                $("#update" + ID).show();
+                var cartId = $(this).attr('cartID');
+                $("#update" + chartId).show();
             });
         });
+        
     </script>
+    #}
 {% endblock %}
 
 {% block title %}Cart{% endblock %}
 
 {% block content %}
     <table border="1">
+        <tr><th>cartId</th><th>sessionId</th><th>itemId</th><th>quantity</th>
+            <th>payConfirmId</th></tr>
         {% for ci in cartitemList %}
-            <tr id="itemrow{{ci.ID}}">
-                <td>{{ci.name}}</td>
-                <td>{{ci.price}}</td>
-                <td><button onclick="decrement({{ci.ID}})">-</button>
-                    <input class="cartQuantity" cartID="{{ci.ID}}" type="number" name="quantity{{ci.ID}}"
-                           value="{{ci.quantity}}" style="width:30px;">
-                    <button onclick="increment({{ci.ID}})">+</button>
-                    <a href="" class="updateLink" id="update{{ci.ID}}"
-                          onclick="update(event,{{ci.ID}})">update</a>
+            <tr id="itemrow{{ci.cartId}}">
+                <td>{{ci.cartId}}</td>
+                <td>{{ci.sessionId}}</td>
+                <td>{{ci.itemId}}</td>
+                {#<td>{{ci.quantity}}</td>#}
+                <td>
+                    <button onclick="decrement({{ci.cartId}})">-</button>
+                    
+                    <input class="cartQuantity" cartID="{{ci.cartId}}" type="number" name="quantity{{ci.cartId}}"
+                           value="{{ci.quantity}}" style="width:60px;" min="0">
+                    
+                    <button onclick="increment({{ci.cartId}})">+</button>
+                    {#
+                    <a href="" class="updateLink" id="update{{ci.cartId}}"
+                          onclick="update(event,{{ci.cartId}})">update</a>
+                    #}
                 </td>
+                <td>{{ci.payConfirmId}}</td>
             </tr>
         {% endfor %}
     </table>
  
-   <a href="/order">Place order</a>
+   {#<a href="/order">Place order</a>  #}
         
         
 {% endblock %}

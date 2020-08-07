@@ -44,3 +44,4 @@ $app->get('/session', function ($request, $response, $args) {
     print_r($_SESSION);
     return $response->write('');
 });
+
