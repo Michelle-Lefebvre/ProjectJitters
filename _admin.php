@@ -250,16 +250,16 @@ $app->post('/admin/users/{op:edit|add}[/{userId:[0-9]+}]', function ($request, $
     $pass1 = $request->getParam('pass1');
     $pass2 = $request->getParam('pass2');
     $phone = $request->getParam('mobilePhone');
-    $address = $request->getParam('pass2');
-    $city = $request->getParam('pass2');
-    $province = $request->getParam('pass2');
-    $postalCode = $request->getParam('pass2');
-    $promotionalEmails = $request->getParam('pass2');
-    $emailFromPartners = $request->getParam('pass2');
-    $postalMailFromJitters = $request->getParam('pass2');
-    $rewards = $request->getParam('pass2');
-    $photofilepath = $request->getParam('pass2');
-    $creationTS = $request->getParam('pass2');
+    $address = $request->getParam('address');
+    $city = $request->getParam('city');
+    $province = $request->getParam('province');
+    $postalCode = $request->getParam('postalCode');
+    $promotionalEmails = $request->getParam('promotionalEmails');
+    $emailFromPartners = $request->getParam('emailFromPartners');
+    $postalMailFromJitters = $request->getParam('postalMailFromJitters');
+    $rewards = $request->getParam('rewards');
+    $photofilepath = $request->getParam('photofilepath');
+    $creationTS = $request->getParam('creationTS');
 
     $errorList = array();
 
