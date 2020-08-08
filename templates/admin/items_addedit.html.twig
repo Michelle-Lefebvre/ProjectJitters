@@ -20,12 +20,13 @@
             Description: <textarea id="description"  cols="60" rows="10" name="description"  value="">{{ v.description }}</textarea><br>
             Category Code: <input type="text" name="categoryCode"  value="{{ v.categoryCode }}"><br>
             Inventory Flag: <input type="checkbox" name="inventoryFlag" placeholder="Inventory Flag" value="{{ v.inventoryFlag }}"><br>
-            Quantity On Hand: <input type="number" name="quantityOnHand" placeholder="Quantity On Hand" value="{{ v.quantityOnHand }}"><br>
-            Price: <input type="number" name="price" placeholder="Price with 2 decimal places" step="any" value="{{ v.price }}"><br>
-            Price Med: <input type="number" name="priceMed" placeholder="Price with 2 decimal places" step="any" value="{{ v.priceMed }}"><br>
-            Price Lrg: <input type="number" name="priceLrg" placeholder="Price with 2 decimal places" step="any" value="{{ v.priceLrg }}"><br>
+            Quantity On Hand: <input type="number" name="quantityOnHand" min="0" placeholder="Quantity On Hand" value="{{ v.quantityOnHand }}"><br>
+            Price: <input type="number" name="price" min="0.25" placeholder="Price with 2 decimal places" step="any" value="{{ v.price }}"><br>
+            Price Med: <input type="number" name="priceMed" min="0" placeholder="Price with 2 decimal places" step="any" value="{{ v.priceMed }}"><br>
+            Price Lrg: <input type="number" name="priceLrg" min="0" placeholder="Price with 2 decimal places" step="any" value="{{ v.priceLrg }}"><br>
             {# Photo Path: <input type="text" name="photofilepath" placeholder="Photo File Path" value=""><br>#}
             <input type="submit" value="{% if op == 'edit' %}Update item data{% else %}Add item{% endif %}"><br>
 
+        
         </form>
 {% endblock %}
