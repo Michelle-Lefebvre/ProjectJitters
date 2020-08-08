@@ -213,14 +213,14 @@ $app->get('/admin/users/list', function ($request, $response, $args) {
 
 
 // STATE 1: first display
-$app->get('/admin/users/{op:edit|add}[/{id:[0-9]+}]', function ($request, $response, $args) {
+$app->get('/admin/users/{op:edit|add}[/{userId:[0-9]+}]', function ($request, $response, $args) {
     // either op is add and id is not given OR op is edit and id must be given
-    if ( ($args['op'] == 'add' && !empty($args['id'])) || ($args['op'] == 'edit' && empty($args['id'])) ) {
+    if ( ($args['op'] == 'add' && !empty($args['userId'])) || ($args['op'] == 'edit' && empty($args['userId'])) ) {
         $response = $response->withStatus(404);
         return $this->view->render($response, 'admin/not_found.html.twig');
     }
     if ($args['op'] == 'edit') {
-        $user = DB::queryFirstRow("SELECT * FROM users WHERE id=%d", $args['id']);
+        $user = DB::queryFirstRow("SELECT * FROM users WHERE userId=%d", $args['userId']);
         if (!$user) {
             $response = $response->withStatus(404);
             return $this->view->render($response, 'admin/not_found.html.twig');
@@ -228,24 +228,39 @@ $app->get('/admin/users/{op:edit|add}[/{id:[0-9]+}]', function ($request, $respo
     } else {
         $user = [];
     }
-    return $this->view->render($response, 'admin/users_addedit.html.twig', ['v' => $user, 'op' => $args['op']]);
+    return $this->view->render($response, 'admin/user_addedit.html.twig', ['v' => $user, 'op' => $args['op']]);
 });
 
 // STATE 2&3: receiving submission
-$app->post('/admin/users/{op:edit|add}[/{id:[0-9]+}]', function ($request, $response, $args) {
+$app->post('/admin/users/{op:edit|add}[/{userId:[0-9]+}]', function ($request, $response, $args) {
     $op = $args['op'];
     // either op is add and id is not given OR op is edit and id must be given
-    if ( ($op == 'add' && !empty($args['id'])) || ($op == 'edit' && empty($args['id'])) ) {
+    if ( ($op == 'add' && !empty($args['userId'])) || ($op == 'edit' && empty($args['userId'])) ) {
         $response = $response->withStatus(404);
         return $this->view->render($response, 'admin/not_found.html.twig');
     }
 
-    $name = $request->getParam('name');
+    $userId = $request->getParam('userId');
+    $name = $request->getParam('firstName'. " " . 'lastName');
+    $firstName = $request->getParam('firstName');
+    $lastName = $request->getParam('lastName');
+    $nickname = $request->getParam('nickname');
     $adminuser = $request->getParam('adminuser') ?? '0';
     $email = $request->getParam('email');
     $pass1 = $request->getParam('pass1');
     $pass2 = $request->getParam('pass2');
-    //
+    $phone = $request->getParam('mobilePhone');
+    $address = $request->getParam('pass2');
+    $city = $request->getParam('pass2');
+    $province = $request->getParam('pass2');
+    $postalCode = $request->getParam('pass2');
+    $promotionalEmails = $request->getParam('pass2');
+    $emailFromPartners = $request->getParam('pass2');
+    $postalMailFromJitters = $request->getParam('pass2');
+    $rewards = $request->getParam('pass2');
+    $photofilepath = $request->getParam('pass2');
+    $creationTS = $request->getParam('pass2');
+
     $errorList = array();
 
     $result = verifyUserName($name);
@@ -257,7 +272,7 @@ $app->post('/admin/users/{op:edit|add}[/{id:[0-9]+}]', function ($request, $resp
     } else {
         // is email already in use BY ANOTHER ACCOUNT???
         if ($op == 'edit') {
-            $record = DB::queryFirstRow("SELECT * FROM users WHERE email=%s AND id != %d", $email, $args['id'] );
+            $record = DB::queryFirstRow("SELECT * FROM users WHERE email=%s AND userId != %d", $email, $args['id'] );
         } else { // add has no id yet
             $record = DB::queryFirstRow("SELECT * FROM users WHERE email=%s", $email);
         }
@@ -273,7 +288,7 @@ $app->post('/admin/users/{op:edit|add}[/{id:[0-9]+}]', function ($request, $resp
     }
     //
     if ($errorList) {
-        return $this->view->render($response, 'admin/users_addedit.html.twig',
+        return $this->view->render($response, 'admin/user_addedit.html.twig',
                 [ 'errorList' => $errorList, 'v' => ['name' => $name, 'email' => $email ]  ]);
     } else {
         if ($op == 'add') {
@@ -284,27 +299,27 @@ $app->post('/admin/users/{op:edit|add}[/{id:[0-9]+}]', function ($request, $resp
             if ($pass1 != '') { // only update the password if it was provided
                 $data['password'] = $pass1;
             }
-            DB::update('users', $data, "id=%d", $args['id']);
-            return $this->view->render($response, 'admin/users_addedit_success.html.twig', ['op' => $op ]);
+            DB::update('users', $data, "userId=%d", $args['id']);
+            return $this->view->render($response, 'admin/user_addedit_success.html.twig', ['op' => $op ]);
         }
     }
 });
 
 
 // STATE 1: first display
-$app->get('/admin/users/delete/{id:[0-9]+}', function ($request, $response, $args) {
-    $user = DB::queryFirstRow("SELECT * FROM users WHERE id=%d", $args['id']);
+$app->get('/admin/users/delete/{userId:[0-9]+}', function ($request, $response, $args) {
+    $user = DB::queryFirstRow("SELECT * FROM users WHERE userId=%d", $args['userId']);
     if (!$user) {
         $response = $response->withStatus(404);
         return $this->view->render($response, 'admin/not_found.html.twig');
     }
-    return $this->view->render($response, 'admin/users_delete.html.twig', ['v' => $user] );
+    return $this->view->render($response, 'admin/user_delete.html.twig', ['v' => $user] );
 });
 
 // STATE 1: first display
-$app->post('/admin/users/delete/{id:[0-9]+}', function ($request, $response, $args) {
-    DB::delete('users', "id=%d", $args['id']);
-    return $this->view->render($response, 'admin/users_delete_success.html.twig' );
+$app->post('/admin/users/delete/{userId:[0-9]+}', function ($request, $response, $args) {
+    DB::delete('users', "userId=%d", $args['id']);
+    return $this->view->render($response, 'admin/user_delete_success.html.twig' );
 });
 
 // Attach middleware that verifies only Admin can access /admin... URLs

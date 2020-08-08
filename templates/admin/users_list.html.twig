@@ -4,8 +4,10 @@
 
 {% block content %}
 <h2>User List</h2>
-
-<table border="1" class="center">
+<div class="table-responsive-md">
+<table class="table table-sm table-hover ">
+<caption>List of users</caption>
+  <thead>
 <tr>
     <th>User Id</th>
     <th>Email</th>
@@ -19,6 +21,8 @@
     <th>Admin User</th>
     <th colspan="2">Actions</th>
 </tr>
+</thead>
+  <tbody>
     {% for u in usersList %}
 <tr>
     <td>{{u.userId}}</td>
@@ -31,10 +35,11 @@
     <td>{{u.photoFilePath}}</td>
     <td>{{u.creationTS}}</td>
     <td>{{u.adminuser}}</td>
-    <td><a href="/admin/users/{{u.userId}}/edit">edit</a></td>
-    <td><a href="/admin/users/{{u.userId}}/delete">delete</a></td>
+    <td><a href="/admin/users/edit/{{u.userId}}">edit</a></td>
+    <td><a href="/admin/users/delete/{{u.userId}}">delete</a></td>
 </tr>
 
     {% endfor %}
-</table>  
+</table> 
+</div> 
 {% endblock %}
