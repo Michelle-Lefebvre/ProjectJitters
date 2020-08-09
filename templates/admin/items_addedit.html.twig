@@ -3,7 +3,7 @@
 {% block title %}Update item information{% endblock %}
 
 {% block content %}
-    <h3>Add or Update item information</h3>
+
 
     {% if errorList %}
         <ul class="errorMessage">
@@ -13,11 +13,11 @@
         </ul>
     {% endif %}
 
-        <form method="post">
-            
+        <form method="post" class="form-admin center">
+            <h3>{% if op == 'edit' %}Update Item{% else %}Add item{% endif %}</h3><br>
             Item Id:  {{ v.itemId }}<br>
             Item Name: <input type="text" name="itemName" value="{{ v.itemName }}"><br>
-            Description: <textarea id="description"  cols="60" rows="10" name="description"  value="">{{ v.description }}</textarea><br>
+            Description: <textarea id="description"  cols="40" rows="5" name="description"  value="">{{ v.description }}</textarea><br>
             Category Code: <input type="text" name="categoryCode"  value="{{ v.categoryCode }}"><br>
             Inventory Flag: <input type="checkbox" name="inventoryFlag" placeholder="Inventory Flag" value="{{ v.inventoryFlag }}"><br>
             Quantity On Hand: <input type="number" name="quantityOnHand" min="0" placeholder="Quantity On Hand" value="{{ v.quantityOnHand }}"><br>
