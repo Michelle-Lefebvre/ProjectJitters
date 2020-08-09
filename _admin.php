@@ -139,65 +139,6 @@ $app->post('/admin/items/delete/{id:[0-9]+}', function ($request, $response, $ar
     return $this->view->render($response, 'admin/items_delete_success.html.twig' );
 });
 
-
-
-
-
-
-/*# this was done before the op:add/edit method and should not be needed
-// STATE 1: first display  -- this is a get  -- just need to render the template
-$app->get('/additem', function ($request, $response, $args) {
-    return $this->view->render($response, '/admin/additem.html.twig');
-});
-
-//STATE 2&3 receiving submission
-$app->post('/additem', function ($request, $response, $args) {
-    
-    // $app->post will display the form, following code will handle the form
-    $itemName = $request->getParam('itemName');
-    $description = $request->getParam('description');
-    $categoryCode = $request->getParam('categoryCode');
-    $inventoryFlag = $request->getParam('inventoryFlag');
-    $quantityOnHand = $request->getParam('quantityOnHand');
-    $price = $request->getParam('price');
-    $photofilepath = $request->getParam('photofilepath');
-    
-    
-    // sanitize description
-    $description = strip_tags($description, "<p><ul><li><em><strong><i><b><ol><h3><h4><h5><span>");
-               
-    $errorList = array();
-
-    if (strlen($itemName) < 10 || (strlen($itemName) > 100) ) {
-        $errorList[] = "Name must be between 10  and 100 characters long";
-    }
-    if (strlen($description) < 10  || strlen($description) > 250) {
-        $errorList[] = "Description must be between 10 and 250 characters long";
-    }
-        
-    // validate category code
-    $categoryList = DB::queryFirstRow("SELECT categoryCode FROM categorycodes
-         WHERE categoryCode = %s", $categoryCode);  
-
-    if (!$categoryList) { 
-        $errorList[] = "Category Code does not exist";
-    } 
-    
-    if ($errorList) {
-        return $this->view->render($response, '/admin/additem.html.twig',
-                ['errorList' => $errorList ]);
-
-    } else {
-       DB::insert( 'items', ['itemid' => NULL, 'itemName' => $itemName,  'description' => $description,
-                   'categoryCode' => $categoryCode, 'inventoryFlag' => $inventoryFlag, 
-                   'quantityOnHand' => $quantityOnHand, 'price' => $price, 'photofilepath' => $photofilepath
-       
-       ]);
-        return $this->view->render($response, '/admin/additem_success.html.twig');
-    }
-});
-*/
-
 // ADMIN USER CRUD
 // USERS List
 
