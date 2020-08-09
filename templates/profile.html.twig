@@ -1,0 +1,110 @@
+{% extends "master.html.twig" %}
+
+{% block title %}User Edit
+{% endblock %}
+
+{% block head %}{% endblock %}
+
+{% block content %}
+	{% if errorList %}
+		<ul class="errorMessage">
+			{% for error in errorList %}
+				<li>{{error}}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	<form class="form center text-left" method="post">
+		<h2 class="text-center">
+			{% if op == 'edit' %}Update User{% else %}Add New User
+			{% endif %}
+			<a href="profile/view" class="btn btn-warning ml-xs-0 ml-md-5" role="button" title="return to Users List">Cancel</a>
+		</h2>
+		<div class="row">
+			<div class="col">
+				User Id: <strong>{{ v.userId }} </strong>
+			</div>
+			<div class="col">
+				<input type="checkbox" name="isAdmin" value="1" {% if v.isAdmin %} checked {% endif %} for="disabledFieldsetCheck">
+				Is admin?
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				First name:
+				<input type="text" name="firstName" value="{{ v.firstName }}" id="inputFirstname" class="form-control" required=" " autofocus="">
+			</div>
+			<div class="col">
+				Last name:<input type="text" name="lastName" value="{{ v.lastName }}" id="inputLastname" class="form-control" required=" " autofocus="">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				Nickname:<input type="text" name="nickname" value="{{ v.nickname }}" id="inputNickname" class="form-control" autofocus="">
+			</div>
+			<div class="col">
+				Cell Phone:
+				<input type="text" name="mobilePhone" value="{{ v.mobilePhone }}" id="inputMobilePhone" class="form-control" placeholder="123-456-7890" autofocus="">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				Email<input type="email" name="email" value="{{ v.email }}" id="inputEmail" class="form-control" required="" autofocus="">
+				<span class="errorMessage" id="emailTaken"></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				Password:
+				{% if op == 'edit' %}
+					(Only provide password if you're changing it for this user)
+				{% endif %}
+				<input type="password" name="pass1" id="inputPassword" class="form-control" required="">
+			</div>
+			<div class="col"><br>
+				Passord (repeated):
+				<input type="password" name="pass2" id="inputPassword2" class="form-control" required="">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				Address:
+				<input type="text" name="address" value="{{ v.address }}" class="form-control" required=" " autofocus="">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				City:
+				<input type="text" name="city" value="{{ v.city }}" class="form-control" required=" " autofocus="">
+			</div>
+			<div class="col">
+				Province:
+				<input type="text" name="province" value="{{ v.province }}" class="form-control" required=" " autofocus="">
+			</div>
+			<div class="col">
+				Postal Code:
+				<input type="text" name="postalCode" value="{{ v.postalCode }}" class="form-control" required=" " autofocus="">
+			</div>
+		</div>
+		<div class="row center">
+			<div class="col form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" value="{{ v.promotionalEmails }}">
+				promo emails
+			</div>
+			<div class="col form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" value="{{ v.emailFromPartners }}">
+				partner emails
+			</div>
+			<div class="col form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" value="{{ v.postalMailFromJitters }}">
+				Jitters mail
+			</div>
+		</div>
+		<div class="custom-file">
+			<input type="file" class="custom-file-input" id="customFile">
+			<label class="custom-file-label" for="customFile">Profile Photo</label>
+		</div>
+
+		<input type="submit" class="btn btn-lg btn-secondary btn-block mt-5" value="{% if op == 'edit' %}Update User{% else %}Save New User{% endif %}">
+
+	</form>
+{% endblock %}

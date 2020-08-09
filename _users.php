@@ -1,6 +1,8 @@
 <?php
 require_once '_setup.php';
 
+$passwordPepper = 'mmyb7oSAeXG9DTz2uFqu';
+
 // STATE 1: first display
 $app->get('/register', function ($request, $response, $args) {
     return $this->view->render($response, 'register.html.twig');
@@ -18,6 +20,9 @@ $app->post('/register', function ($request, $response, $args) {
     $pass2 = $request->getParam('pass2');
     //
     $errorList = array();
+
+    $result = verifyUserName($firstName, $lastName, $nickname);
+    
     if (preg_match('/^[a-zA-Z0-9\ \\._\'"-]{4,50}$/', $firstName) != 1) { // no match
         array_push($errorList, "Names and nickname must be 4-50 characters long and consist of letters, digits, "
             . "spaces, dots, underscores, apostrophies, or minus sign.");
@@ -34,6 +39,7 @@ $app->post('/register', function ($request, $response, $args) {
    
         $nickname = "";
     }
+    
     if (filter_var($email, FILTER_VALIDATE_EMAIL) == FALSE) {
         array_push($errorList, "Email does not look valid");
         $email = "";
@@ -45,6 +51,9 @@ $app->post('/register', function ($request, $response, $args) {
             $email = "";
         }
     }
+    $result = verifyPasswordQuailty($pass1, $pass2);
+    if ($result != TRUE) { $errorList[] = $result; }
+    
     if ($pass1 != $pass2) {
         array_push($errorList, "Passwords do not match");
     } else {
@@ -59,9 +68,12 @@ $app->post('/register', function ($request, $response, $args) {
     //
     if ($errorList) {
         return $this->view->render($response, 'register.html.twig',
-                [ 'errorList' => $errorList, 'v' => [$firstName, 'lastName' => $lastName,  'nickname' => $nickname, 'email' => $email ]  ]);
+        [ 'errorList' => $errorList, 'v' => [$firstName, 'lastName' => $lastName,  'nickname' => $nickname, 'mobilePhone' => $phone, 'email' => $email ]  ]);
     } else {
-        DB::insert('users', ['firstName' => $firstName, 'lastName' => $lastName, 'nickname' => $nickname, 'email' => $email, 'password' => $pass1]);
+        global $passwordPepper;
+        $pwdPeppered = hash_hmac("sha256", $pass1, $passwordPepper);
+        $pwdHashed = password_hash($pwdPeppered, PASSWORD_DEFAULT); // PASSWORD_ARGON2ID);
+        DB::insert('users', ['firstName' => $firstName, 'lastName' => $lastName, 'nickname' => $nickname, 'email' => $email, 'password' => $pwdHashed]);
         return $this->view->render($response, 'register_success.html.twig');
     }
 });
@@ -115,3 +127,172 @@ $app->get('/logout', function ($request, $response, $args) use ($log) {
     unset($_SESSION['user']);
     return $this->view->render($response, 'logout.html.twig', ['userSession' => null ]);
 });
+
+
+/* ********************     USER PROFILE VIEW   ******************** */
+
+$app->get('/admin/users/{op:edit|view}[/{userId:[0-9]+}]', function ($request, $response, $args) {
+    // either op is add and id is not given OR op is edit and id must be given
+    if ( ($args['op'] == 'profile' && !empty($args['userId'])) || ($args['op'] == 'edit' && empty($args['userId'])) ) {
+        $response = $response->withStatus(404);
+        return $this->view->render($response, 'error_not_found.html.twig');
+    }
+    if ($args['op'] == 'edit') {
+        $user = DB::queryFirstRow("SELECT * FROM users WHERE userId=%d", $args['userId']);
+        if (!$user) {
+            $response = $response->withStatus(404);
+            return $this->view->render($response, 'error_not_found.html.twig');
+        }
+    } else {
+        $user = [];
+    }
+    return $this->view->render($response, 'profile.html.twig', ['v' => $user, 'op' => $args['op']]);
+});
+
+// STATE 2&3: receiving submission
+$app->post('/admin/users/{op:edit|view}[/{userId:[0-9]+}]', function ($request, $response, $args) {
+    $op = $args['op'];
+    // either op is add and id is not given OR op is edit and id must be given
+    if ( ($op == 'view' && !empty($args['userId'])) || ($op == 'edit' && empty($args['userId'])) ) {
+        $response = $response->withStatus(404);
+        return $this->view->render($response, 'admin/not_found.html.twig');
+    }
+
+    $userId = $request->getParam('userId');
+    $name = $request->getParam('firstName'. " " . 'lastName');
+    $firstName = $request->getParam('firstName');
+    $lastName = $request->getParam('lastName');
+    $nickname = $request->getParam('nickname');
+    $adminuser = $request->getParam('adminuser') ?? '0';
+    $email = $request->getParam('email');
+    $pass1 = $request->getParam('pass1');
+    $pass2 = $request->getParam('pass2');
+    $phone = $request->getParam('mobilePhone');
+    $address = $request->getParam('address');
+    $city = $request->getParam('city');
+    $province = $request->getParam('province');
+    $postalCode = $request->getParam('postalCode');
+    $promotionalEmails = $request->getParam('promotionalEmails');
+    $emailFromPartners = $request->getParam('emailFromPartners');
+    $postalMailFromJitters = $request->getParam('postalMailFromJitters');
+    $rewards = $request->getParam('rewards');
+    $photofilepath = $request->getParam('photofilepath');
+    $creationTS = $request->getParam('creationTS');
+
+    $errorList = array();
+
+    $result = verifyUserName( $name);
+    if ($result != TRUE) { $errorList[] = $result; }
+
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) == FALSE) {
+        array_push($errorList, "Email does not look valid");
+        $email = "";
+    } else {
+        // is email already in use BY ANOTHER ACCOUNT???
+        if ($op == 'edit') {
+            $record = DB::queryFirstRow("SELECT * FROM users WHERE email=%s AND userId != %d", $email, $args['id'] );
+        } else { // add has no id yet
+            $record = DB::queryFirstRow("SELECT * FROM users WHERE email=%s", $email);
+        }
+        if ($record) {
+            array_push($errorList, "This email is already registered");
+            $email = "";
+        }
+    }
+    // verify password always on add, and on edit/update only if it was given
+    if ($op == 'view' || $pass1 != '') {
+        $result = verifyPasswordQuailty($pass1, $pass2);
+        if ($result != TRUE) { $errorList[] = $result; }
+    }
+    //
+    if ($errorList) {
+        return $this->view->render($response, 'profile_edit.html.twig',
+                [ 'errorList' => $errorList, 'v' => ['name' => $name, 'email' => $email ]  ]);
+    } else {
+        if ($op == 'view') {
+            DB::insert('users', ['name' => $name, 'email' => $email, 'password' => $pass1, 'adminuser' => $adminuser]);
+            return $this->view->render($response, 'profile_edit_success.html.twig', ['op' => $op ]);
+        } else {
+            $data = ['name' => $name, 'email' => $email, 'adminuser' => $adminuser];
+            if ($pass1 != '') { // only update the password if it was provided
+                $data['password'] = $pass1;
+            }
+            DB::update('users', $data, "userId=%d", $args['id']);
+            return $this->view->render($response, 'profile_edit_success.html.twig', ['op' => $op ]);
+        }
+    }
+});
+
+
+// STATE 1: first display
+$app->get('profile/delete/{userId:[0-9]+}', function ($request, $response, $args) {
+    $user = DB::queryFirstRow("SELECT * FROM users WHERE userId=%d", $args['userId']);
+    if (!$user) {
+        $response = $response->withStatus(404);
+        return $this->view->render($response, 'error_not_found.html.twig');
+    }
+    return $this->view->render($response, 'profile_delete.html.twig', ['v' => $user] );
+});
+
+// STATE 1: first display
+$app->post('profile/delete/{userId:[0-9]+}', function ($request, $response, $args) {
+    DB::delete('users', "userId=%d", $args['id']);
+    return $this->view->render($response, 'profile_delete_success.html.twig' );
+});
+
+// Attach middleware that verifies only Admin can access /admin... URLs
+
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
+
+// Function to check string starting 
+// with given substring 
+// function startsWith($string, $startString) 
+// { 
+//     $len = strlen($startString); 
+//     return (substr($string, 0, $len) === $startString); 
+// } 
+
+
+/* ********** TODO FIXME!!!!! *********** */
+$app->add(function (ServerRequestInterface $request, ResponseInterface $response, callable $next) {
+    $url = $request->getUri()->getPath();
+    if (startsWith($url, "/admin")) {
+        if (!isset($_SESSION['user']) || $_SESSION['user']['adminuser'] == 0) { // refuse if user not logged in AS ADMIN
+            $response = $response->withStatus(403);
+            return $this->view->render($response, 'error_access_denied.html.twig');
+        }
+    }
+    return $next($request, $response);
+});
+
+/* ********** TODO FIXME!!!!! FUNCTIONS DECLARED IN _admin.php  *********** */
+// these functions return TRUE on success and string describing an issue on failure
+// function verifyUserName($name) {
+//     if (preg_match('/^[a-zA-Z0-9\ \\._\'"-]{4,50}$/', $name) != 1) { // no match
+//         return "Name must be 4-50 characters long and consist of letters, digits, "
+//             . "spaces, dots, underscores, apostrophies, or minus sign.";
+//     }
+//     return TRUE;
+// }
+
+// function verifyPasswordQuailty($pass1, $pass2) {
+//     if ($pass1 != $pass2) {
+//         return "Passwords do not match";
+//     } else {
+//         /*
+//         // FIXME: figure out how to use case-sensitive regexps with Validator
+//         if (!Validator::length(6,100)->regex('/[A-Z]/')->validate($pass1)) {
+//             return "VALIDATOR. Password must be 6-100 characters long, "
+//                 . "with at least one uppercase, one lowercase, and one digit in it";
+//         } */
+//         if ((strlen($pass1) < 6) || (strlen($pass1) > 100)
+//                 || (preg_match("/[A-Z]/", $pass1) == FALSE )
+//                 || (preg_match("/[a-z]/", $pass1) == FALSE )
+//                 || (preg_match("/[0-9]/", $pass1) == FALSE )) {
+//             return "Password must be 6-100 characters long, "
+//                 . "with at least one uppercase, one lowercase, and one digit in it";
+//         }
+//     }
+//     return TRUE;
+// }

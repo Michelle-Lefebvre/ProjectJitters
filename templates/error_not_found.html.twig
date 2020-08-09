@@ -1,0 +1,21 @@
+{% extends "master.html.twig" %}
+
+{% block head %}
+<link rel="stylesheet" href="/styles/stylesErrors.css"/>
+{% endblock head %}
+{% block content %}
+	<div class="errors">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<img class="errors" src="/images/errorNotFound.png" width="100%">
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<h1 class="textHuge errors">Error 404</h1>
+				<h3>Not Found</h3>
+				<p>Sorry for the inconvenience, we're working on it.<br/>
+					<a href="/adminmenu" style="color:turquoise;">Click here</a>
+					to continue.</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

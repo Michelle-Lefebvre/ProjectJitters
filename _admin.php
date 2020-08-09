@@ -3,6 +3,7 @@ require_once '_setup.php';
 # this file is for /admin/* URL handlers
 use Respect\Validation\Validator as Validator;
 
+
 // menu for administration functions
 $app->get('/adminmenu', function ($request, $response, $args) {
     // admin user must be both logged in and have adminuser set to yes

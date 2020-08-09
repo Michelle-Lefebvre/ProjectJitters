@@ -21,8 +21,8 @@
 			<div class="col-sm-12 col-md-6 m-0 p-0 h-100">
 				<img src="/images/menuCoffees.jpg" width="100%" height="400">
 			</div>
-			<div class="col-sm-12 col-md-6 m-0 p-0 h-100 d-flex">
-				<ul class="menuItem p-0 tab mt-2 center">
+			<div class="col-sm-12 col-md-6 m-0 p-0 h-100 d-flex justify-content-center">
+				<ul class="menuItem p-0 tab mt-5 center m-xs-auto mr-md-3 mr-lg-5">
 					<h5>Coffees</h5>
 
 					{% for c in cafeList %}
@@ -39,22 +39,22 @@
 
 	<div class="container-fluid m-0 p-0">
 		<div class="row h-100">
-			<div class="col-sm-12 col-md-6 m-0 p-0 h-100 d-flex">
-				<ul class="menuItem p-0 tab mt-2 center">
+			<div class="col-sm-12 col-md-6 m-0 p-0 h-100 d-flex justify-content-center">
+				<ul class="menuItem p-0 tab mt-5 center m-xs-auto mr-md-3 mr-lg-5">
 					<h5>Teas</h5>
 					{% for t in teaList %}
 						<div class="text-right">{{t.itemName}}
 							<span class="tab text-right">{{t.price}}</span>
 							<span class="tab">{{t.priceMed}}</span>
-							<span class="tab text-right">{{t.priceLrg}}</span>
+							<span class="tab text-right mr-xs-1">{{t.priceLrg}}</span>
 						</div>
 					{% endfor %}
 				</ul>
 			</div>
-			<div class="col-sm-12 col-md-6 p-0 h-100 order-sm-1 order-md-2 ">
+			<div class="col-sm-12 col-md-6 p-0 h-100">
 				<img src="/images/menuTeas.jpg" width="100%" height="400">
 			</div>
-		</div>
+		
 	</div>
 
 	<div class="container-fluid m-0 p-0">
@@ -62,9 +62,9 @@
 			<div class="col-sm-12 col-md-6 m-0 p-0 h-100">
 				<img src="/images/menuPastries.jpg" width="100%" height="400">
 			</div>
-			<div class="col-sm-12 col-md-6 m-0 p-0 h-100 d-flex">
-				<ul class="menuItem p-0 tab mt-2 center">
-					<h5>Bake
+			<div class="col-sm-12 col-md-6 m-0 pb-5 h-100 d-flex justify-content-center">
+				<ul class="menuItem p-0 tab mt-5 center m-xs-auto mr-md-3 mr-lg-5">
+					<h5 class="m-0">Bake
 					</h5>
 					<div class="text-right">{{c.itemName}}
 						<span class="tab text-right">{{c.price}}</span>
