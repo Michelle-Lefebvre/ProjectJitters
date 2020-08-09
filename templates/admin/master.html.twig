@@ -21,18 +21,29 @@
 			- Admin interface</title>
 		{% block head %}{% endblock %}
 	</head>
+	{% block header %}{% endblock header %}
 	<body class="bg-light center m-auto">
-		<div>
-			<h1>Admin interface</h1>
-			<a href="/adminmenu" class="btn btn-warning mt-5 mb-5" role="button">Cancel and return to Admin Menu</a>
-			<a href="/" class="btn btn-warning mt-5 mb-5" role="button">Cancel and return to Home Page</a>
-
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-md-2">
+					<nav class="nav flex-column">
+						<a class="nav-link active p-0" href="/adminmenu" title="return to Admin Menu">J<sub>
+								i</sub>
+							<sup>t</sup>
+							t<sub>
+								e</sub>
+							<sup>r</sup>
+							s</a>
+					</nav>
+				</div>
+				<div class="col-xs-12 col-md-10">
+					<h1 class="ml-xs-1 ml-md-0">Admin interface</h1>
+				</div>
+			</div>
 			{% block content %}{% endblock %}
 
-			{% block footer %}
-				<a href="/adminmenu" class="btn btn-warning mt-5 mb-5" role="button">Cancel and return to Admin Menu</a>
-				<a href="/" class="btn btn-warning mt-5 mb-5" role="button">Cancel and return to Home Page</a>
-			{% endblock footer %}
-		</div>
+			{% block footer %}{% endblock footer %}
+			</div>
+		</body>
 	</body>
 </html>
