@@ -1,4 +1,21 @@
 ___________________________________________________________________
+2020/08/09 Sunday morning Scrum meeting was unplanned
+Discussed: 
+Admin when returning to index the session was lost and the user logged out.
+Solution was to add a side navigation for the admin users to navigate site, simplify the admin menu to cards, items, orders, users. These links to go to their respective lists. All actions would be accessible in the List with the Add to be a call to action button beside the title of the form. While in any url links from the List (add|edit|delete) there will be a cancel button that will return to the list. Also the success page will return to it's list to continue.
+____________________________________________
+2020/08/09 Michelle
+2. What I plan to do from this scrum to next? (Monday at 9am)
+-Michelle will change Mark's forms to use bootstrap and ensure links on pages points to the list 
+-Michelle will change entire item list table to use bootstrap format with row hover
+-Michelle will make all the changes above
+______________________
+2020/08/09 Mark
+2. What I plan to do from this scrum to next? (Monday at 9am)
+Mark to continue working on the tasks listed on Friday's Scrum meeting
+Where do I need assistance?
+Bootstrap
+___________________________________________________________________
 2020/08/07 Afternoon Scrum meeting to organize work over the weekend.
 In the morning scrum we had decided on what we would be doing. This afternoon scrum meeeting we
 reviewed changes to .com site styling and admin menu discussion about How the admin would logout or return to the main site. We decided that 2 additional buttons were required for admin log out/admin logout success flash. Mark will add the 2 buttons
@@ -10,7 +27,6 @@ done - remove the dropdown list of admin items master twig
 done - fix see comments for user can register
 done - meeting at 7pm tonight for uploading project to jitters.ipd21.com
 done - Adminuser can display user list
-
 
 2. What I plan to do from this scrum to next? (Monday at 9am)
 -test Adminuser can edit items

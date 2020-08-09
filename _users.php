@@ -12,6 +12,7 @@ $app->post('/register', function ($request, $response, $args) {
     $firstName = $request->getParam('firstName');
     $lastName = $request->getParam('lastName');
     $nickname = $request->getParam('nickname');
+    $phone = $request->getParam('mobilePhone');
     $email = $request->getParam('email');
     $pass1 = $request->getParam('pass1');
     $pass2 = $request->getParam('pass2');
@@ -30,7 +31,7 @@ $app->post('/register', function ($request, $response, $args) {
     if (preg_match('/^[a-zA-Z0-9\ \\._\'"-]{4,50}$/', $nickname) != 1) { // no match
         array_push($errorList, "Nickname must be 4-50 characters long and consist of letters, digits, "
             . "spaces, dots, underscores, apostrophies, or minus sign.");
-      
+   
         $nickname = "";
     }
     if (filter_var($email, FILTER_VALIDATE_EMAIL) == FALSE) {

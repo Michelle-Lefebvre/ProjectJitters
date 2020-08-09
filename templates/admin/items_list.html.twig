@@ -1,16 +1,45 @@
 {% extends "admin/master.html.twig" %}
 
-{% block title %}Item list{% endblock %}
+{% block title %}Item list
+{% endblock %}
 
 {% block content %}
-    <h3>Item List</h3>
-    <table border="1">
-        <tr><th>id</th><th>name</th><th>description</th><th>category code</th><th>quantity on hand</th><th>price</th><th>price Med</th><th>price Lrg</th><th>Action</th></tr>
-    {% for u in itemsList %}
-        <tr><td>{{u.itemId}}</td><td>{{u.itemName}}</td><td>{{u.description}}</td><td>{{u.categoryCode}}</td><td>{{u.quantityOnHand}}</td><td>{{u.price}}</td><td>{{u.priceMed}}</td><td>{{u.priceLrg}}</td>
-        <td><a href="/admin/items/edit/{{u.itemId}}">edit</a>
-            <a href="/admin/items/delete/{{u.itemId}}">delete</a>
-        </td></tr>
-    {% endfor %}
-    </table>
+	<h2>Item List<a href="/admin/items/add" class="btn btn-warning ml-xs-0 ml-sm-5" role="button">ADD NEW ITEM</a>
+	</h2>
+	<div class="table-responsive-md">
+		<table class="table table-sm table-hover ">
+			<caption>List of items</caption>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>name</th>
+					<th>description</th>
+					<th>category code</th>
+					<th>quantity on hand</th>
+					<th>price</th>
+					<th>price Med</th>
+					<th>price Lrg</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for u in itemsList %}
+					<tr>
+						<td>{{u.itemId}}</td>
+						<td>{{u.itemName}}</td>
+						<td>{{u.description}}</td>
+						<td>{{u.categoryCode}}</td>
+						<td>{{u.quantityOnHand}}</td>
+						<td>{{u.price}}</td>
+						<td>{{u.priceMed}}</td>
+						<td>{{u.priceLrg}}</td>
+						<td>
+							<a href="/admin/items/edit/{{u.itemId}}">edit</a>
+							<a href="/admin/items/delete/{{u.itemId}}">delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
 {% endblock %}

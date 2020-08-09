@@ -3,8 +3,9 @@
 {% block title %}Update item information
 {% endblock %}
 
-{% block content %}
+{% block head %}{% endblock %}
 
+{% block content %}
 	{% if errorList %}
 		<ul class="errorMessage">
 			{% for error in errorList %}
@@ -12,13 +13,13 @@
 			{% endfor %}
 		</ul>
 	{% endif %}
-
+	
 	<form class="form center text-left" method="post">
-    	<h2  class="text-center">
-		{% if op == 'edit' %}Update Item{% else %}Add item
-		{% endif %}
-	</h2>
-
+		<h2 class="text-center">
+			{% if op == 'edit' %}Update Item{% else %}Add New Item
+			{% endif %}
+			<a href="/admin/items/list" class="btn btn-warning ml-xs-0 ml-md-5" role="button" title="return to Items List">Cancel</a>
+		</h2>
 		<div class="row">
 			<div class="col-4 text-right m-0">
 				Item Id:
@@ -32,7 +33,7 @@
 				Item Name:
 			</div>
 			<div class="col-8 text-left m-0">
-				<input type="text" name="itemName" value="{{ v.itemName }}">
+				<input type="text" name="itemName" value="{{ v.itemName }}" class="form-control" required=" " autofocus="">
 			</div>
 		</div>
 		<div class="row">
@@ -40,7 +41,7 @@
 				Description:
 			</div>
 			<div class="col-8 text-left m-0">
-				<textarea id="description" cols="40" rows="5" name="description" value="">{{ v.description }}</textarea>
+				<textarea id="description" cols="40" rows="5" name="description" value="{{ v.description }}" class="form-control" required=" " autofocus=""></textarea>
 			</div>
 		</div>
 		<div class="row">
@@ -48,7 +49,7 @@
 				Category Code:
 			</div>
 			<div class="col-8 text-left m-0">
-				<input type="text" name="categoryCode" value="{{ v.categoryCode }}">
+				<input type="text" name="categoryCode" value="{{ v.categoryCode }}" class="form-control" required=" " autofocus="">
 			</div>
 		</div>
 		<div class="row">
@@ -64,7 +65,7 @@
 				Quantity On Hand:
 			</div>
 			<div class="col-8 text-left m-0">
-				<input type="number" name="quantityOnHand" min="0" placeholder="Quantity On Hand" value="{{ v.quantityOnHand }}">
+				<input type="number" name="quantityOnHand" min="0" placeholder="Quantity On Hand" value="{{ v.quantityOnHand }}" class="form-control" autofocus="">
 			</div>
 		</div>
 		<div class="row">
@@ -72,7 +73,7 @@
 				Price:
 			</div>
 			<div class="col-8 text-left m-0">
-				<input type="number" name="price" min="0.25" placeholder="Price with 2 decimal places" step="any" value="{{ v.price }}">
+				<input type="number" name="price" min="0.25" placeholder="Price with 2 decimal places" step="0.25" value="{{ v.price }}" class="form-control" required=" " autofocus="">
 			</div>
 		</div>
 		<div class="row">
@@ -80,7 +81,7 @@
 				Price Med:
 			</div>
 			<div class="col-8 text-left m-0">
-				<input type="number" name="priceMed" min="0" placeholder="Price with 2 decimal places" step="any" value="{{ v.priceMed }}">
+				<input type="number" name="priceMed" min="0" placeholder="Price with 2 decimal places" step="0.25" value="{{ v.priceMed }}" class="form-control" autofocus="">
 			</div>
 		</div>
 		<div class="row">
@@ -88,20 +89,20 @@
 				Price Lrg:
 			</div>
 			<div class="col-8 text-left m-0">
-				<input type="number" name="priceLrg" min="0" placeholder="Price with 2 decimal places" step="any" value="{{ v.priceLrg }}">
+				<input type="number" name="priceLrg" min="0" placeholder="Price with 2 decimal places" step="0.25" value="{{ v.priceLrg }}" class="form-control" autofocus="">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-4 text-right m-0">Photo Path:
 			</div>
 			<div class="col-8 text-left m-0">
-				<input type="text" name="photofilepath" placeholder="Photo File Path" value="">
+				<input type="text" name="photofilepath" placeholder="Photo File Path" value="{{ v.photofilepath }}" class="form-control" autofocus="">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-12 center">
-				<input class="btn btn-lg btn-secondary btn-block mt-5" type="submit" value="{% if op == 'edit' %}Update item data{% else %}Add item{% endif %}">
+				<input type="submit" class="btn btn-lg btn-secondary btn-block mt-5" value="{% if op == 'edit' %}Update item data{% else %}Add item{% endif %}">
 			</div>
-            </div>
-		</form>
-	{% endblock %}
+        </div>
+	</form>
+{% endblock %}
