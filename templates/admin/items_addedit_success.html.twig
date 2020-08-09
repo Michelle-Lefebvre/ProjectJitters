@@ -3,6 +3,8 @@
 {% block title %}Operation successful{% endblock %}
 
 {% block content %}
+    <h3>{% if op == 'edit' %}Update Item{% else %}Add item{% endif %}</h3><br>
     <p>Operation successful - item {% if op == 'add' %}added{% else %}updated{% endif %}</p>
-    <p><a href="/admin/items/add">Click here to continue</a></p>
+    <p><a href="/admin/items/add">Click here to continue to Items Add</a></p>
+    <p><a href="/admin/items/list">Click here to continue to Items List</a></p>
 {% endblock %}

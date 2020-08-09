@@ -3,10 +3,11 @@
 {% block title %}Delete item{% endblock %}
 
 {% block content %}
-    <h3>Delete item</h3>
-        Item id: {{ v.itemId }}<br>
-        Item name: {{ v.itemName }}<br>
-        <form method="POST">
+        <h3>Delete item</h3>
+        
+        <form method="POST" class="form-admin center">
+            Item id: {{ v.itemId }}<br>
+            Item name: {{ v.itemName }}<br>
             <p>Please confirm this action. It is irreversible</p>
             <input type="submit" value="Yes, delete the item">
         </form>
