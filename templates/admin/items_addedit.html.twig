@@ -3,7 +3,7 @@
 {% block title %}Update item information{% endblock %}
 
 {% block content %}
-
+        <h3>{% if op == 'edit' %}Update Item{% else %}Add item{% endif %}</h3><br>
 
     {% if errorList %}
         <ul class="errorMessage">
@@ -14,7 +14,7 @@
     {% endif %}
 
         <form method="post" class="form-admin center">
-            <h3>{% if op == 'edit' %}Update Item{% else %}Add item{% endif %}</h3><br>
+            
             Item Id:  {{ v.itemId }}<br>
             Item Name: <input type="text" name="itemName" value="{{ v.itemName }}"><br>
             Description: <textarea id="description"  cols="40" rows="5" name="description"  value="">{{ v.description }}</textarea><br>
