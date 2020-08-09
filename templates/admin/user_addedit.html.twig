@@ -1,6 +1,6 @@
 {% extends "admin/master.html.twig" %}
 
-{% block title %}-User Edit
+{% block title %}User Edit
 {% endblock %}
 
 {% block head %}{% endblock %}
@@ -14,7 +14,10 @@
 		</ul>
 	{% endif %}
 	<form class="form center text-left" method="post">
-		<h2 class="text-center">Edit User Info</h2>
+    	<h2  class="text-center">
+		{% if op == 'edit' %}Update User{% else %}Add New User
+		{% endif %}
+	</h2>
 		<div class="row">
 			<div class="col">
 			<p>User Id: <strong>{{ v.userId }} </strong></p>
@@ -61,7 +64,6 @@
 			<div class="col"><br>
 				Passord (repeated):
 				<input type="password" name="pass2" id="inputPassword2" class="form-control" required="">
-
 			</div>
 		</div>
 		<div class="row">
@@ -103,7 +105,7 @@
   			<label class="custom-file-label" for="customFile">Profile Photo</label>
 		</div>
 
-	<input type="submit" class="btn btn-lg btn-secondary btn-block mt-5" value="{% if op == 'edit' %}Update user data{% else %}Add user{% endif %}">
+	<input type="submit" class="btn btn-lg btn-secondary btn-block mt-5" value="{% if op == 'edit' %}Update User{% else %}Save New User{% endif %}">
 
 </form>
 {% endblock %}

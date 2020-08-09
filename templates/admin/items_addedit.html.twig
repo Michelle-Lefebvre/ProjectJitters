@@ -1,32 +1,107 @@
 {% extends "admin/master.html.twig" %}
 
-{% block title %}Update item information{% endblock %}
+{% block title %}Update item information
+{% endblock %}
 
 {% block content %}
-        <h3>{% if op == 'edit' %}Update Item{% else %}Add item{% endif %}</h3><br>
 
-    {% if errorList %}
-        <ul class="errorMessage">
-        {% for error in errorList %}
-            <li>{{error}}</li>
-        {% endfor %}
-        </ul>
-    {% endif %}
+	{% if errorList %}
+		<ul class="errorMessage">
+			{% for error in errorList %}
+				<li>{{error}}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
 
-        <form method="post" class="form-admin center">
-            
-            Item Id:  {{ v.itemId }}<br>
-            Item Name: <input type="text" name="itemName" value="{{ v.itemName }}"><br>
-            Description: <textarea id="description"  cols="40" rows="5" name="description"  value="">{{ v.description }}</textarea><br>
-            Category Code: <input type="text" name="categoryCode"  value="{{ v.categoryCode }}"><br>
-            Inventory Flag: <input type="checkbox" name="inventoryFlag" placeholder="Inventory Flag" value="{{ v.inventoryFlag }}"><br>
-            Quantity On Hand: <input type="number" name="quantityOnHand" min="0" placeholder="Quantity On Hand" value="{{ v.quantityOnHand }}"><br>
-            Price: <input type="number" name="price" min="0.25" placeholder="Price with 2 decimal places" step="any" value="{{ v.price }}"><br>
-            Price Med: <input type="number" name="priceMed" min="0" placeholder="Price with 2 decimal places" step="any" value="{{ v.priceMed }}"><br>
-            Price Lrg: <input type="number" name="priceLrg" min="0" placeholder="Price with 2 decimal places" step="any" value="{{ v.priceLrg }}"><br>
-            {# Photo Path: <input type="text" name="photofilepath" placeholder="Photo File Path" value=""><br>#}
-            <input type="submit" value="{% if op == 'edit' %}Update item data{% else %}Add item{% endif %}"><br>
+	<form class="form center text-left" method="post">
+    	<h2  class="text-center">
+		{% if op == 'edit' %}Update Item{% else %}Add item
+		{% endif %}
+	</h2>
 
-        
-        </form>
-{% endblock %}
+		<div class="row">
+			<div class="col-4 text-right m-0">
+				Item Id:
+			</div>
+			<div class="col-8 text-left m-0">
+				<strong>{{ v.itemId }}</strong>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4 text-right m-0">
+				Item Name:
+			</div>
+			<div class="col-8 text-left m-0">
+				<input type="text" name="itemName" value="{{ v.itemName }}">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4 text-right m-0">
+				Description:
+			</div>
+			<div class="col-8 text-left m-0">
+				<textarea id="description" cols="40" rows="5" name="description" value="">{{ v.description }}</textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4 text-right m-0">
+				Category Code:
+			</div>
+			<div class="col-8 text-left m-0">
+				<input type="text" name="categoryCode" value="{{ v.categoryCode }}">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4 text-right m-0">
+				Inventory Flag:
+			</div>
+			<div class="col-8 text-left m-0">
+				<input type="checkbox" name="inventoryFlag" placeholder="Inventory Flag" value="{{ v.inventoryFlag }}">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4 text-right m-0">
+				Quantity On Hand:
+			</div>
+			<div class="col-8 text-left m-0">
+				<input type="number" name="quantityOnHand" min="0" placeholder="Quantity On Hand" value="{{ v.quantityOnHand }}">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4 text-right m-0">
+				Price:
+			</div>
+			<div class="col-8 text-left m-0">
+				<input type="number" name="price" min="0.25" placeholder="Price with 2 decimal places" step="any" value="{{ v.price }}">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4 text-right m-0">
+				Price Med:
+			</div>
+			<div class="col-8 text-left m-0">
+				<input type="number" name="priceMed" min="0" placeholder="Price with 2 decimal places" step="any" value="{{ v.priceMed }}">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4 text-right m-0">
+				Price Lrg:
+			</div>
+			<div class="col-8 text-left m-0">
+				<input type="number" name="priceLrg" min="0" placeholder="Price with 2 decimal places" step="any" value="{{ v.priceLrg }}">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4 text-right m-0">Photo Path:
+			</div>
+			<div class="col-8 text-left m-0">
+				<input type="text" name="photofilepath" placeholder="Photo File Path" value="">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 center">
+				<input class="btn btn-lg btn-secondary btn-block mt-5" type="submit" value="{% if op == 'edit' %}Update item data{% else %}Add item{% endif %}">
+			</div>
+            </div>
+		</form>
+	{% endblock %}
