@@ -273,7 +273,7 @@ $app->post('/admin/users/{op:edit|add}[/{userId:[0-9]+}]', function ($request, $
     } else {
         // is email already in use BY ANOTHER ACCOUNT???
         if ($op == 'edit') {
-            $record = DB::queryFirstRow("SELECT * FROM users WHERE email=%s AND userId != %d", $email, $args['id'] );
+            $record = DB::queryFirstRow("SELECT * FROM users WHERE email=%s AND userId != %d", $email, $args['userId'] );
         } else { // add has no id yet
             $record = DB::queryFirstRow("SELECT * FROM users WHERE email=%s", $email);
         }
@@ -300,8 +300,8 @@ $app->post('/admin/users/{op:edit|add}[/{userId:[0-9]+}]', function ($request, $
             if ($pass1 != '') { // only update the password if it was provided
                 $data['password'] = $pass1;
             }
-            DB::update('users', $data, "userId=%d", $args['id']);
-            return $this->view->render($response, 'admin/user_addedit_success.html.twig', ['op' => $op ]);
+            DB::update('users', $data, "userId=%d", $args['userId']);
+            return $this->view->render($response, 'admin/users_addedit_success.html.twig', ['op' => $op ]);
         }
     }
 });
@@ -319,8 +319,8 @@ $app->get('/admin/users/delete/{userId:[0-9]+}', function ($request, $response, 
 
 // STATE 1: first display
 $app->post('/admin/users/delete/{userId:[0-9]+}', function ($request, $response, $args) {
-    DB::delete('users', "userId=%d", $args['id']);
-    return $this->view->render($response, 'admin/user_delete_success.html.twig' );
+    DB::delete('users', "userId=%d", $args['userId']);
+    return $this->view->render($response, 'admin/users_delete_success.html.twig' );
 });
 
 // Attach middleware that verifies only Admin can access /admin... URLs
