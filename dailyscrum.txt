@@ -1,4 +1,74 @@
 ___________________________________________________________________
+2020/08/10 Michelle
+1. What I have done / not done since last Scrum?
+done - test w/ comments Adminuser can edit items
+done - test w/ comments Adminuser can list items
+done - test w/ comments Adminuser can add item
+Not done - Adminuser can create user profile (Card name should be AdminUser can add user) Need to implement photo upload
+done - Adminuser can obsolete user (Card name should be AdminUser can delete user profile)
+done - Adminuser can display user (users list)
+done - added button to admin/master for logout
+done - redesign Adminmenu for user to navigate the site & stay logged in. (Included changes to the admin master)
+done - fixed form in items_add.html Mark doesn’t understand how to use bootstrap
+done - fixed form in items_edit.html.twig
+done - fixed form in items_lists.html.twig
+done - fixed form in item_ delete.html.twig
+done - fixed form in item_delete_sucess.html.twig
+
+
+Discuss: 
+1. Change database Users adminuser default=0 
+Mark:let's do it Must be done in .com
+2. How to keep user logged in when returning user to home page. (Problem that SESSION is ending with link to href=“/“) however after clicking a link in the home site the user session is still running.
+Mark & Michelle: wait until tommorrow to consult with Gregory as we may be able to figure this out on our own
+3. When logged user clicks Adminmenu error page pops up then sends back to index name disappears but when click on login the user name appears
+: same as abouve item 2
+4. When signed in and returned to home site can click LoginForm so should this end session then?
+: Login should automatically clear user session on load
+5. Should the navbar from have the links to Menu & Order?
+:
+6. Login add button for not a member link to register.
+Mark: agreed to add
+
+2. What I plan to do from this scrum to next? (Tuesday at 9am)
+- Adminuser can create user profile Need to implement photo upload 
+- User can view profile
+- User can edit profile
+- User can delete profile
+- User can register need to fix submit button, now getting error
+- test Adminuser can edit items
+- test Admin user can delete items
+- test Adminuser can obsolete user
+- test Adminuser can display user (users list)
+
+3. Where do I need assistance?
+none
+______________________
+2020/08/10  Mark
+1. What I have done / not done since last Scrum?
+On Hold - User can see rewards card  has been put on hold
+done - test User can see menu page
+done - test User can register
+not done - User can view cart
+not done - User can remove item in cart
+not done - User can select menu item to add to cart
+done- reformated adminmenu, additem screans
+done - re-test User can see menu page
+
+2. What I plan to do from this scrum to next? (Tuesday at 9am)
+- test User can see menu page
+- test Admin User can see admin menu
+- test Admin userer can obsolete user profile
+- test Admin can display user list
+- User can view cart
+- User can remove item in cart
+- User can select menu item to add to cart
+- Change database .com Users adminuser default=0 
+- Add Login button for not a member link to register.
+
+Where do I need assistance?
+no
+___________________________________________________________________
 2020/08/09 Sunday morning Scrum meeting was unplanned
 Discussed: 
 Admin when returning to index the session was lost and the user logged out.
@@ -13,7 +83,8 @@ ______________________
 2020/08/09 Mark
 2. What I plan to do from this scrum to next? (Monday at 9am)
 Mark to continue working on the tasks listed on Friday's Scrum meeting
-Where do I need assistance?
+
+3.Where do I need assistance?
 Bootstrap
 ___________________________________________________________________
 2020/08/07 Afternoon Scrum meeting to organize work over the weekend.

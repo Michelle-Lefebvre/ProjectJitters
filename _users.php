@@ -130,9 +130,17 @@ $app->get('/logout', function ($request, $response, $args) use ($log) {
 
 
 /* ********************     USER PROFILE VIEW   ******************** */
+$app->get('profile/{userId:[0-9]+}', function ($request, $response, $args) {
+    $user = DB::queryFirstRow("SELECT * FROM users WHERE userId=%d", $args['userId']);
+    if (!$user) {
+        $response = $response->withStatus(404);
+        return $this->view->render($response, 'error_not_found.html.twig');
+    }
+    return $this->view->render($response, 'profile.html.twig', ['v' => $user] );
+});
 
-$app->get('/admin/users/{op:edit|view}[/{userId:[0-9]+}]', function ($request, $response, $args) {
-    // either op is add and id is not given OR op is edit and id must be given
+$app->get('profile/edit[/{userId:[0-9]+}]', function ($request, $response, $args) {
+    // to view profile user must have log and id must be given
     if ( ($args['op'] == 'profile' && !empty($args['userId'])) || ($args['op'] == 'edit' && empty($args['userId'])) ) {
         $response = $response->withStatus(404);
         return $this->view->render($response, 'error_not_found.html.twig');
@@ -150,14 +158,14 @@ $app->get('/admin/users/{op:edit|view}[/{userId:[0-9]+}]', function ($request, $
 });
 
 // STATE 2&3: receiving submission
-$app->post('/admin/users/{op:edit|view}[/{userId:[0-9]+}]', function ($request, $response, $args) {
+$app->post('profile/edit[/{userId:[0-9]+}]', function ($request, $response, $args) {
     $op = $args['op'];
     // either op is add and id is not given OR op is edit and id must be given
-    if ( ($op == 'view' && !empty($args['userId'])) || ($op == 'edit' && empty($args['userId'])) ) {
+    if ( ($op == 'profile' && !empty($args['userId'])) || ($op == 'edit' && empty($args['userId'])) ) {
         $response = $response->withStatus(404);
-        return $this->view->render($response, 'admin/not_found.html.twig');
+        return $this->view->render($response, 'error_not_found.html.twig');
     }
-
+    
     $userId = $request->getParam('userId');
     $name = $request->getParam('firstName'. " " . 'lastName');
     $firstName = $request->getParam('firstName');
@@ -165,7 +173,7 @@ $app->post('/admin/users/{op:edit|view}[/{userId:[0-9]+}]', function ($request, 
     $nickname = $request->getParam('nickname');
     $adminuser = $request->getParam('adminuser') ?? '0';
     $email = $request->getParam('email');
-    $pass1 = $request->getParam('pass1');
+    $pass1 = $request->getParam('password');
     $pass2 = $request->getParam('pass2');
     $phone = $request->getParam('mobilePhone');
     $address = $request->getParam('address');
@@ -199,8 +207,8 @@ $app->post('/admin/users/{op:edit|view}[/{userId:[0-9]+}]', function ($request, 
             $email = "";
         }
     }
-    // verify password always on add, and on edit/update only if it was given
-    if ($op == 'view' || $pass1 != '') {
+    // verify password always on profile, and on edit/delete only if it was given
+    if ($op == 'profile' || $pass1 != '') {
         $result = verifyPasswordQuailty($pass1, $pass2);
         if ($result != TRUE) { $errorList[] = $result; }
     }
@@ -209,8 +217,9 @@ $app->post('/admin/users/{op:edit|view}[/{userId:[0-9]+}]', function ($request, 
         return $this->view->render($response, 'profile_edit.html.twig',
                 [ 'errorList' => $errorList, 'v' => ['name' => $name, 'email' => $email ]  ]);
     } else {
-        if ($op == 'view') {
-            DB::insert('users', ['name' => $name, 'email' => $email, 'password' => $pass1, 'adminuser' => $adminuser]);
+        if ($op == 'profile') { 
+            DB::insert('users', ['firstName' => $firstName, 'lastName' => $lastName, 'nickname' => $nickname, 'email' => $email, 'password' => $pass1, 'phone' => $phone, 'address' => $address, 'city' => $city, 'province' => $province, 'postalCode' => $postalCode, 'promotionalEmails' => $promotionalEmails, 'emailFromPartners' => $emailFromPartners, 'postalMailFromJitters' => $postalMailFromJitters, 'rewards' => $rewards, 'photofilepath' => $photofilepath]);
+            
             return $this->view->render($response, 'profile_edit_success.html.twig', ['op' => $op ]);
         } else {
             $data = ['name' => $name, 'email' => $email, 'adminuser' => $adminuser];

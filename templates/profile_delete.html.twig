@@ -1,0 +1,28 @@
+{% extends "master.html.twig" %}
+
+{% block title %}Delete user
+{% endblock %}
+
+{% block content %}
+	<form method="POST" class="form-admin center mb-5">
+		<h2>Delete user
+			<a href="/admin/users/list" class="btn btn-warning ml-xs-0 ml-md-5" role="button" title="return to Users List">Cancel</a>
+		</h2>
+		<p class="text-left ml-5">User name:
+			<span class="font-weight-bold">{{ v.firstName }}
+				{{ v.lastName }}</span>
+		</p>
+		<p class="text-left ml-5">Email:
+			<span class="font-weight-bold">{{ v.email }}</span>
+		</p>
+		<p class="text-left ml-5">Is admin?
+			<span class="font-weight-bold">
+				{% if v.adminuser %}yes{% else %}no
+				{% endif %}
+			</span>
+		</p>
+		<p>Please confirm this action.
+			<span class="font-weight-bold">It is irreversible</span>!</p>
+		<input type="submit" value="Yes, delete the user" class="btn btn-danger" role="button">
+	</form>
+{% endblock %}
