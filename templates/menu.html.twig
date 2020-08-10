@@ -9,7 +9,8 @@
 			background: white;
 		}
 		.tab {
-			margin-left: 30px;
+			font-size: 0.9rem;
+			margin-left: 25px;
 			line-height: 30px;
 		}
 	</style>
@@ -21,8 +22,8 @@
 			<div class="col-sm-12 col-md-6 m-0 p-0 h-100">
 				<img src="/images/menuCoffees.jpg" width="100%" height="400">
 			</div>
-			<div class="col-sm-12 col-md-6 m-0 p-0 h-100 d-flex justify-content-center">
-				<ul class="menuItem p-0 tab mt-5 center m-xs-auto mr-md-3 mr-lg-5">
+			<div class="col-sm-12 col-md-6 m-0 h-100 d-flex justify-content-center">
+				<ul class="menuItem tab mt-5 center m-xs-auto mr-md-3 mr-lg-5 pr-1 pl-0 pt-0 pb-0 ">
 					<h5>Coffees</h5>
 
 					{% for c in cafeList %}
@@ -39,14 +40,14 @@
 
 	<div class="container-fluid m-0 p-0">
 		<div class="row h-100">
-			<div class="col-sm-12 col-md-6 m-0 p-0 h-100 d-flex justify-content-center">
-				<ul class="menuItem p-0 tab mt-5 center m-xs-auto mr-md-3 mr-lg-5">
+			<div class="col-sm-12 col-md-6 m-0 pr-1 h-100 d-flex justify-content-center">
+				<ul class="menuItem p-0 tab mt-5 center m-xs-auto mr-md-3 mr-lg-5 pr-1 pl-0 pt-0 pb-0 ">
 					<h5>Teas</h5>
 					{% for t in teaList %}
 						<div class="text-right">{{t.itemName}}
 							<span class="tab text-right">{{t.price}}</span>
 							<span class="tab">{{t.priceMed}}</span>
-							<span class="tab text-right mr-xs-1">{{t.priceLrg}}</span>
+							<span class="tab text-right">{{t.priceLrg}}</span>
 						</div>
 					{% endfor %}
 				</ul>
@@ -64,8 +65,7 @@
 			</div>
 			<div class="col-sm-12 col-md-6 m-0 pb-5 h-100 d-flex justify-content-center">
 				<ul class="menuItem p-0 tab mt-5 center m-xs-auto mr-md-3 mr-lg-5">
-					<h5 class="m-0">Bake
-					</h5>
+					<h5 class="m-0">Bake</h5>
 					<div class="text-right">{{c.itemName}}
 						<span class="tab text-right">{{c.price}}</span>
 						<span class="tab">{{c.priceMed}}</span>
