@@ -1,4 +1,52 @@
 ___________________________________________________________________
+2020/08/11 Michelle
+1. What I have done / not done since last Scrum?
+not done- Adminuser can create user profile Need to implement photo upload 
+not done - User can view profile
+not done - User can edit profile
+not done - User can delete profile
+not done - User can register need to fix submit button, now getting error
+        (fixed error: now getting register_success but it's not saving in database) 
+        (added: phone validation, errorList on names & phone, when clicking submit )
+done - test Adminuser can edit items (Mark see comment in Trello)
+done - test Admin user can delete items
+- test Adminuser can obsolete user
+tried, not done - Login should automatically clear user session on load
+
+Discuss: 
+1. Should the navbar from have the links to Menu & Order?
+Michelle to add
+2. Project Progress
+
+2. What I plan to do from this scrum to next? (Tuesday at 9am)
+- Add Login button for not a member link to register.
+- help Mark with menu item price in cart
+
+3. Where do I need assistance?
+Login should automatically clear user session on load (tommorrow Gregory?)
+submit button connecting to db
+______________________
+2020/08/11  Mark
+1. What I have done / not done since last Scrum?
+done - test User can see menu page
+done - test Admin User can see admin menu
+done - test Admin user can obsolete user profile
+done - test Admin can display user list
+not done in progress - User can view cart
+not done - User can remove item in cart
+not done - User can select menu item to add to cart
+done - Change database .com Users adminuser default=0 
+not done - Add Login button for not a member link to register.
+
+2. What I plan to do from this scrum to next? (When at 9am)
+- User can view cart
+- User can remove item in cart
+- User can select menu item to add to cart
+- help Michelle submit button connecting to db
+
+Where do I need assistance?
+menu item price in cart
+___________________________________________________________________
 2020/08/10 Michelle
 1. What I have done / not done since last Scrum?
 done - test w/ comments Adminuser can edit items
