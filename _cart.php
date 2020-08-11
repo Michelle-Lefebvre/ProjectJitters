@@ -96,17 +96,45 @@ $app->post('/cart', function ($request, $response, $args) {
    // }
 
    //return $this->view->render($response, 'admin/not_found.html.twig');
-
+  
 
    $app->get('/cartadditem/{id:[0-9]+}', function ($request, $response, $args) {
 
-//[/{id:[0-9]+}]
+    if (!isset($_GET['price'])) {
+        echo "Error: price missing in the URL";
+        exit;
+    }
 
+    /*
+    $app->post('/admin/items/{op:edit|add}[/{itemId:[0-9]+}]', function ($request, $response, $args) {
+        $op = $args['op'];
+        // either op is add and id is not given OR op is edit and id must be given
+        if ( ($op == 'add' && !empty($args['itemId'])) || ($op == 'edit' && empty($args['itemId'])) ) {
+            $response = $response->withStatus(404);
+            return $this->view->render($response, 'admin/not_found.html.twig');
+        }
+        $itemId = $request->getParam('itemId');
+        $itemName = $request->getParam('itemName');
+        $description = $request->getParam('description');
+        $inventoryFlag = $request->getParam('inventoryFlag');
+        $quantityOnHand = $request->getParam('quantityOnHand');
+        $categoryCode = $request->getParam('categoryCode');
+        $price = $request->getParam('price');
+        $priceMed = $request->getParam('priceMed');
+        $priceLrg = $request->getParam('priceLrg');
+        $photofilepath = $request->getParam('photofilepath');
+*/
+
+
+//[/{id:[0-9]+}]
+$price = $request->getParam('price');
+print_r($price);
     // this is for use on a post
     //$price = $request->getParam('price');
 
     //$cartitemList = DB::query("SELECT * FROM cartitems");
-
+ echo $_GET['itemId'];
+ echo $_GET['price'];
    // print_r( $_SESSION );
     //print_r($price);
     print_r($args);

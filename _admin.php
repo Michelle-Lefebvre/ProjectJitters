@@ -12,7 +12,7 @@ $app->get('/adminmenu', function ($request, $response, $args) {
 $errorList = array();
 if (isset($_SESSION['user']))  {
     $adminuser = $_SESSION['user'] ['adminuser'];
-    IF ($adminuser == false) {
+    if ($adminuser == false) {
         $errorList[] = "Only Admin users are authorized for this menu";
     }
 
