@@ -1,24 +1,35 @@
 {% extends "master.html.twig" %}
 {% block head %}
-<link rel="stylesheet" href="styles/stylesHome.css"/>
+	<link rel="stylesheet" href="styles/stylesHome.css"/>
 {% endblock head %}
 
 {% block content %}
-<main id="homeBg" class="container-fluid">
+	<main id="homeBg" class="container-fluid">
 
 		<div class="row row3">
-			<h1 id="companyName" class="display-1">J<sub> i</sub> <sup>t</sup> t<sub> e</sub><sup>r</sup> s</h1>
+			<div class="col">
+				<h1 id="companyName" class="display-1"><strong>J<sub>
+						i</sub>
+					<sup>t</sup>
+					t<sub>
+						e</sub>
+					<sup>r</sup>
+					s</strong></h1>
+			</div>
 		</div>
-
 		<div class="row row2">
 			<div class="col-4">
-				<a href="/menu"><h2 class="goto text-white">View Menu</h2></a>
+				<a href="/menu">
+					<h2 class="goto text-white">View Menu</h2>
+				</a>
 			</div>
 			<div class="col-4">
-				<img src="/images/coffeeDesign.png" width="70%"/>
+				<img src="/images/coffeeDesign.png" class="center d-none d-sm-block d-lg-block d-xl-block" width="100%"/>
 			</div>
 			<div class="col-4">
-			<a href="/order"><h2 class="goto text-white">Place Order</h2></a>
+				<a href="/order">
+					<h2 class="goto text-white">Place Order</h2>
+				</a>
 			</div>
 		</div>
 

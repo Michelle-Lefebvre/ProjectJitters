@@ -1,14 +1,19 @@
 {% extends "master.html.twig" %}
 
-{% block title %}Login successful
+{% block title %}Register successful
 {% endblock %}
 
 {% block content %}
 
 	<form class="form-login center">
 		<img class="mb-4" src="/images/icons8-cup-50.png" alt="" width="52" height="52">
-		<span{{userSession.firstName}}</span <h4 class="h4 mb-3 font-weight-normal"> {{ userSession.lastName }} </h4>
-                You are now a Jitters member. To view and complete your profile <a href="/profile" role="button">click here</a></span>
-		<br/>
-	</form>
-{% endblock %}
+		<h4 class="h4 mb-3 font-weight-normal">
+			<span{{userSession.firstName}}</h4 {{ userSession.lastName }} </span>>
+				Alright, you are now a Jitters member!
+				<a href="/login">Click here to login</a>
+				<p>Don't forget to link your rewards card by visiting your profile and adding your rewards card number.
+					<a href="/profile" role="button">click here</a>
+				</p>
+			</span>
+			<br/></form>
+	{% endblock %}

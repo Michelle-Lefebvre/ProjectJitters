@@ -1,8 +1,6 @@
 <?php
 require_once '_setup.php';
 
-$passwordPepper = 'mmyb7oSAeXG9DTz2uFqu';
-
 // STATE 1: first display
 $app->get('/register', function ($request, $response, $args) {
     return $this->view->render($response, 'register.html.twig');
@@ -19,9 +17,9 @@ $app->post('/register', function ($request, $response, $args) {
     $pass1 = $request->getParam('pass1');
     $pass2 = $request->getParam('pass2');
     //
-    $errorList = array();
+    // $errorList = array();
 
-    $result = verifyUserName($firstName, $lastName, $nickname);
+    // $result = verifyUserName($firstName, $lastName, $nickname);
     
     if (preg_match('/^[a-zA-Z0-9\ \\._\'"-]{4,50}$/', $firstName) != 1) { // no match
         array_push($errorList, "Names and nickname must be 4-50 characters long and consist of letters, digits, "
@@ -38,6 +36,9 @@ $app->post('/register', function ($request, $response, $args) {
             . "spaces, dots, underscores, apostrophies, or minus sign.");
    
         $nickname = "";
+    }
+    if(!preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $phone) !=10) {
+        array_push($errorList, "Invalid Number! Must be numbers: XXX-XXX-XXXX");
     }
     
     if (filter_var($email, FILTER_VALIDATE_EMAIL) == FALSE) {
@@ -70,10 +71,11 @@ $app->post('/register', function ($request, $response, $args) {
         return $this->view->render($response, 'register.html.twig',
         [ 'errorList' => $errorList, 'v' => [$firstName, 'lastName' => $lastName,  'nickname' => $nickname, 'mobilePhone' => $phone, 'email' => $email ]  ]);
     } else {
-        global $passwordPepper;
+        $passwordPepper = 'mmyb7oSAeXG9DTz2uFqu';
         $pwdPeppered = hash_hmac("sha256", $pass1, $passwordPepper);
-        $pwdHashed = password_hash($pwdPeppered, PASSWORD_DEFAULT); // PASSWORD_ARGON2ID);
-        DB::insert('users', ['firstName' => $firstName, 'lastName' => $lastName, 'nickname' => $nickname, 'email' => $email, 'password' => $pwdHashed]);
+        $pwdHashed = password_hash($pwdPeppered, PASSWORD_DEFAULT);
+        DB::insert('users', ['firstName' => $firstName, 'lastName' => $lastName, 'nickname' => $nickname, 'email' => $email, 'password' => $pwdHashed, ]);
+        //'imageData' => $photoData, 'imageMimeType' => $mimeType
         return $this->view->render($response, 'register_success.html.twig');
     }
 });
@@ -93,6 +95,14 @@ $app->get('/isemailtaken/[{email}]', function ($request, $response, $args) {
 $app->get('/login', function ($request, $response, $args) {
     return $this->view->render($response, 'login.html.twig');
 });
+
+// $app->get('/login', function ($request, $response, $args) use ($userSession) {
+//     if($userSession = $_SESSION['user'] ) {
+//         unset($_SESSION['user']);
+//         return $this->view->render($response, 'login.html.twig', ['userSession' => null ]);
+//     }
+//     return $this->view->render($response, 'login.html.twig');
+// });
 
 // STATE 2&3: receiving submission
 $app->post('/login', function ($request, $response, $args) use ($log) {
@@ -219,7 +229,7 @@ $app->post('profile/edit[/{userId:[0-9]+}]', function ($request, $response, $arg
     } else {
         if ($op == 'profile') { 
             DB::insert('users', ['firstName' => $firstName, 'lastName' => $lastName, 'nickname' => $nickname, 'email' => $email, 'password' => $pass1, 'phone' => $phone, 'address' => $address, 'city' => $city, 'province' => $province, 'postalCode' => $postalCode, 'promotionalEmails' => $promotionalEmails, 'emailFromPartners' => $emailFromPartners, 'postalMailFromJitters' => $postalMailFromJitters, 'rewards' => $rewards, 'photofilepath' => $photofilepath]);
-            
+
             return $this->view->render($response, 'profile_edit_success.html.twig', ['op' => $op ]);
         } else {
             $data = ['name' => $name, 'email' => $email, 'adminuser' => $adminuser];
