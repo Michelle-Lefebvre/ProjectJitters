@@ -41,7 +41,7 @@
         });
         
     </script>
-    #}
+    
 {% endblock %}
 
 {% block title %}Cart{% endblock %}
@@ -54,16 +54,17 @@
             <tr id="itemrow{{ci.cartId}}">
                 <td>{{ci.cartId}}</td>
                 <td>{{ci.sessionId}}</td>
-                <td>{{ci.itemId}}</td>
+                <td onclick="insert()">{{ci.itemId}} <a href="/admin/items/list">ttt</a></td>
                 {#<td>{{ci.quantity}}</td>#}
                 <td>
                     <button onclick="decrement({{ci.cartId}})">-</button>
-                    
                     <input class="cartQuantity" cartID="{{ci.cartId}}" type="number" name="quantity{{ci.cartId}}"
                            value="{{ci.quantity}}" style="width:60px;" min="0">
-                    
                     <button onclick="increment({{ci.cartId}})">+</button>
-                    {#
+
+                   {# <button onclick="insert()">add item to cart</button>
+                    
+                    
                     <a href="" class="updateLink" id="update{{ci.cartId}}"
                           onclick="update(event,{{ci.cartId}})">update</a>
                     #}
@@ -74,6 +75,18 @@
     </table>
  
    {#<a href="/order">Place order</a>  #}
-        
+       <script>
+//This will be processed on the client side
+function insert(){
+  window.alert("You click insert button");
+}
+
+function select(){
+  window.alert("You click insert button");
+
+
+
+}
+</script> 
         
 {% endblock %}

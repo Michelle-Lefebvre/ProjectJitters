@@ -28,7 +28,7 @@
 
 					{% for c in cafeList %}
 						<div class="text-right">{{c.itemName}}
-							<span class="tab text-right">{{c.price}}</span>
+							<span class="tab text-right">  <a href="/cartadditem">{{c.price}} Reg</a></span>
 							<span class="tab">{{c.priceMed}}</span>
 							<span class="tab text-right">{{c.priceLrg}}</span>
 						</div>
@@ -67,7 +67,7 @@
 				<ul class="menuItem p-0 tab mt-5 center m-xs-auto mr-md-3 mr-lg-5">
 					<h5 class="m-0">Bake</h5>
 					<div class="text-right">{{c.itemName}}
-						<span class="tab text-right">{{c.price}}</span>
+						<span class="tab text-right">{{c.price}}</span> 
 						<span class="tab">{{c.priceMed}}</span>
 						<span class="tab text-right">{{c.priceLrg}}</span>
 					</div>

@@ -21,7 +21,13 @@ $app->get('/cart', function() use ($app) {
 // STATE 1: first display  -- this is a get  -- just need to render the template
 $app->get('/cart', function ($request, $response, $args) {
 
-    $cartitemList = DB::query("SELECT * FROM cartitems");
+    //$cartitemList = DB::query("SELECT * FROM cartitems");
+    $cartitemList = DB::query("SELECT * FROM cartitems WHERE sessionid=%s, [$_SESSION.userid]" );
+
+// link cartitems to session using session id and user id
+    
+
+    print_r( $_SESSION );
 
     return $this->view->render($response, '/cart.html.twig', ['cartitemList' => $cartitemList]);
 });
@@ -40,6 +46,8 @@ $app->post('/cart', function ($request, $response, $args) {
     $photofilepath = $request->getParam('photofilepath');
     
     
+    
+
     // sanitize description
     $description = strip_tags($description, "<p><ul><li><em><strong><i><b><ol><h3><h4><h5><span>");
                
@@ -75,10 +83,35 @@ $app->post('/cart', function ($request, $response, $args) {
 });
 
 
+// pass the price(one of three) and the item id from the items table
+// add to cart these plus all others required
+//$app->get('/additemstocart/{id:[0-9]+}]/price', function ($request, $response, $args) {
+//    print_r($args);
+//}
+    
+   // $user = DB::queryFirstRow("SELECT * FROM items WHERE id=%d", $args['id']);
+   // if (!$user) {
+   //     $response = $response->withStatus(404);
+   //     return $this->view->render($response, 'admin/not_found.html.twig');
+   // }
+
+   //return $this->view->render($response, 'admin/not_found.html.twig');
 
 
+   $app->get('/cartadditem/{id:[0-9]+}', function ($request, $response, $args) {
 
+//[/{id:[0-9]+}]
 
+    // this is for use on a post
+    //$price = $request->getParam('price');
+
+    //$cartitemList = DB::query("SELECT * FROM cartitems");
+
+   // print_r( $_SESSION );
+    //print_r($price);
+    print_r($args);
+    //return $this->view->render($response, '/cart.html.twig', ['cartitemList' => $cartitemList]);
+});
 
 
 /*
