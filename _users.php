@@ -62,8 +62,7 @@ $app->post('/register', function ($request, $response, $args) {
                 || (preg_match("/[A-Z]/", $pass1) == FALSE )
                 || (preg_match("/[a-z]/", $pass1) == FALSE )
                 || (preg_match("/[0-9]/", $pass1) == FALSE )) {
-            array_push($errorList, "Password must be 6-100 characters long, "
-                . "with at least one uppercase, one lowercase, and one digit in it");
+            array_push($errorList, "Password must be 6-100 characters long, with at least one uppercase, one lowercase, and one digit in it");
         }
     }
     //
