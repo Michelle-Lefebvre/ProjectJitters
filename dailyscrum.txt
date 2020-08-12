@@ -1,4 +1,34 @@
 ___________________________________________________________________
+2020/08/12 Michelle (study day)
+
+1. What I have done / not done since last Scrum?	  
+Not done  -  Add Login button for not a member link to register. Tried unsuccessfully
+Done - help Mark with menu item price in cart
+
+
+2. What I plan to do from this scrum to next? (Thurs at 9am)
+- Add Login button for not a member link to register.
+- User can view profile
+- to add links menu + order to main navbar
+
+3. Where do I need assistance?
+Login should automatically clear user session on load (tomorrow Gregory?)
+submit button connecting to db
+______________________
+2020/08/12 Mark  (study day)
+
+1. What I have done / not done since last Scrum?
+not done in progress - User can select menu item to add to cart
+Done - tried but not fixed to help Michelle submit button connecting to db
+
+2. What I plan to do from this scrum to next? (Thurs at 9am)
+- User can view cart
+
+
+Where do I need assistance?
+menu item price in cart
+Login should automatically clear user session on load (tomorrow Gregory?)
+___________________________________________________________________
 2020/08/11 Michelle
 1. What I have done / not done since last Scrum?
 not done- Adminuser can create user profile Need to implement photo upload 
@@ -15,7 +45,7 @@ tried, not done - Login should automatically clear user session on load
 
 Discuss: 
 1. Should the navbar from have the links to Menu & Order?
-Michelle to add
+Michelle to add links menu + order to main navbar
 2. Project Progress
 
 2. What I plan to do from this scrum to next? (Tuesday at 9am)
