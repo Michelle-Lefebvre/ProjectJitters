@@ -83,34 +83,36 @@ $app->post('/cart', function ($request, $response, $args) {
 });
 
 
-// pass the price(one of three) and the item id from the items table
-// add to cart these plus all others required
-//$app->get('/additemstocart/{id:[0-9]+}]/price', function ($request, $response, $args) {
-//    print_r($args);
-//}
-    
-   // $user = DB::queryFirstRow("SELECT * FROM items WHERE id=%d", $args['id']);
-   // if (!$user) {
-   //     $response = $response->withStatus(404);
-   //     return $this->view->render($response, 'admin/not_found.html.twig');
-   // }
+// pass the price(one of three) and the item id and size from the menu
+// add to cart or update quantity if item is already in the cart
+   $app->get('/cartadditem/{id:[0-9]+}/{price}/{size}', function ($request, $response, $args) {
 
-   //return $this->view->render($response, 'admin/not_found.html.twig');
-
-
-   $app->get('/cartadditem/{id:[0-9]+}', function ($request, $response, $args) {
-
-//[/{id:[0-9]+}]
-
-    // this is for use on a post
-    //$price = $request->getParam('price');
-
-    //$cartitemList = DB::query("SELECT * FROM cartitems");
-
-   // print_r( $_SESSION );
-    //print_r($price);
     print_r($args);
-    //return $this->view->render($response, '/cart.html.twig', ['cartitemList' => $cartitemList]);
+    print_r($args['id']);
+    print_r(session_id());
+
+    $itemId = $args['id'];
+    $price = $args['price'];
+    $size = $args['size'];
+    $quantity =1;
+
+    $item = DB::queryFirstRow("SELECT * FROM cartitems WHERE itemId=%d AND sessionId=%s", $itemId, session_id());
+    if ($item) {
+        DB::update('cartitems', array(
+            'sessionId' => session_id(),
+            'itemId' => $itemId,
+            'quantity' => $item['quantity'] + $quantity
+                ), "itemId=%d AND sessionId=%s", $itemId, session_id());
+    } else {
+        DB::insert('cartitems', array(
+            'sessionId' => session_id(),
+            'itemId' => $itemId,
+            'quantity' => $quantity
+        ));
+    }
+
+
+
 });
 
 
