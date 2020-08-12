@@ -1,10 +1,10 @@
 ___________________________________________________________________
 2020/08/12 Michelle (study day)
 
-1. What I have done / not done since last Scrum?	  
+1. What I have done / not done since last Scrum?	 
 Not done  -  Add Login button for not a member link to register. Tried unsuccessfully
 Done - help Mark with menu item price in cart
-
+    1 hr discussion w/ Mark on how to select menu item to add to cart
 
 2. What I plan to do from this scrum to next? (Thurs at 9am)
 - Add Login button for not a member link to register.
@@ -19,6 +19,8 @@ ______________________
 
 1. What I have done / not done since last Scrum?
 not done in progress - User can select menu item to add to cart
+        1 hr discussion w/ Michelle on how to select menu item to add to cart
+
 Done - tried but not fixed to help Michelle submit button connecting to db
 
 2. What I plan to do from this scrum to next? (Thurs at 9am)
