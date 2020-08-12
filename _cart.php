@@ -83,62 +83,36 @@ $app->post('/cart', function ($request, $response, $args) {
 });
 
 
-// pass the price(one of three) and the item id from the items table
-// add to cart these plus all others required
-//$app->get('/additemstocart/{id:[0-9]+}]/price', function ($request, $response, $args) {
-//    print_r($args);
-//}
-    
-   // $user = DB::queryFirstRow("SELECT * FROM items WHERE id=%d", $args['id']);
-   // if (!$user) {
-   //     $response = $response->withStatus(404);
-   //     return $this->view->render($response, 'admin/not_found.html.twig');
-   // }
+// pass the price(one of three) and the item id and size from the menu
+// add to cart or update quantity if item is already in the cart
+   $app->get('/cartadditem/{id:[0-9]+}/{price}/{size}', function ($request, $response, $args) {
 
-   //return $this->view->render($response, 'admin/not_found.html.twig');
-  
+    print_r($args);
+    print_r($args['id']);
+    print_r(session_id());
 
-   $app->get('/cartadditem/{id:[0-9]+}', function ($request, $response, $args) {
+    $itemId = $args['id'];
+    $price = $args['price'];
+    $size = $args['size'];
+    $quantity =1;
 
-    if (!isset($_GET['price'])) {
-        echo "Error: price missing in the URL";
-        exit;
+    $item = DB::queryFirstRow("SELECT * FROM cartitems WHERE itemId=%d AND sessionId=%s", $itemId, session_id());
+    if ($item) {
+        DB::update('cartitems', array(
+            'sessionId' => session_id(),
+            'itemId' => $itemId,
+            'quantity' => $item['quantity'] + $quantity
+                ), "itemId=%d AND sessionId=%s", $itemId, session_id());
+    } else {
+        DB::insert('cartitems', array(
+            'sessionId' => session_id(),
+            'itemId' => $itemId,
+            'quantity' => $quantity
+        ));
     }
 
-    /*
-    $app->post('/admin/items/{op:edit|add}[/{itemId:[0-9]+}]', function ($request, $response, $args) {
-        $op = $args['op'];
-        // either op is add and id is not given OR op is edit and id must be given
-        if ( ($op == 'add' && !empty($args['itemId'])) || ($op == 'edit' && empty($args['itemId'])) ) {
-            $response = $response->withStatus(404);
-            return $this->view->render($response, 'admin/not_found.html.twig');
-        }
-        $itemId = $request->getParam('itemId');
-        $itemName = $request->getParam('itemName');
-        $description = $request->getParam('description');
-        $inventoryFlag = $request->getParam('inventoryFlag');
-        $quantityOnHand = $request->getParam('quantityOnHand');
-        $categoryCode = $request->getParam('categoryCode');
-        $price = $request->getParam('price');
-        $priceMed = $request->getParam('priceMed');
-        $priceLrg = $request->getParam('priceLrg');
-        $photofilepath = $request->getParam('photofilepath');
-*/
 
 
-//[/{id:[0-9]+}]
-$price = $request->getParam('price');
-print_r($price);
-    // this is for use on a post
-    //$price = $request->getParam('price');
-
-    //$cartitemList = DB::query("SELECT * FROM cartitems");
- echo $_GET['itemId'];
- echo $_GET['price'];
-   // print_r( $_SESSION );
-    //print_r($price);
-    print_r($args);
-    //return $this->view->render($response, '/cart.html.twig', ['cartitemList' => $cartitemList]);
 });
 
 

@@ -3,13 +3,13 @@ require_once '_setup.php';
 
  $app->get('/menu', function ($request, $response, $args) {
      // 
-     $cafeList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg 
+     $cafeList = DB::query("SELECT itemId, categoryCode, itemName, price, priceMed, priceLrg 
                 FROM items WHERE categoryCode = 'CAFE';");
-    $bakeList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg 
+    $bakeList = DB::query("SELECT itemId, categoryCode, itemName, price, priceMed, priceLrg 
                 FROM items WHERE categoryCode = 'BAKE';");
-    $teaList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg 
+    $teaList = DB::query("SELECT itemId, categoryCode, itemName, price, priceMed, priceLrg 
     FROM items WHERE categoryCode = 'TEAS';");
-    $sandList = DB::query("SELECT categoryCode, itemName, price, priceMed, priceLrg 
+    $sandList = DB::query("SELECT itemId, categoryCode, itemName, price, priceMed, priceLrg 
     FROM items WHERE categoryCode = 'SAND';");
 
     //print_r($cafeList);

@@ -24,14 +24,17 @@
 			</div>
 			<div class="col-sm-12 col-md-6 m-0 h-100 d-flex justify-content-center">
 				<ul class="menuItem tab mt-5 center m-xs-auto mr-md-3 mr-lg-5 pr-1 pl-0 pt-0 pb-0 ">
-					<h5>Coffees</h5>
+					<h5>Coffees - click price to add to cart</h5>
 
 					{% for c in cafeList %}
 						<div class="text-right">{{c.itemName}}
-						{#<a href='page2.php?id=2489&user=tom'>link to page2</a>#}
-							<span class="tab text-right">  <a href="/cartadditem&price={{c.price}}">{{c.price}} Reg</a></span>
-							<span class="tab">{{c.priceMed}}</span>
-							<span class="tab text-right">{{c.priceLrg}}</span>
+						
+							<span class="tab text-right">  <a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Reg'">{{c.price}}</a></span>
+							
+							<a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Reg'">
+
+							<span class="tab"><a href="/cartadditem/{{c.itemId}}/{{c.priceMed}}/'Med'">{{c.priceMed}}</a></span>
+							<span class="tab text-right"><a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Lrg'">{{c.priceLrg}}</a></span>
 						</div>
 					{% endfor %}
 				</ul>
@@ -43,12 +46,12 @@
 		<div class="row h-100">
 			<div class="col-sm-12 col-md-6 m-0 pr-1 h-100 d-flex justify-content-center">
 				<ul class="menuItem p-0 tab mt-5 center m-xs-auto mr-md-3 mr-lg-5 pr-1 pl-0 pt-0 pb-0 ">
-					<h5>Teas</h5>
+					<h5>Teas - click price to add to cart</h5>
 					{% for t in teaList %}
 						<div class="text-right">{{t.itemName}}
-							<span class="tab text-right">{{t.price}}</span>
-							<span class="tab">{{t.priceMed}}</span>
-							<span class="tab text-right">{{t.priceLrg}}</span>
+							<span class="tab text-right"><a href="/cartadditem/{{t.itemId}}/{{t.price}}/'Reg'">{{t.price}}</a></span>
+							<span class="tab"><a href="/cartadditem/{{t.itemId}}/{{t.price}}/'Med'">{{t.priceMed}}</a></span>
+							<span class="tab text-right"><a href="/cartadditem/{{t.itemId}}/{{t.price}}/'Lrg'">{{t.priceLrg}}</a></span>
 						</div>
 					{% endfor %}
 				</ul>
@@ -66,20 +69,22 @@
 			</div>
 			<div class="col-sm-12 col-md-6 m-0 pb-5 h-100 d-flex justify-content-center">
 				<ul class="menuItem p-0 tab mt-5 center m-xs-auto mr-md-3 mr-lg-5">
-					<h5 class="m-0">Bake</h5>
+					<h5 class="m-0">Bake - click on price to add to cart</h5>
+					{#
 					<div class="text-right">{{c.itemName}}
-						<span class="tab text-right">{{c.price}}</span> 
-						<span class="tab">{{c.priceMed}}</span>
-						<span class="tab text-right">{{c.priceLrg}}</span>
+						<span class="tab text-right"><a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Reg'">{{c.price}}</a></span> 
+						<span class="tab"><a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Med'">{{c.priceMed}}</a></span>
+						<span class="tab text-right"><a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Lrg'">{{c.priceLrg}}</a></span>
 					</div>
+					#}
 					{% for b in bakeList %}
 						<div class="text-right">{{b.itemName}}
-							<span class="tab text-right">{{b.price}}</span>
+							<span class="tab text-right"><a href="/cartadditem/{{b.itemId}}/{{b.price}}/'Reg'">{{b.price}}</a></span>
 						</div>
 					{% endfor %}
 					{% for s in sandList %}
 						<div class="text-right">{{s.itemName}}
-							<span class="tab text-right">{{s.price}}</span>
+							<span class="tab text-right"><a href="/cartadditem/{{s.itemId}}/{{s.price}}/'Reg'">{{s.price}}</a></span>
 						</div>
 					{% endfor %}
 				</ul>
