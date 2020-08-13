@@ -1,92 +1,47 @@
-{% extends "master.html.twig" %}
+{% extends "/master.html.twig" %}
 
-{% block head %}
-
-<script>
-  function decrement(cartId) {
-            var value = $("input[name=quantity" + cartId + "]").val();
-            if (value > 0) {
-                value--;
-            }
-            $("input[name=quantity" + cartId + "]").val(value);
-            $("#update" + cartId).show();
-        }
-
-        function increment(cartId) {
-            var value = $("input[name=quantity" + cartId + "]").val();
-            value++;
-            $("input[name=quantity" + cartId + "]").val(value);
-            $("#update" + cartId).show();
-        }
-      
-        {#}
-        function update(e,cartId) {
-            e.preventDefault();
-            var quantity = $("input[name=quantity" + cartId + "]").val();
-            $.get("/cart/update/" + cartId + "/" + quantity, function() {
-                console.log("quantity updated");
-                $("#update" + cartId).hide();
-            });
-            if (quantity == 0) {
-                $("#itemrow" + cartId).hide();
-            }
-        }
-        #}
-        $(document).ready(function () {
-            $(".updateLink").hide();
-            $('.cartQuantity').bind('propertychange change input paste', function () {
-                var cartId = $(this).attr('cartID');
-                $("#update" + chartId).show();
-            });
-        });
-        
-    </script>
-    
+{% block title %}Cart list
 {% endblock %}
 
-{% block title %}Cart{% endblock %}
-
 {% block content %}
-    <table border="1">
-        <tr><th>cartId</th><th>sessionId</th><th>userId</th><th>itemId</th><th>quantity</th>
-            <th>payConfirmId</th></tr>
-        {% for ci in cartitemList %}
-            <tr id="itemrow{{ci.cartId}}">
-                <td>{{ci.cartId}}</td>
-                <td>{{ci.sessionId}}</td>
-                <td>{{ci.userId}}</td>
-                <td>{{ci.itemId}}</td>
-                {#<td>{{ci.quantity}}</td>#}
-                <td>
-                    <button onclick="decrement({{ci.cartId}})">-</button>
-                    <input class="cartQuantity" cartID="{{ci.cartId}}" type="number" name="quantity{{ci.cartId}}"
-                           value="{{ci.quantity}}" style="width:60px;" min="0">
-                    <button onclick="increment({{ci.cartId}})">+</button>
+	<h2>Cart<a href="/menu" class="btn btn-warning ml-xs-0 ml-sm-5" role="button">RETURN TO MENU TO ADD ANOTHER ITEM TO CART</a>
+	</h2>
+	<div class="table-responsive-md">
+		<table class="table table-sm table-hover ">
+			{#<caption>List of cart items</caption>#}
+			<thead>
+				<tr>
+					<th>name</th>
+					<th>size</th>
+					<th>price</th>
+					<th>quantity</th>
+                    <th>ext price</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for ci in cartitemList %}
+					<tr>
+						<td>{{ci.itemName}}</td>
+						<td>{{ci.size}}</td>
+						<td>{{ci.price}}</td>
+						<td>{{ci.quantity}}</td>
+                        <td> {{ci.extprice}}</td>
+						<td>
+							{#<a href="/admin/items/edit/{{u.itemId}}">edit</a>#}
+							<a href="/cart/delete/{{ci.cartId}}">delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+{#
+        <p>cartitemSum: {{cartitemSum}}</p>
 
-                   
-                    {#}   this is from code supplied instructor and may not be needed
-                    <a href="" class="updateLink" id="update{{ci.cartId}}"
-                          onclick="update(event,{{ci.cartId}})">update</a>
-                    #}
-                </td>
-                <td>{{ci.payConfirmId}}</td>
-            </tr>
+        <p> sum OUTSIDE FOR LOOP [] : {{sumprice}} </p><br>
+        <p> sum OUTSIDE FOR LOOP [''] : {{['sumprice']}} </p><br>   error converting array to string what if I add ['0']
+         no <p> sum OUTSIDE FOR LOOP [''] : ['sumprice'] </p> #}
+        {% for cs in cartitemSum %}
+            <p> sum : {{cs.sumprice}} </p>
         {% endfor %}
-    </table>
- 
-   {#<a href="/order">Place order</a>  #}
-       <script>
-//This will be processed on the client side
-function insert(){
-  window.alert("You click insert button");
-}
-
-function select(){
-  window.alert("You click insert button");
-
-
-
-}
-</script> 
-        
+	</div>
 {% endblock %}

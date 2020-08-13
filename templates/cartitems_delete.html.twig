@@ -1,0 +1,22 @@
+{% extends "master.html.twig" %}
+
+{% block title %}Delete cartitem
+{% endblock %}
+
+{% block content %}
+	<form method="POST" class="form-admin center">
+		<form method="POST" class="form-admin center mb-5">
+			<h2>Delete Cart Item
+				<a href="/cart" class="btn btn-warning ml-xs-0 ml-md-5" role="button" title="return to Cart">Cancel</a>
+			</h2>
+			<p class="text-left ml-5">Cart Item id:
+				<span class="font-weight-bold">{{ v.cartId }}</span>
+			</p>
+			<p class="text-left ml-5">Cart Item name:
+				<span class="font-weight-bold">{{ v.itemName }}</span>
+			</p>
+			<p>Please confirm this action.
+				<span class="font-weight-bold">It is irreversible</span>!</p>
+			<input type="submit" value="Yes, delete the cart item" class="btn btn-danger" role="button">
+		</form>
+	{% endblock %}
