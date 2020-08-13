@@ -78,7 +78,7 @@ $app->post('/cart', function ($request, $response, $args) {
 
 // pass the price(one of three) and the item id and size from the menu
 // add to cart or update quantity if item is already in the cart
-   $app->get('/cartadditem/{id:[0-9]+}/{price}/{size}', function ($request, $response, $args) {
+$app->get('/cartadditem/{id:[0-9]+}/{price}/{size}', function ($request, $response, $args) {
 
     $itemId = $args['id'];
     $price = $args['price'];
@@ -107,6 +107,8 @@ $app->post('/cart', function ($request, $response, $args) {
             'quantity' => $quantity
         ));
     }
+
+    return $this->view->render($response, '/cartadditem.html.twig');
 });
 
     ?>
