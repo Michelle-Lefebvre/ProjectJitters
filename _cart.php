@@ -1,35 +1,28 @@
 <?php
 
 require_once '_setup.php';
-/*
-// product is our items -- cartitems joined to items
-$app->get('/cart', function() use ($app) {
-	// TODO: retrieve addProdId and quantity from URL *IF* present
-    $cartitemList = DB::query(
-                    "SELECT cartitems.ID as ID, productID, quantity,"
-                    . " name, description, imagePath, price "
-                    . " FROM cartitems, products "
-                    . " WHERE cartitems.productID = products.ID AND sessionID=%s", session_id());
-    $app->render('cart.html.twig', array(
-        'cartitemList' => $cartitemList
-    ));
-});
-*/
-
 
 
 // STATE 1: first display  -- this is a get  -- just need to render the template
 $app->get('/cart', function ($request, $response, $args) {
+print_r( session_id() );
 
-    //$cartitemList = DB::query("SELECT * FROM cartitems");
-    $cartitemList = DB::query("SELECT * FROM cartitems WHERE sessionid=%s, [$_SESSION.userid]" );
 
-// link cartitems to session using session id and user id
+    $userId = $_SESSION['user']['userId'];    
+    $sessionId = session_id();
+
+print_r($userId);
+   // link cartitems to session using session id and user id
+$cartitemList = DB::query("SELECT * FROM cartitems WHERE sessionId=%s AND userId=%s", $sessionId, $userId);
+    if ($cartitemList) {
+        return $this->view->render($response, '/cart.html.twig', ['cartitemList' => $cartitemList]);
+        
+    } else {
+        // display using  twig   - cartitems not found
+    }
+   
+
     
-
-    print_r( $_SESSION );
-
-    return $this->view->render($response, '/cart.html.twig', ['cartitemList' => $cartitemList]);
 });
 
 
@@ -85,57 +78,37 @@ $app->post('/cart', function ($request, $response, $args) {
 
 // pass the price(one of three) and the item id and size from the menu
 // add to cart or update quantity if item is already in the cart
-   $app->get('/cartadditem/{id:[0-9]+}/{price}/{size}', function ($request, $response, $args) {
-
-    print_r($args);
-    print_r($args['id']);
-    print_r(session_id());
+$app->get('/cartadditem/{id:[0-9]+}/{price}/{size}', function ($request, $response, $args) {
 
     $itemId = $args['id'];
     $price = $args['price'];
     $size = $args['size'];
-    $quantity =1;
+    $quantity = 1;   //  one click = quantity one
+    $userId = $_SESSION['user']['userId'];    
+    $sessionId = session_id();
 
-    $item = DB::queryFirstRow("SELECT * FROM cartitems WHERE itemId=%d AND sessionId=%s", $itemId, session_id());
+    $item = DB::queryFirstRow("SELECT * FROM cartitems WHERE itemId=%d AND sessionId=%s AND userId=%s AND size =%s", 
+                                $itemId, $sessionId, $userId, $size);
+
+    // if the item is in the cart update the quantity
+    // otherwise add a new item
     if ($item) {
+        $quantity = $quantity + $item['quantity'];
         DB::update('cartitems', array(
-            'sessionId' => session_id(),
-            'itemId' => $itemId,
-            'quantity' => $item['quantity'] + $quantity
-                ), "itemId=%d AND sessionId=%s", $itemId, session_id());
+            'quantity' =>  $quantity
+        ), "itemId=%d",  $itemId, "sessionId=%s", $sessionId, "userId=%s", $userId,  "size =%s", $size);
     } else {
         DB::insert('cartitems', array(
-            'sessionId' => session_id(),
+            'sessionId' => $sessionId,
+            'userId' => $userId,
             'itemId' => $itemId,
+            'price' => $price,
+            'size' => $size,
             'quantity' => $quantity
         ));
     }
 
-
-
+    return $this->view->render($response, '/cartadditem.html.twig');
 });
-
-
-/*
-// putting item into cart
-$app->post('/cart', function() use ($app) {
-    $productID = $app->request()->post('productID');
-    $quantity = $app->request()->post('quantity');
-    // FIXME: make sure the item is not in the cart yet
-    $item = DB::queryFirstRow("SELECT * FROM cartitems WHERE productID=%d AND sessionID=%s", $productID, session_id());
-    if ($item) {
-        DB::update('cartitems', array(
-            'sessionID' => session_id(),
-            'productID' => $productID,
-            'quantity' => $item['quantity'] + $quantity
-                ), "productID=%d AND sessionID=%s", $productID, session_id());
-    } else {
-        DB::insert('cartitems', array(
-            'sessionID' => session_id(),
-            'productID' => $productID,
-            'quantity' => $quantity
-        ));
-    }
-    */
 
     ?>
