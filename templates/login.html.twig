@@ -4,15 +4,29 @@
 
 {% block content %}
    
-    <form class="form-login center" method="post">
-    <h1 class="h3 mb-3 font-weight-bold">J<sub>
-									i</sub>
-								<sup>t</sup>
-								t<sub>
-									e</sub>
-								<sup>r</sup>
-								s </h1>
-								<h2>Login Form</h2>
+<div class="container-fluid m-0">
+		<form class="form center" method="post" enctype="multipart/form-data">
+			<h1 class="h3 mb-3 font-weight-bold">J<sub>
+					i</sub>
+				<sup>t</sup>
+				t<sub>
+					e</sub>
+				<sup>r</sup>
+				s
+			</h1>
+			<h2>Registration Form</h2>
+			<div class="row">
+				<div class="col-sm-12">
+					<span class="h5 font-weight-normal">
+						<h4 class="h4 mt-3 mb-3 font-weight-normal">
+							Not a member?
+							<span>
+								<a href="/register" class="btn btn-warning" role="button">Register</a>
+							</span>
+						</h4>
+					</span>
+				</div>
+			</div>
 
         {% if error %}
             <img class="mb-4" src="/images/icons8-cup-50.png" alt="" width="52" height="52">
@@ -27,5 +41,6 @@
         <button class="btn btn-lg btn-secondary btn-block" type="submit" value="Login">Login</button>
 
     </form>
+    </div>
     
 {% endblock %}
