@@ -29,12 +29,12 @@
 					{% for c in cafeList %}
 						<div class="text-right">{{c.itemName}}
 						
-							<span class="tab text-right">  <a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Reg'">{{c.price}}</a></span>
+							<span class="tab text-right">  <a href="/cartadditem/{{c.itemId}}/{{c.price}}/Reg">{{c.price}}</a></span>
 							
 							<a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Reg'">
 
-							<span class="tab"><a href="/cartadditem/{{c.itemId}}/{{c.priceMed}}/'Med'">{{c.priceMed}}</a></span>
-							<span class="tab text-right"><a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Lrg'">{{c.priceLrg}}</a></span>
+							<span class="tab"><a href="/cartadditem/{{c.itemId}}/{{c.priceMed}}/Med">{{c.priceMed}}</a></span>
+							<span class="tab text-right"><a href="/cartadditem/{{c.itemId}}/{{c.price}}/Lrg">{{c.priceLrg}}</a></span>
 						</div>
 					{% endfor %}
 				</ul>
@@ -49,9 +49,9 @@
 					<h5>Teas - click price to add to cart</h5>
 					{% for t in teaList %}
 						<div class="text-right">{{t.itemName}}
-							<span class="tab text-right"><a href="/cartadditem/{{t.itemId}}/{{t.price}}/'Reg'">{{t.price}}</a></span>
-							<span class="tab"><a href="/cartadditem/{{t.itemId}}/{{t.price}}/'Med'">{{t.priceMed}}</a></span>
-							<span class="tab text-right"><a href="/cartadditem/{{t.itemId}}/{{t.price}}/'Lrg'">{{t.priceLrg}}</a></span>
+							<span class="tab text-right"><a href="/cartadditem/{{t.itemId}}/{{t.price}}/Reg">{{t.price}}</a></span>
+							<span class="tab"><a href="/cartadditem/{{t.itemId}}/{{t.price}}/Med">{{t.priceMed}}</a></span>
+							<span class="tab text-right"><a href="/cartadditem/{{t.itemId}}/{{t.price}}/Lrg">{{t.priceLrg}}</a></span>
 						</div>
 					{% endfor %}
 				</ul>
@@ -72,19 +72,19 @@
 					<h5 class="m-0">Bake - click on price to add to cart</h5>
 					{#
 					<div class="text-right">{{c.itemName}}
-						<span class="tab text-right"><a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Reg'">{{c.price}}</a></span> 
+						<span class="tab text-right"><a href="/cartadditem/{{c.itemId}}/{{c.price}}/Reg">{{c.price}}</a></span> 
 						<span class="tab"><a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Med'">{{c.priceMed}}</a></span>
 						<span class="tab text-right"><a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Lrg'">{{c.priceLrg}}</a></span>
 					</div>
 					#}
 					{% for b in bakeList %}
 						<div class="text-right">{{b.itemName}}
-							<span class="tab text-right"><a href="/cartadditem/{{b.itemId}}/{{b.price}}/'Reg'">{{b.price}}</a></span>
+							<span class="tab text-right"><a href="/cartadditem/{{b.itemId}}/{{b.price}}/Reg">{{b.price}}</a></span>
 						</div>
 					{% endfor %}
 					{% for s in sandList %}
 						<div class="text-right">{{s.itemName}}
-							<span class="tab text-right"><a href="/cartadditem/{{s.itemId}}/{{s.price}}/'Reg'">{{s.price}}</a></span>
+							<span class="tab text-right"><a href="/cartadditem/{{s.itemId}}/{{s.price}}/Reg">{{s.price}}</a></span>
 						</div>
 					{% endfor %}
 				</ul>

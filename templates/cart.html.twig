@@ -48,13 +48,14 @@
 
 {% block content %}
     <table border="1">
-        <tr><th>cartId</th><th>sessionId</th><th>itemId</th><th>quantity</th>
+        <tr><th>cartId</th><th>sessionId</th><th>userId</th><th>itemId</th><th>quantity</th>
             <th>payConfirmId</th></tr>
         {% for ci in cartitemList %}
             <tr id="itemrow{{ci.cartId}}">
                 <td>{{ci.cartId}}</td>
                 <td>{{ci.sessionId}}</td>
-                <td onclick="insert()">{{ci.itemId}} <a href="/admin/items/list">ttt</a></td>
+                <td>{{ci.userId}}</td>
+                <td>{{ci.itemId}}</td>
                 {#<td>{{ci.quantity}}</td>#}
                 <td>
                     <button onclick="decrement({{ci.cartId}})">-</button>
@@ -62,9 +63,8 @@
                            value="{{ci.quantity}}" style="width:60px;" min="0">
                     <button onclick="increment({{ci.cartId}})">+</button>
 
-                   {# <button onclick="insert()">add item to cart</button>
-                    
-                    
+                   
+                    {#}   this is from code supplied instructor and may not be needed
                     <a href="" class="updateLink" id="update{{ci.cartId}}"
                           onclick="update(event,{{ci.cartId}})">update</a>
                     #}
