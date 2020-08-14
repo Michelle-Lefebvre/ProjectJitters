@@ -63,6 +63,7 @@ $app->get('/admin/items/{op:edit|add}[/{itemId:[0-9]+}]', function ($request, $r
 // STATE 2&3: receiving submission
 $app->post('/admin/items/{op:edit|add}[/{itemId:[0-9]+}]', function ($request, $response, $args) {
     $op = $args['op'];
+
     // either op is add and id is not given OR op is edit and id must be given
     if ( ($op == 'add' && !empty($args['itemId'])) || ($op == 'edit' && empty($args['itemId'])) ) {
         $response = $response->withStatus(404);
@@ -78,7 +79,7 @@ $app->post('/admin/items/{op:edit|add}[/{itemId:[0-9]+}]', function ($request, $
     $priceMed = $request->getParam('priceMed');
     $priceLrg = $request->getParam('priceLrg');
     $photofilepath = $request->getParam('photofilepath');
-    
+
     // sanitize description
     $description = strip_tags($description, "<p><ul><li><em><strong><i><b><ol><h3><h4><h5><span>");
     //
@@ -100,6 +101,8 @@ $app->post('/admin/items/{op:edit|add}[/{itemId:[0-9]+}]', function ($request, $
         $errorList[] = "Category Code does not exist";
     } 
     
+    echo '$errorList';
+    print_r($errorList);
     
     if ($errorList) {
         return $this->view->render($response, 'admin/items_addedit.html.twig',
@@ -139,10 +142,6 @@ $app->post('/admin/items/delete/{id:[0-9]+}', function ($request, $response, $ar
     DB::delete('items', "itemId=%d", $args['id']);
     return $this->view->render($response, 'admin/items_delete_success.html.twig' );
 });
-
-
-
-
 
 
 /*# this was done before the op:add/edit method and should not be needed

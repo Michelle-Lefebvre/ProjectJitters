@@ -8,9 +8,9 @@ require_once '_setup.php';
     $bakeList = DB::query("SELECT itemId, categoryCode, itemName, price, priceMed, priceLrg 
                 FROM items WHERE categoryCode = 'BAKE';");
     $teaList = DB::query("SELECT itemId, categoryCode, itemName, price, priceMed, priceLrg 
-    FROM items WHERE categoryCode = 'TEAS';");
+                FROM items WHERE categoryCode = 'TEAS';");
     $sandList = DB::query("SELECT itemId, categoryCode, itemName, price, priceMed, priceLrg 
-    FROM items WHERE categoryCode = 'SAND';");
+                FROM items WHERE categoryCode = 'SAND';");
 
     //print_r($cafeList);
     //print_r($bakeList);
