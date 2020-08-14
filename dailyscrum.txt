@@ -1,4 +1,48 @@
 ___________________________________________________________________
+2020/08/14 Michelle (Writing Final exam)
+
+1. What I have done / not done since last Scrum?
+TODO (if we had more time) - login should automatically clear user session
+not done - User can view profile
+not done - User can view cart
+incomplete - Worked on fixing Register but unsuccessful. I need help
+
+2. What I plan to do from this scrum to next? (Sun at 11am)
+As much as possible!
+
+3. Where do I need assistance?
+Register keeps failing
+
+Discuss:
+1. Michelle spent the last 2 days focusing on preparing for the exam today.
+But will attack Jitters after exam and all weekend long. Whatever it takes to complete this project!
+
+2. Mark I still don't see the cart items
+Mark demo the functioning cart.
+
+3. Meetings: When should we meet:
+ to discuss division of slides, to review slides, 
+ to practice presentation using Zoom on Sat, on Sun, before class on Monday?
+Mark wants one meeting on Sunday at 11am 
+
+4. Trello still has a lot of items to do and to test.
+Mark has announced that he won't be continuing to work on the project or remaining Trello items, only minor tweaks.
+He will focus on doing the slides and that I can go ahead and finish the scrum meeting notes.
+______________________
+2020/08/14 Mark (Writing Final exam)
+
+1. What I have done / not done since last Scrum?
+done - completed /cart
+done - retested additemslist and items/deleted
+
+2. What I plan to do from this scrum to next? (Sun at 11am)
+- Help Michelle with Register sumbit button
+- fix description in items edit and retest
+- move code to .com
+
+Where do I need assistance?
+
+___________________________________________________________________
 2020/08/13 Michelle
 
 1. What I have done / not done since last Scrum?	 
@@ -6,6 +50,7 @@ done - Add Login button for not a member link to register.
 not done - User can view profile
 done - to add links menu + order to main navbar
 done - locally updated db changes to cartitems 
+
 2. What I plan to do from this scrum to next? (Fri at 9am)
 - User can view profile
 - User can view cart
@@ -20,8 +65,8 @@ ______________________
 1. What I have done / not done since last Scrum?
 - User can view cart
 done - User can select menu item to add to cart
-- try to debug why /admin/items/add not working after bootstrap changes
-- done made db changes to table 
+not done - try to debug why /admin/items/add not working after bootstrap changes
+done - made db changes to table 
 
 2. What I plan to do from this scrum to next? (Fri at 9am)
 - User can view cart  
@@ -58,7 +103,6 @@ Done - tried but not fixed to help Michelle submit button connecting to db
 
 2. What I plan to do from this scrum to next? (Thurs at 9am)
 - User can view cart
-
 
 Where do I need assistance?
 menu item price in cart
