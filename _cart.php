@@ -7,10 +7,16 @@ require_once '_setup.php';
 $app->get('/cart', function ($request, $response, $args) {
 //print_r( session_id() );
 
+if (!isset($_SESSION['user'])) { // refuse if user not logged in
+    $response = $response->withStatus(403);
+    return $this->view->render($response, 'not_logged_in.html.twig');
+}
+
     // if user not logged in does this error, do we trap it
     $userId = $_SESSION['user']['userId'];    
     $sessionId = session_id();
 
+    
 
    // link cartitems to session using session id and user id
     $cartitemList = DB::query("SELECT *, price * quantity as extprice  FROM cartitems WHERE sessionId=%s AND userId=%s", $sessionId, $userId);
@@ -32,6 +38,7 @@ $app->get('/cart', function ($request, $response, $args) {
     } else {
         // display using  twig   - cartitems not found
     }
+
 });
 
 /*  cart uses menu to do the add functionality
