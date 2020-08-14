@@ -1,4 +1,37 @@
 ___________________________________________________________________
+2020/08/13 Michelle
+
+1. What I have done / not done since last Scrum?	 
+done - Add Login button for not a member link to register.
+not done - User can view profile
+done - to add links menu + order to main navbar
+done - locally updated db changes to cartitems 
+2. What I plan to do from this scrum to next? (Fri at 9am)
+- User can view profile
+- User can view cart
+- Add explain how to place an order to the customer Order needs to include rewards number 
+
+3. Where do I need assistance?
+Login should automatically clear user session on load (tomorrow Gregory?)
+submit button connecting to db
+______________________
+2020/08/13 Mark
+
+1. What I have done / not done since last Scrum?
+- User can view cart
+done - User can select menu item to add to cart
+- try to debug why /admin/items/add not working after bootstrap changes
+- done made db changes to table 
+
+2. What I plan to do from this scrum to next? (Fri at 9am)
+- User can view cart  
+- add delete to /cart
+- mention to michelle that login automatically clear user session should be in her scrum not mine (entry from yesterday)
+
+
+Where do I need assistance?
+menu item price in cart
+Login should automatically clear user session on load (tomorrow Gregory?)___________________________________________________________________
 2020/08/12 Michelle (study day)
 
 1. What I have done / not done since last Scrum?	 
