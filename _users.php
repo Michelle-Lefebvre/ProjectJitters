@@ -17,7 +17,7 @@ $app->post('/register', function ($request, $response, $args) {
     $pass1 = $request->getParam('pass1');
     $pass2 = $request->getParam('pass2');
     //
-    // $errorList = array();
+    $errorList = array();
 
     // $result = verifyUserName($firstName, $lastName, $nickname);
     
