@@ -12,15 +12,11 @@ $app->post('/register', function ($request, $response, $args) {
     $firstName = $request->getParam('firstName');
     $lastName = $request->getParam('lastName');
     $nickname = $request->getParam('nickname');
-    $phone = $request->getParam('mobilePhone');
     $email = $request->getParam('email');
     $pass1 = $request->getParam('pass1');
     $pass2 = $request->getParam('pass2');
     //
-    // $errorList = array();
-
-    // $result = verifyUserName($firstName, $lastName, $nickname);
-    
+    $errorList = array();
     if (preg_match('/^[a-zA-Z0-9\ \\._\'"-]{4,50}$/', $firstName) != 1) { // no match
         array_push($errorList, "Names and nickname must be 4-50 characters long and consist of letters, digits, "
             . "spaces, dots, underscores, apostrophies, or minus sign.");
@@ -34,13 +30,9 @@ $app->post('/register', function ($request, $response, $args) {
     if (preg_match('/^[a-zA-Z0-9\ \\._\'"-]{4,50}$/', $nickname) != 1) { // no match
         array_push($errorList, "Nickname must be 4-50 characters long and consist of letters, digits, "
             . "spaces, dots, underscores, apostrophies, or minus sign.");
-   
+      
         $nickname = "";
     }
-    if(!preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $phone) !=10) {
-        array_push($errorList, "Invalid Number! Must be numbers: XXX-XXX-XXXX");
-    }
-    
     if (filter_var($email, FILTER_VALIDATE_EMAIL) == FALSE) {
         array_push($errorList, "Email does not look valid");
         $email = "";
@@ -52,9 +44,6 @@ $app->post('/register', function ($request, $response, $args) {
             $email = "";
         }
     }
-    $result = verifyPasswordQuailty($pass1, $pass2);
-    if ($result != TRUE) { $errorList[] = $result; }
-    
     if ($pass1 != $pass2) {
         array_push($errorList, "Passwords do not match");
     } else {
@@ -62,19 +51,16 @@ $app->post('/register', function ($request, $response, $args) {
                 || (preg_match("/[A-Z]/", $pass1) == FALSE )
                 || (preg_match("/[a-z]/", $pass1) == FALSE )
                 || (preg_match("/[0-9]/", $pass1) == FALSE )) {
-            array_push($errorList, "Password must be 6-100 characters long, with at least one uppercase, one lowercase, and one digit in it");
+            array_push($errorList, "Password must be 6-100 characters long, "
+                . "with at least one uppercase, one lowercase, and one digit in it");
         }
     }
     //
     if ($errorList) {
         return $this->view->render($response, 'register.html.twig',
-        [ 'errorList' => $errorList, 'v' => [$firstName, 'lastName' => $lastName,  'nickname' => $nickname, 'mobilePhone' => $phone, 'email' => $email ]  ]);
+                [ 'errorList' => $errorList, 'v' => [$firstName, 'lastName' => $lastName,  'nickname' => $nickname, 'email' => $email ]  ]);
     } else {
-        $passwordPepper = 'mmyb7oSAeXG9DTz2uFqu';
-        $pwdPeppered = hash_hmac("sha256", $pass1, $passwordPepper);
-        $pwdHashed = password_hash($pwdPeppered, PASSWORD_DEFAULT);
-        DB::insert('users', ['firstName' => $firstName, 'lastName' => $lastName, 'nickname' => $nickname, 'email' => $email, 'password' => $pwdHashed, ]);
-        //'imageData' => $photoData, 'imageMimeType' => $mimeType
+        DB::insert('users', ['firstName' => $firstName, 'lastName' => $lastName, 'nickname' => $nickname, 'email' => $email, 'password' => $pass1]);
         return $this->view->render($response, 'register_success.html.twig');
     }
 });
