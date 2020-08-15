@@ -79,12 +79,12 @@ $app->post('/admin/items/{op:edit|add}[/{itemId:[0-9]+}]', function ($request, $
     $priceMed = $request->getParam('priceMed');
     $priceLrg = $request->getParam('priceLrg');
     $photofilepath = $request->getParam('photofilepath');
-print_r($description);
-print_r($itemName);
+//print_r($description);
+//print_r($itemName);
     // sanitize description
     $description = strip_tags($description, "<p><ul><li><em><strong><i><b><ol><h3><h4><h5><span>");
     //
-    print_r($description);
+    //print_r($description);
     $errorList = array();
 
     if (strlen($itemName) < 3 || strlen($itemName) > 100 ) {
@@ -103,8 +103,8 @@ print_r($itemName);
         $errorList[] = "Category Code does not exist";
     } 
     
-    echo '$errorList';
-    print_r($errorList);
+    //echo '$errorList';
+    //print_r($errorList);
     
     if ($errorList) {
         return $this->view->render($response, 'admin/items_addedit.html.twig',

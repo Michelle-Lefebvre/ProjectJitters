@@ -98,9 +98,13 @@ $app->get('/cartadditem/{id:[0-9]+}/{price}/{size}/{itemName}', function ($reque
     // keep for debugging
     //print_r($args);
 
+    if (!isset($_SESSION['user'])) { // refuse if user not logged in
+        $response = $response->withStatus(403);
+        return $this->view->render($response, 'not_logged_in.html.twig');
+    }
+
     $itemId = $args['id'];
     $itemName = $args['itemName'];
-    //$description = $args['description'];
     $price = $args['price'];
     $size = $args['size'];
     $quantity = 1;   //  one click = quantity one
