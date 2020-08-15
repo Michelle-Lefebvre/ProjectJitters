@@ -4,7 +4,7 @@
 
 {% block content %}
     <h3>{% if op == 'edit' %}Update Item{% else %}Add item{% endif %}</h3><br>
-    <p>Operation successful - item {% if op == 'add' %}added{% else %}updated{% endif %}</p>
-    <p><a href="/admin/items/add">Click here to continue to Items Add</a></p>
-    <p><a href="/admin/items/list">Click here to continue to Items List</a></p>
+    <h2>Operation successful - item {% if op == 'add' %}added{% else %}updated{% endif %}</h2>
+    <p><a href="/admin/items/add" class="btn btn-warning mt-5" role="button">Click here to continue to Items Add</a></p>
+    <p><a href="/admin/items/list" class="btn btn-warning mt-5" role="button">Click here to continue to Items List</a></p>
 {% endblock %}
