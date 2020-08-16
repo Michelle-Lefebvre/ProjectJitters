@@ -1,5 +1,86 @@
 ___________________________________________________________________
-2020/08/14 Michelle
+2020/08/14 Michelle 11am
+
+1. What I have done / not done since last Scrum?
+not done - User can view cart. 
+In process- validate code
+In process- User can view profile (may have to squash it due to lack of time)
+In process- Code validation of twig files requires code changes
+	There are 36 html.twig files and 3 css files to clean-up and validate
+Done - files that have passed validation: 
+	sylesHome.css,
+	index.html.twig,
+	menu.html.twig,
+	Master.html.twig,
+	Login.html.twig,
+	Register.html.twig
+	Login_success.html.twig
+	not_logged_in.html.twig
+	styles.css
+
+Done - site changes:
+	master: add image to Browser Tab, add meta tags,
+	Index: centered/crop bg-image, 
+	stylesHome: css update
+	User_addedit: aline password row
+	Profile: aline password row
+	login_success: validated required changes
+	not_logged_in: fixed
+	added image folders for profile pics and menu pics;
+	error_not_found: in main site link fix;
+	Cartadditem: add image & buttons;
+	styles.css sorted and validated
+
+Done - 3 slides
+	
+	
+2. What I plan to do from this scrum to next? (Sun at 11am)
+Plan to work on what we have
+- need to validate code
+- user can see profile
+- Code validation
+- Write slides
+- practise presenting
+
+3. Where do I need assistance?
+
+
+Discuss:
+1. Move code to .com Michelle has been doing this and suggests to first upload files then push to GitHub because files that have changes are indicated in vscode that need to be pushed to GitHub.
+2. Slide discussion
+3. Profile form is completed but Michelle is lacking time to complete.
+Mark offered to take a look.
+4. Michelle to focus on code vaidation and fixes that are required to validate html.twig
+5. Mark has zoom issue. Can't hear me. 
+______________________
+2020/08/16 Mark 11am
+
+1. What I have done / not done since last Scrum?
+- fix description in items edit and retest
+not done - move code to .com
+not done - Code validation for php
+not started - slides: Cart, Menu for Cart, Admin items (list, add, delete, update), Database, Rewards if done
+done - Resolve cart issues to work on .com site
+done - User can see rewards
+done - worked on rewards
+
+done - GitHub commit notes
+  /cart - if user is not logged in exit gracefully & cartitems_not_found
+  _users uncommented $errorList = array();
+  deleted commented code in a few places
+  - fix blank screen on cart after login
+  -tested register form with issues
+
+2. What I plan to do from this scrum to next? (Sun at 11am)
+-write slides
+-finalize user can see profile
+-resolve Zoom hearing issue
+-clean up code in php files
+
+Where do I need assistance?
+
+___________________________________________________________________
+2020/08/15 Michelle
 
 1. What I have done / not done since last Scrum?
 not done - User can view profile didn't work on it
@@ -53,7 +134,8 @@ done - Help Michelle with Register sumbit button
 - Code validation
 - User can see rewards
 
-Where do I need assistance?___________________________________________________________________
+Where do I need assistance?
+___________________________________________________________________
 2020/08/14 Michelle (Writing Final exam)
 
 1. What I have done / not done since last Scrum?
