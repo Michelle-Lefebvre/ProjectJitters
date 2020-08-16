@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>
-			{% block title %}Jitters
-			{% endblock %}
+	  <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="Coffee shop ordering app made using php">
+      <meta name="author" content="Michelle Lefebvre + Mark Boswick">
+	  <link rel="icon" href="images/icons8-cup-50.png">
+		<title>Jitters -
+			{% block title %}{% endblock %}
 		</title>
-		<meta
-		name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
 		{# bootstrap #}
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -57,8 +57,8 @@
 									<li class="nav-item">
 										<a class="nav-link" href="/cards">Cards</a>
 									</li>
-									<span class="justify mt-2">Welcome <b>{{ userSession.firstName }}</b>
-									</span>
+									<li class="mt-2">Welcome {{ userSession.firstName }}</li>
+									
 									<li class="nav-item">
 										<a class="nav-link" href="/adminmenu">Admin</a>
 									</li>

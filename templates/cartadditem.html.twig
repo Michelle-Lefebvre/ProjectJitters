@@ -3,6 +3,16 @@
 {% block title %}Operation successful{% endblock %}
 
 {% block content %}
-    <p><a href="/menu">Click here to return to menu</a></p><br>
-    <p><a href="/cart">Click here access shopping cart and place order</a></p>
+<form class="form-login center">
+     <div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<img src="/images/shopping-cart.jpg" width="100%">
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<h1 class="textHuge errors">Added to cart</h1>
+				<p>To continue adding items to your order. <a href="/menu" class="btn btn-warning m-2" role="button">Menu</a></p><br>
+    <p>To review and complete order access shopping cart to finalize order<a href="/cart" class="btn btn-warning m-2" role="button">Review and Order</a></p>
+			</div>
+		</div>     
+    </form>
 {% endblock %}

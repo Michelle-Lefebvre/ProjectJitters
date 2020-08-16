@@ -30,6 +30,7 @@ $app->get('/', function ($request, $response, $args) {
 
     // return $twig->render('menu.html.twig');
     // return $twig->render('cart.html.twig');
+    //return $twig->render('cartadditem.html.twig');
 
     // return $twig->render('/admin/adminmenu.html.twig');
     // return $twig->render('/admin/additem.html.twig');
@@ -40,7 +41,7 @@ $app->get('/', function ($request, $response, $args) {
 
     // return $twig->render('error_internal.html.twig');
     // return $twig->render('error_access_denied.html.twig');
-    // return $twig->render('error_not_found.html.twig');
+    return $twig->render('error_not_found.html.twig');
     
 });
 
