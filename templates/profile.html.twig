@@ -14,7 +14,7 @@
 		</ul>
 	{% endif %}
 	<form class="form center text-left" method="post">
-		<h2 class="text-center">{{userSession.firstName}} {{ userSession.lastName }}
+		<h2 class="text-center">My Profile<br>{{userSession.firstName}} {{ userSession.lastName }}
 		</h2>
 		<div class="row">
 			<div class="col">
@@ -24,58 +24,61 @@
 		<div class="row">
 			<div class="col">
 				First name:
-				<input type="text" name="firstName" value="{{ v.firstName }}" id="inputFirstname" class="form-control" required="" >
+				<input type="text" name="firstName" value="{{ v.firstName }}" id="inputFirstname" class="form-control" required="">
 			</div>
 			<div class="col">
-				Last name:<input type="text" name="lastName" value="{{ v.lastName }}" id="inputLastname" class="form-control" required="" >
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				Nickname:<input type="text" name="nickname" value="{{ v.nickname }}" id="inputNickname" class="form-control" >
-			</div>
-			<div class="col">
-				Cell Phone:
-				<input type="text" name="mobilePhone" value="{{ v.mobilePhone }}" id="inputMobilePhone" class="form-control" placeholder="123-456-7890" >
+				Last name:<input type="text" name="lastName" value="{{ v.lastName }}" id="inputLastname" class="form-control" required="">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col">
-				Email<input type="email" name="email" value="{{ v.email }}" id="inputEmail" class="form-control" required="" >
+				Nickname:<br>
+				<small>Appears on all your orders.</small>
+				<input type="text" name="nickname" value="{{ v.nickname }}" id="inputNickname" class="form-control">
+			</div>
+			<div class="col">
+				Cell Phone:<br>
+				<small>required</small>
+				<input type="text" name="mobilePhone" value="{{ v.mobilePhone }}" id="inputMobilePhone" class="form-control" placeholder="123-456-7890">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				Email<input type="email" name="email" value="{{ v.email }}" id="inputEmail" class="form-control" required="">
 				<span class="errorMessage" id="emailTaken"></span>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col">
+			<div class="col"><br>
 				Password:
 				{% if op == 'edit' %}
 					(Only provide password if you're changing it for this user)
 				{% endif %}
-				<input type="password" name="pass1" id="inputPassword" class="form-control" >
+				<input type="password" name="pass1" id="inputPassword" class="form-control">
 			</div>
-			<div class="col"><br>
+			{# <div class="col">
 				Passord (repeated):
 				<input type="password" name="pass2" id="inputPassword2" class="form-control">
-			</div>
+			</div> #}
 		</div>
 		<div class="row">
 			<div class="col">
 				Address:
-				<input type="text" name="address" value="{{ v.address }}" class="form-control" >
+				<input type="text" name="address" value="{{ v.address }}" class="form-control">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col">
 				City:
-				<input type="text" name="city" value="{{ v.city }}" class="form-control" >
+				<input type="text" name="city" value="{{ v.city }}" class="form-control">
 			</div>
 			<div class="col">
 				Province:
-				<input type="text" name="province" value="{{ v.province }}" class="form-control" >
+				<input type="text" name="province" value="{{ v.province }}" class="form-control">
 			</div>
 			<div class="col">
 				Postal Code:
-				<input type="text" name="postalCode" value="{{ v.postalCode }}" class="form-control" >
+				<input type="text" name="postalCode" value="{{ v.postalCode }}" class="form-control">
 			</div>
 		</div>
 		<div class="row center">
@@ -92,10 +95,11 @@
 				Jitters mail
 			</div>
 		</div>
-		<div class="custom-file">
+		{# <div class="custom-file">
+			<small>Adding a profile picture helps our staff confirm they are giving you the right order in the store.</small>
 			<input type="file" class="custom-file-input" id="customFile">
 			<label class="custom-file-label" for="customFile">Profile Photo</label>
-		</div>
+		</div> #}
 
 		<input type="submit" class="btn btn-lg btn-secondary btn-block mt-5" value="{% if op == 'edit' %}Update User{% else %}Save New User{% endif %}">
 

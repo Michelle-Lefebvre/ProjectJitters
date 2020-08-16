@@ -125,7 +125,15 @@ $app->get('/logout', function ($request, $response, $args) use ($log) {
 
 
 /* ********************     USER PROFILE VIEW   ******************** */
+    
 $app->get('/profile/{userId:[0-9]+}', function ($request, $response, $args) {
+    if (!isset($_SESSION['user'])) { // refuse if user not logged in
+        $response = $response->withStatus(403);
+        return $this->view->render($response, 'not_logged_in.html.twig');
+    }
+        $userId = $_SESSION['user']['userId'];    
+        $sessionId = session_id();
+
     $user = DB::queryFirstRow("SELECT * FROM users WHERE userId=%d", $args['userId']);
     if (!$user) {
         $response = $response->withStatus(404);

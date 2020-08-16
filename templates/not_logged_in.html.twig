@@ -3,7 +3,10 @@
 {% block title %}Not logged In{% endblock %}
 
 {% block content %}
-    <h2>You must be logged in to complete this action</h2>
-    <p><a href="/login">Click here to login</a></p><br>
-    <p><a href="/register">Click here to register</a></p>
+<form class="form-login center">
+		<h2><img class="mb-4" src="/images/icons8-cup-50.png" alt="" width="52" height="52">
+        You must log in <br>to place an order</h2>
+		<p><a href="/login" class="btn btn-warning m-2" role="button">Log in</a><a href="/register" class="btn btn-warning m-2" role="button">Register</a></p>
+		<br/>
+	</form>
 {% endblock %}
