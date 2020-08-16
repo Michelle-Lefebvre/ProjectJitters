@@ -88,3 +88,10 @@ $app->post('/cart/delete/{id:[0-9]+}', function ($request, $response, $args) {
     DB::delete('cartitems', "cartId=%d", $args['id']);
     return $this->view->render($response, 'cartitems_delete_success.html.twig');
 });
+
+$app->get('/rewards', function ($request, $response, $args) {
+
+        return $this->view->render($response, 'rewards.html.twig');
+    }
+);
+
