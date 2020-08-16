@@ -41,34 +41,36 @@ $app->get('/', function ($request, $response, $args) {
     // return $twig->render('cartadditem.html.twig'); //ss
     // return $twig->render('cartitems_delete_success.html.twig');
     // return $twig->render('cartitems_delete.html.twig');
-    return $twig->render('cartitems_not_found.html.twig'); //ss
+    // return $twig->render('cartitems_not_found.html.twig'); //ss
 
     // return $twig->render('register_success.html.twig'); //ss
     // return $twig->render('register.html.twig'); //ss
-    return $twig->render('rewards.html.twig');
+    // return $twig->render('rewards.html.twig'); //ss
 
     // Admin Templates
-    return $twig->render('adminmenu_notallowed.html.twig');
-    return $twig->render('adminmenu.html.twig');
+                                    // not been tested
+                                    // return $twig->render('/admin/adminmenu_notallowed.html.twig');
+    return $twig->render('/admin/adminmenu.html.twig'); //ss
 
-    return $twig->render('error_access_denied.html.twig');
-    return $twig->render('error_not_found.html.twig');
+    // return $twig->render('/admin/error_access_denied.html.twig'); //ss
+    // return $twig->render('/admin/error_not_found.html.twig'); //ss
+    // return $twig->render('/admin/coming_soon.html.twig'); //ss
 
-    return $twig->render('items_addedit_success.html.twig');
-    return $twig->render('items_addedit.html.twig');
-    return $twig->render('items_delete_success.html.twig');
-    return $twig->render('items_delete.html.twig');
-    return $twig->render('items_list.html.twig');
+    // return $twig->render('/admin/items_addedit_success.html.twig'); //ss
+    // return $twig->render('/admin/items_addedit.html.twig');
+    // return $twig->render('/admin/items_delete_success.html.twig');
+    // return $twig->render('/admin/items_delete.html.twig');
+    // return $twig->render('/admin/items_list.html.twig');
 
-    return $twig->render('master.html.twig');
-    return $twig->render('not_found.html.twig');
+    return $twig->render('/admin/master.html.twig');
+    return $twig->render('/admin/not_found.html.twig');
 
-    return $twig->render('user_addedit.html.twig');
-    return $twig->render('user_delete.html.twig');
-    return $twig->render('users_addedit_success.html.twig');
-    return $twig->render('users_delete_success.html.twig');
-    return $twig->render('users_list.html.twig');
-    return $twig->render('users_master.html.twig');
+    return $twig->render('/admin/user_addedit.html.twig');
+    return $twig->render('/admin/user_delete.html.twig');
+    return $twig->render('/admin/users_addedit_success.html.twig');
+    return $twig->render('/admin/users_delete_success.html.twig');
+    return $twig->render('/admin/users_list.html.twig');
+    return $twig->render('/admin/users_master.html.twig');
 });
 
 $app->get('/session', function ($request, $response, $args) {

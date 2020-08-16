@@ -1,0 +1,21 @@
+{% extends "master.html.twig" %}
+
+{% block head %}
+<link rel="stylesheet" href="/styles/stylesErrors.css"/>
+{% endblock head %}
+{% block content %}
+	<div class="errors">
+		<div class="row">
+			<div class="col-sm-12 col-md-6 col-lg-6 center m-0">
+				<img class="errors" src="/images/comingSoon.png" width="100%">
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-6 center text-left">
+				<h1 class="textHuge errors">Not Found</h1>
+				<h3>This page is coming soon</h3>
+				<p>Sorry for the inconvenience, we're working on it.<br/>
+					<a href="/adminmenu" style="color:turquoise;">Click here</a>
+					to continue.</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}
