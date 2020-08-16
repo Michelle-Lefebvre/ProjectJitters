@@ -44,33 +44,29 @@
 			<h2>Registration Form</h2>
 			<div class="row">
 				<div class="col-sm-12">
-					<span class="h5 font-weight-normal">
-						<h4 class="h4 mt-3 mb-3 font-weight-normal">
+						<h4 class="mt-3 mb-3 font-weight-normal">
 							Already a member?
 							<span>
 								<a href="/login" class="btn btn-warning" role="button">Log In</a>
 							</span>
 						</h4>
-					</span>
 				</div>
 			</div>
 
 
-			<input type="text" name="firstName" value="{{ v.firstName }}" class="form-control" placeholder="First name" required=" " autofocus="">
+			<input type="text" name="firstName" value="{{ v.firstName }}" class="form-control" placeholder="First name" required=""  autofocus="">
 			<span class="errorMessage" id="firstName"></span>
 
-			<input type="text" name="lastName" value="{{ v.lastName }}" class="form-control" placeholder="Last name" required=" " autofocus="">
+			<input type="text" name="lastName" value="{{ v.lastName }}" class="form-control" placeholder="Last name" required="">
 			<span class="errorMessage" id="lastName"></span>
 
-			<input type="text" name="nickname" value="{{ v.nickname }}" class="form-control" placeholder="Nickname (appears on orders)" autofocus="">
-			<span class="errorMessage" id="nickname"></span>
+			<input type="text" name="nickname" value="{{ v.nickname }}" class="form-control" placeholder="Nickname (appears on orders)">
+			<span class="errorMessage" id="nickname"></span> 
 
-			<input type="text" name="mobilePhone" value="{{ v.mobilePhone }}" class="form-control" placeholder="123-456-7890" autofocus="">
+			<input type="text" name="mobilePhone" value="{{ v.mobilePhone }}" class="form-control" placeholder="123-456-7890">
 			<span class="errorMessage" id="mobilePhone"></span>
 
-			{# <input type="file" name="image"/> #}
-
-			<input type="email" name="email" value="{{ v.email }}" class="form-control" placeholder="Email address" required="" autofocus="">
+			<input type="email" name="email" value="{{ v.email }}" class="form-control" placeholder="Email address" required="">
 			<span class="errorMessage" id="emailTaken"></span>
 
 			<input type="password" name="pass1" id="pass1" class="form-control" placeholder="Password" required="">

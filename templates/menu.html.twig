@@ -10,8 +10,8 @@
 		}
 		.tab {
 			font-size: 0.9rem;
-			margin-left: 25px;
 			line-height: 30px;
+			margin-left: 25px;
 		}
 	</style>
 {% endblock %}
@@ -28,67 +28,77 @@
 
 					{% for c in cafeList %}
 						<div class="text-right">{{c.itemName}}
-						
-							<span class="tab text-right">  <a href="/cartadditem/{{c.itemId}}/{{c.price}}/Reg/{{c.itemName}}">{{c.price}}</a></span>
-							
+
+							<span class="tab text-right">
+								<a href="/cartadditem/{{c.itemId}}/{{c.price}}/Reg/{{c.itemName}}">{{c.price}}</a>
+							</span>
+
 							<a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Reg'">
 
-							<span class="tab"><a href="/cartadditem/{{c.itemId}}/{{c.priceMed}}/Med/{{c.itemName}}">{{c.priceMed}}</a></span>
-							<span class="tab text-right"><a href="/cartadditem/{{c.itemId}}/{{c.price}}/Lrg/{{c.itemName}}">{{c.priceLrg}}</a></span>
-						</div>
-					{% endfor %}
-				</ul>
+								<span class="tab">
+									<a href="/cartadditem/{{c.itemId}}/{{c.priceMed}}/Med/{{c.itemName}}">{{c.priceMed}}</a>
+								</span>
+								<span class="tab text-right">
+									<a href="/cartadditem/{{c.itemId}}/{{c.price}}/Lrg/{{c.itemName}}">{{c.priceLrg}}</a>
+								</span>
+							</div>
+						{% endfor %}
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="container-fluid m-0 p-0">
-		<div class="row h-100">
-			<div class="col-sm-12 col-md-6 m-0 pr-1 h-100 d-flex justify-content-center">
-				<ul class="menuItem p-0 tab mt-5 center m-xs-auto mr-md-3 mr-lg-5 pr-1 pl-0 pt-0 pb-0 ">
-					<h5>Teas - click price to add to cart</h5>
-					{% for t in teaList %}
-						<div class="text-right">{{t.itemName}}
-							<span class="tab text-right"><a href="/cartadditem/{{t.itemId}}/{{t.price}}/Reg/{{t.itemName}}">{{t.price}}</a></span>
-							<span class="tab"><a href="/cartadditem/{{t.itemId}}/{{t.price}}/Med/{{t.itemName}}">{{t.priceMed}}</a></span>
-							<span class="tab text-right"><a href="/cartadditem/{{t.itemId}}/{{t.price}}/Lrg/{{t.itemName}}">{{t.priceLrg}}</a></span>
-						</div>
-					{% endfor %}
-				</ul>
-			</div>
-			<div class="col-sm-12 col-md-6 p-0 h-100">
-				<img src="/images/menuTeas.jpg" width="100%" height="400">
-			</div>
-		
-	</div>
+		<div class="container-fluid m-0 p-0">
+			<div class="row h-100">
+				<div class="col-sm-12 col-md-6 m-0 pr-1 h-100 d-flex justify-content-center">
+					<ul class="menuItem p-0 tab mt-5 center m-xs-auto mr-md-3 mr-lg-5 pr-1 pl-0 pt-0 pb-0 ">
+						<h5>Teas - click price to add to cart</h5>
+						{% for t in teaList %}
+							<div class="text-right">{{t.itemName}}
+								<span class="tab text-right">
+									<a href="/cartadditem/{{t.itemId}}/{{t.price}}/Reg/{{t.itemName}}">{{t.price}}</a>
+								</span>
+								<span class="tab">
+									<a href="/cartadditem/{{t.itemId}}/{{t.price}}/Med/{{t.itemName}}">{{t.priceMed}}</a>
+								</span>
+								<span class="tab text-right">
+									<a href="/cartadditem/{{t.itemId}}/{{t.price}}/Lrg/{{t.itemName}}">{{t.priceLrg}}</a>
+								</span>
+							</div>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="col-sm-12 col-md-6 p-0 h-100">
+					<img src="/images/menuTeas.jpg" width="100%" height="400">
+				</div>
 
-	<div class="container-fluid m-0 p-0">
-		<div class="row h-100">
-			<div class="col-sm-12 col-md-6 m-0 p-0 h-100">
-				<img src="/images/menuPastries.jpg" width="100%" height="400">
 			</div>
-			<div class="col-sm-12 col-md-6 m-0 pb-5 h-100 d-flex justify-content-center">
-				<ul class="menuItem p-0 tab mt-5 center m-xs-auto mr-md-3 mr-lg-5">
-					<h5 class="m-0">Bake - click on price to add to cart</h5>
-					{#
-					<div class="text-right">{{c.itemName}}
-						<span class="tab text-right"><a href="/cartadditem/{{c.itemId}}/{{c.price}}/Reg">{{c.price}}</a></span> 
-						<span class="tab"><a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Med'">{{c.priceMed}}</a></span>
-						<span class="tab text-right"><a href="/cartadditem/{{c.itemId}}/{{c.price}}/'Lrg'">{{c.priceLrg}}</a></span>
+
+			<div class="container-fluid m-0 p-0">
+				<div class="row h-100">
+					<div class="col-sm-12 col-md-6 m-0 p-0 h-100">
+						<img src="/images/menuPastries.jpg" width="100%" height="400">
 					</div>
-					#}
-					{% for b in bakeList %}
-						<div class="text-right">{{b.itemName}}
-							<span class="tab text-right"><a href="/cartadditem/{{b.itemId}}/{{b.price}}/Reg/{{b.itemName}}">{{b.price}}</a></span>
-						</div>
-					{% endfor %}
-					{% for s in sandList %}
-						<div class="text-right">{{s.itemName}}
-							<span class="tab text-right"><a href="/cartadditem/{{s.itemId}}/{{s.price}}/Reg/{{b.itemName}}">{{s.price}}</a></span>
-						</div>
-					{% endfor %}
-				</ul>
+					<div class="col-sm-12 col-md-6 m-0 pb-5 h-100 d-flex justify-content-center">
+						<ul class="menuItem p-0 tab mt-5 center m-xs-auto mr-md-3 mr-lg-5">
+							<h5 class="m-0">Bake - click on price to add to cart</h5>
+							{% for b in bakeList %}
+								<div class="text-right">{{b.itemName}}
+									<span class="tab text-right">
+										<a href="/cartadditem/{{b.itemId}}/{{b.price}}/Reg/{{b.itemName}}">{{b.price}}</a>
+									</span>
+								</div>
+							{% endfor %}
+							{% for s in sandList %}
+								<div class="text-right">{{s.itemName}}
+									<span class="tab text-right">
+										<a href="/cartadditem/{{s.itemId}}/{{s.price}}/Reg/{{b.itemName}}">{{s.price}}</a>
+									</span>
+								</div>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>{% endblock %}
+	{% endblock %}

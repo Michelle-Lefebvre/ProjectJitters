@@ -125,7 +125,7 @@ $app->get('/logout', function ($request, $response, $args) use ($log) {
 
 
 /* ********************     USER PROFILE VIEW   ******************** */
-$app->get('profile/{userId:[0-9]+}', function ($request, $response, $args) {
+$app->get('/profile/{userId:[0-9]+}', function ($request, $response, $args) {
     $user = DB::queryFirstRow("SELECT * FROM users WHERE userId=%d", $args['userId']);
     if (!$user) {
         $response = $response->withStatus(404);
@@ -134,7 +134,7 @@ $app->get('profile/{userId:[0-9]+}', function ($request, $response, $args) {
     return $this->view->render($response, 'profile.html.twig', ['v' => $user] );
 });
 
-$app->get('profile/edit[/{userId:[0-9]+}]', function ($request, $response, $args) {
+$app->get('/profile/edit[/{userId:[0-9]+}]', function ($request, $response, $args) {
     // to view profile user must have log and id must be given
     if ( ($args['op'] == 'profile' && !empty($args['userId'])) || ($args['op'] == 'edit' && empty($args['userId'])) ) {
         $response = $response->withStatus(404);
@@ -153,7 +153,7 @@ $app->get('profile/edit[/{userId:[0-9]+}]', function ($request, $response, $args
 });
 
 // STATE 2&3: receiving submission
-$app->post('profile/edit[/{userId:[0-9]+}]', function ($request, $response, $args) {
+$app->post('/profile/edit[/{userId:[0-9]+}]', function ($request, $response, $args) {
     $op = $args['op'];
     // either op is add and id is not given OR op is edit and id must be given
     if ( ($op == 'profile' && !empty($args['userId'])) || ($op == 'edit' && empty($args['userId'])) ) {
@@ -229,7 +229,7 @@ $app->post('profile/edit[/{userId:[0-9]+}]', function ($request, $response, $arg
 
 
 // STATE 1: first display
-$app->get('profile/delete/{userId:[0-9]+}', function ($request, $response, $args) {
+$app->get('/profile/delete/{userId:[0-9]+}', function ($request, $response, $args) {
     $user = DB::queryFirstRow("SELECT * FROM users WHERE userId=%d", $args['userId']);
     if (!$user) {
         $response = $response->withStatus(404);
@@ -239,7 +239,7 @@ $app->get('profile/delete/{userId:[0-9]+}', function ($request, $response, $args
 });
 
 // STATE 1: first display
-$app->post('profile/delete/{userId:[0-9]+}', function ($request, $response, $args) {
+$app->post('/profile/delete/{userId:[0-9]+}', function ($request, $response, $args) {
     DB::delete('users', "userId=%d", $args['id']);
     return $this->view->render($response, 'profile_delete_success.html.twig' );
 });

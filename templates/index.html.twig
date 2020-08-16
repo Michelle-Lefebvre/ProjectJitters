@@ -4,39 +4,25 @@
 {% endblock head %}
 
 {% block content %}
-	<main id="homeBg" class="container-fluid">
-
-		<div class="row row3">
-			<div class="col">
-				<h1 id="companyName" class="display-1"><strong>J<sub>
-						i</sub>
-					<sup>t</sup>
-					t<sub>
-						e</sub>
-					<sup>r</sup>
-					s</strong></h1>
-			</div>
-		</div>
-		<div class="row row2">
-			<div class="col-4">
-				<a href="/menu">
-					<h2 class="goto text-white">View Menu</h2>
+	<div id="homeBg" class="container-fluid center">
+		<div class="row-M h-100 center">
+			<div class="col-xs-12 center">
+				<a href="/menu" class="center m-xs-0 mb-xs-2  m-md-5">
+					<h2 class="text-white text-left center m-xs-0 mb-xs-5 m-md-5">View Menu</h2>
 				</a>
-			</div>
-			<div class="col-4">
-				<img src="/images/coffeeDesign.png" class="center d-none d-sm-block d-lg-block d-xl-block" width="100%"/>
-			</div>
-			<div class="col-4">
-				<a href="/order">
-					<h2 class="goto text-white">Place Order</h2>
+				<h1 class="display-1 center text-white">
+					<strong class="center m-xs-0 m-md-5 p-md-5">J<sub>
+							i</sub>
+						<sup>t</sup>
+						t<sub>
+							e</sub>
+						<sup>r</sup>
+						s</strong>
+				</h1>
+				<a href="/order" class="center m-xs-0 m-md-5">
+					<h2 class="text-white text-right center m-xs-0 mt-md-5 mb-md-5">Place Order</h2>
 				</a>
 			</div>
 		</div>
-
-		<div class="row row1">
-			<div class="col">
-				<h4 class="tag">Everything is possible with COFFEE</h4>
-			</div>
-		</div>
-	</main>
+	</div>
 {% endblock %}

@@ -1,11 +1,10 @@
 /* Styles for index page start */
 #homeBg {
-    background: url("/images/coffeebeans-cover.jpg");
-    background-size: cover;
     background-position: center;
-    width: 100vw;
+    background-size: cover;
+    background: url("/images/homePgYellowBg.jpg");
     height: 83vh;
-
+    width: 100vw;
     /* center vertical & horizontal*/
     position: absolute;
     top: 50%;
@@ -14,44 +13,9 @@
     text-align: center;
 }
 
-main > .row {
-    color: white; 
-  
-}
-
-main .row1 .row3{
-    height: 30vh;
-    margin-top: 80px;
-}
-
-.tag {
+.row-m {
     align-items: center;
-}
-main .row2 {
-    height: 40vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    align-items: center;
-}
-
-.textWhite {
-    color: white;
-    text-align: center;
-    align-content: center;
-    font-size: 2rem;
-}
-
-.goto {
-    font-weight: 600;
-    font-size: 2.8rem;
-    text-decoration: underline;
-}
-
-#companyName {
-    font-size: 5rem;
     margin: auto;
-    padding-top: 5rem;
+    text-align: center;
+    width: 100vw;
 }

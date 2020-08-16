@@ -17,5 +17,5 @@ require_once '_setup.php';
      return $this->view->render($response, 'menu.html.twig', ['cafeList' => $cafeList,'bakeList' => $bakeList,'teaList' => $teaList,'sandList' => $sandList ]);
 
      });
-
+     
 ?>
