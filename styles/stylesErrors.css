@@ -5,6 +5,7 @@
     height: 80vh;
     margin: auto;
     width: 100vw;
+    border-radius: 2rem;
 }
 .errors {
     margin-top: 20px;

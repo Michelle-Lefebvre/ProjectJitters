@@ -1,8 +1,22 @@
 {% extends "master.html.twig" %}
 
-{% block title %}Record not found{% endblock %}
+{% block title %}Record not found
+{% endblock %}
 
 {% block content %}
-    <p>Cart not found for this session and user </p>
-    <p><a href="/menu">Click here to return to menu</a></p>
+
+	<form class="form-login center" style="border:20px solid grey">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-12">
+				<img src="/images/shopping-cart.jpg" width="100%" style="transform:scaleY(-1)">
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 h-100 w-100" >
+				<h1 class="display-5 errors">Cart is empty</h1>
+				<h3>Looks like you have no items in your cart.</h3>
+                <h3><a href="/menu" class="btn btn-warning m-2" role="button">RETURN TO MENU</a></h3>
+				<p>View menu and click on items to add to your cart.</p>
+			</div>
+		</div>
+	</form>
+
 {% endblock %}
