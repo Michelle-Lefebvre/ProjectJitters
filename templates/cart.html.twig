@@ -27,19 +27,13 @@
 						<td>{{ci.quantity}}</td>
                         <td> {{ci.extprice}}</td>
 						<td>
-							{#<a href="/admin/items/edit/{{u.itemId}}">edit</a>#}
 							<a href="/cart/delete/{{ci.cartId}}">delete</a>
 						</td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
-{#
-        <p>cartitemSum: {{cartitemSum}}</p>
 
-        <p> sum OUTSIDE FOR LOOP [] : {{sumprice}} </p><br>
-        <p> sum OUTSIDE FOR LOOP [''] : {{['sumprice']}} </p><br>   error converting array to string what if I add ['0']
-         no <p> sum OUTSIDE FOR LOOP [''] : ['sumprice'] </p> #}
         {% for cs in cartitemSum %}
             <p> sum : {{cs.sumprice}} </p>
         {% endfor %}
