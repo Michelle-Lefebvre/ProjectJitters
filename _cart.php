@@ -51,7 +51,6 @@ $app->get('/cartadditem/{id:[0-9]+}/{price}/{size}/{itemName}', function ($reque
         $userId,
         $size
     );
-
     // if the item is in the cart update the quantity
     // otherwise add a new item
     if ($item) {
