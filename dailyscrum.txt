@@ -1,5 +1,5 @@
 ___________________________________________________________________
-2020/08/14 Michelle 11am
+2020/08/16 Michelle 11am
 
 1. What I have done / not done since last Scrum?
 not done - User can view cart. 

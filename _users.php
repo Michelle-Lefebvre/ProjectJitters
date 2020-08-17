@@ -278,36 +278,6 @@ $app->add(function (ServerRequestInterface $request, ResponseInterface $response
     return $next($request, $response);
 });
 
-/* ********** TODO FIXME!!!!! FUNCTIONS DECLARED IN _admin.php  *********** */
-// these functions return TRUE on success and string describing an issue on failure
-// function verifyUserName($name) {
-//     if (preg_match('/^[a-zA-Z0-9\ \\._\'"-]{4,50}$/', $name) != 1) { // no match
-//         return "Name must be 4-50 characters long and consist of letters, digits, "
-//             . "spaces, dots, underscores, apostrophies, or minus sign.";
-//     }
-//     return TRUE;
-// }
-
-// function verifyPasswordQuailty($pass1, $pass2) {
-//     if ($pass1 != $pass2) {
-//         return "Passwords do not match";
-//     } else {
-//         /*
-//         // FIXME: figure out how to use case-sensitive regexps with Validator
-//         if (!Validator::length(6,100)->regex('/[A-Z]/')->validate($pass1)) {
-//             return "VALIDATOR. Password must be 6-100 characters long, "
-//                 . "with at least one uppercase, one lowercase, and one digit in it";
-//         } */
-//         if ((strlen($pass1) < 6) || (strlen($pass1) > 100)
-//                 || (preg_match("/[A-Z]/", $pass1) == FALSE )
-//                 || (preg_match("/[a-z]/", $pass1) == FALSE )
-//                 || (preg_match("/[0-9]/", $pass1) == FALSE )) {
-//             return "Password must be 6-100 characters long, "
-//                 . "with at least one uppercase, one lowercase, and one digit in it";
-//         }
-//     }
-//     return TRUE;
-// }
 
 // STATE 1: first display
 $app->get('/coming/soon', function ($request, $response, $args) {
