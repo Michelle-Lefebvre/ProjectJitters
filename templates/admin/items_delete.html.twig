@@ -5,18 +5,17 @@
 
 {% block content %}
 	<form method="POST" class="form-admin center">
-		<form method="POST" class="form-admin center mb-5">
-			<h2>Delete Item
-				<a href="/admin/items/list" class="btn btn-warning ml-xs-0 ml-md-5" role="button" title="return to Items List">Cancel</a>
-			</h2>
-			<p class="text-left ml-5">Item id:
-				<span class="font-weight-bold">{{ v.itemId }}</span>
-			</p>
-			<p class="text-left ml-5">Item name:
-				<span class="font-weight-bold">{{ v.itemName }}</span>
-			</p>
-			<p>Please confirm this action.
-				<span class="font-weight-bold">It is irreversible</span>!</p>
-			<input type="submit" value="Yes, delete the item" class="btn btn-danger" role="button">
-		</form>
-	{% endblock %}
+		<h2>Delete Item
+			<a href="/admin/items/list" class="btn btn-warning ml-xs-0 ml-md-5" role="button" title="return to Items List">Cancel</a>
+		</h2>
+		<p class="text-left ml-5">Item id:
+			<span class="font-weight-bold">{{ v.itemId }}</span>
+		</p>
+		<p class="text-left ml-5">Item name:
+			<span class="font-weight-bold">{{ v.itemName }}</span>
+		</p>
+		<p>Please confirm this action.
+			<span class="font-weight-bold">It is irreversible</span>!</p>
+		<input type="submit" value="Yes, delete the item" class="btn btn-danger">
+	</form>
+{% endblock %}

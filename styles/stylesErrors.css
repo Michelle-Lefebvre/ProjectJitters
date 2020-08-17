@@ -1,22 +1,24 @@
 /* Styles for error pages start */
 .row {
-    background: white;
     align-content: center;
+    background: white;
+    border-radius: 2rem;
     height: 80vh;
     margin: auto;
     width: 100vw;
-    border-radius: 2rem;
 }
+
 .errors {
-    margin-top: 20px;
     align-self: center;
     display: flex;
+    margin-top: 20px;
 }
 
 h3 {
-        padding: 1rem 0;
+    padding: 1rem 0;
 }
+
 .textHuge {
-    margin-top: 15%;
     font-size: 4rem;
+    margin-top: 15%;
 }

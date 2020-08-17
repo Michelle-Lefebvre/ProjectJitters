@@ -3,6 +3,6 @@
 {% block title %}Operation successful{% endblock %}
 
 {% block content %}
-    <h2>Operation successful - user {% if op == 'add' %}added{% else %}updated{% endif %}</h2>
-    <p><a href="/admin/users/list" class="btn btn-warning ml-xs-0 ml-sm-5" role="button">Click here to continue to Users List</a></p>
+    <h2 class="mt-5">Operation successful - user {% if op == 'add' %}added{% else %}updated{% endif %}</h2>
+    <p><a href="/admin/users/list" class="btn btn-warning ml-xs-0 ml-sm-5 mt-3" role="button">Click here to continue to Users List</a></p>
 {% endblock %}

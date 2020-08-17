@@ -1,9 +1,9 @@
-{% extends "master.html.twig" %}
+{% extends "admin/master.html.twig" %}
 
 {% block title %}Admin Menu Restricted Access{% endblock %}
 
 {% block content %}
-     <h2>Admin Menu - unauthorized access</h2>
+     <h2 class="mt-5">Admin Menu - unauthorized access</h2>
 
 {% if errorList %}
 
@@ -15,5 +15,5 @@
     {% endif %}
 
 
-      <p>   return to <a href="/login" class="btn btn-warning mt-5" role="button"> Login </a>Or return to <a href="/" class="btn btn-warning mt-5" role="button"> Home Page </a></p>
+      <p><a href="/login" class="btn btn-warning" role="button"> Login </a> or <a href="/" class="btn btn-warning" role="button"> Home Page </a></p>
 {% endblock %}
