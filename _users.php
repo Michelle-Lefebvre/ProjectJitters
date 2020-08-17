@@ -308,3 +308,9 @@ $app->add(function (ServerRequestInterface $request, ResponseInterface $response
 //     }
 //     return TRUE;
 // }
+
+// STATE 1: first display
+$app->get('/coming/soon', function ($request, $response, $args) {
+    // $itemsList = DB::query("SELECT * FROM items");
+    return $this->view->render($response, 'coming_soon.html.twig');
+});

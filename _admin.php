@@ -320,3 +320,9 @@ function verifyPasswordQuailty($pass1, $pass2) {
     }
     return TRUE;
 }
+
+
+$app->get('/admin/coming/soon', function ($request, $response, $args) {
+    // $itemsList = DB::query("SELECT * FROM items");
+    return $this->view->render($response, '/admin/coming_soon.html.twig');
+});

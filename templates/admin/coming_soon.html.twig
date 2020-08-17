@@ -1,11 +1,10 @@
-{% extends "master.html.twig" %}
+{% extends "admin/master.html.twig" %}
 
-{% block head %}
-<link rel="stylesheet" href="/styles/stylesErrors.css"/>
-{% endblock head %}
+{% block title %}Coming Soon
+{% endblock %}
+
 {% block content %}
-	<div class="errors">
-		<div class="row">
+	<div class="row">
 			<div class="col-sm-12 col-md-6 col-lg-6 center m-0">
 				<img class="errors" src="/images/comingSoon.png" width="100%">
 			</div>
@@ -17,5 +16,4 @@
 					to continue.</p>
 			</div>
 		</div>
-	</div>
 {% endblock %}
